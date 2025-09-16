@@ -1,0 +1,16 @@
+{
+    "name": "ffiec R package",
+    "image": "rocker/r2u:latest",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "REditorSupport.r",
+                "RDebugger.r-debugger"
+            ],
+            "settings": {
+                "r.bracketedPaste": true,
+                "r.plot.useHttpgd": true
+            }
+        }
+    }
+}

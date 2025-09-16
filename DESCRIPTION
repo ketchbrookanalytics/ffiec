@@ -1,0 +1,21 @@
+Package: ffiec
+Type: Package
+Title: FFIEC Central Data Repository REST API Client
+Version: 0.1.0
+Authors@R:
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
+Description: A client for the FFIEC (Federal Financial Institutions Examination Council)
+    Central Data Repository REST API. Provides functions to retrieve filer data
+    and other regulatory information using the httr2 package.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Imports:
+    httr2,
+    jsonlite,
+    rlang
+Suggests:
+    testthat (>= 3.0.0)
+URL: https://github.com/yourusername/ffiecr
+BugReports: https://github.com/yourusername/ffiecr/issues
