@@ -1,6 +1,17 @@
 {
     "name": "ffiec R package",
     "image": "rocker/r2u:latest",
+
+    "features": {
+
+        // https://github.com/rocker-org/devcontainer-features/tree/main/src/r-packages
+        "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+            "packages": "devtools, github::nx10/httpgd, httr2, languageserver, rlang",
+            "installSystemRequirements": true
+        }
+
+    },
+
     "customizations": {
         "vscode": {
             "extensions": [
@@ -8,6 +19,7 @@
                 "RDebugger.r-debugger"
             ],
             "settings": {
+                "editor.rulers": [80],
                 "r.bracketedPaste": true,
                 "r.plot.useHttpgd": true
             }

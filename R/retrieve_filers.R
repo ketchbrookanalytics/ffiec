@@ -1,62 +1,102 @@
 #' Retrieve Filers Since Date
 #'
-#' Retrieves filer information from the FFIEC Central Data Repository API
-#' for filers updated since a specified date.
+#' @description Retrieves filer information from the FFIEC Central Data
+#' Repository API for filers updated since a specified date.
 #'
-#' @param base_url Character string. The base URL for the FFIEC API
-#' @param data_series Character string. The data series to retrieve (default: "Call")
-#' @param reporting_period_end_date Character string. The reporting period end date (optional)
-#' @param last_update_date_time Character string. Filter for records updated since this date/time (optional)
+#' @param user_id (String) The UserID for authenticating against the FFIEC API.
+#' @param bearer_token (String) The Bearer Token for authenticating against the
+#'   FFIEC API.
+#' @param reporting_period_end_date (String) The reporting period end date,
+#'   formatted as "MM/DD/YYYY".
+#' @param last_update_date_time (String) Filter for records updated
+#'   since this date/time. See `Details` for formatting options.
+#' @param as_data_frame (Logical) Should the result be returned as a tibble?
+#'   Default is `FALSE`.
+#'
+#' @details
+#' Set the `last_update_date_time` value to the last time you ran the
+#' method to retrieve only those institutions that have filed a newer report.
+#' Possible formatting options include:
+#'
+#' - "04/15/2025"
+#' - "2025-04-15 21:00:00.000"
+#' - "04/15/2025 9:00 PM"
 #'
 #' @return A list containing the parsed JSON response from the API
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' # First set authentication
-#' set_ffiec_auth("your-bearer-token")
+#' # Assume you have set the following environment variables:
+#' # - FFIEC_USER_ID
+#' # - FFIEC_BEARER_TOKEN
 #'
-#' # Retrieve filers data
-#' result <- retrieve_filers_since_date(
-#'   base_url = "https://api.ffiec.gov/cdr",
-#'   data_series = "Call",
-#'   last_update_date_time = "2024-01-01"
+#' # Retrieve filers since 2025-03-31, as of 2025-04-15 and return as a list
+#' retrieve_reporting_periods(
+#'   reporting_period_end_date = "03/31/2025",
+#'   last_update_date_time = "04/15/2025"
 #' )
+#'
+#' # Retrieve filers since 2025-03-31, as of 2025-04-15 21:00:00.000 and return
+#' # as a tibble
+#' retrieve_reporting_periods(
+#'   reporting_period_end_date = "03/31/2025",
+#'   last_update_date_time = "04/15/2025 21:00:00.000",
+#'   as_data_frame = TRUE
+#' )
+#'
 #' }
-retrieve_filers_since_date <- function(base_url,
-                                       user_id,
-                                       bearer_token,
-                                       data_series = "Call",
-                                       reporting_period_end_date = "",
-                                       last_update_date_time = "") {
+retrieve_filers_since_date <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
+                                       bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+                                       reporting_period_end_date,
+                                       last_update_date_time,
+                                       as_data_frame = FALSE) {
 
-  # Get authentication details
-  # bearer_token <- get_ffiec_token()
-  # user_id <- get_ffiec_user_id()
+  base_url <- "https://ffieccdr.azure-api.us/public/"
+  endpoint <- "RetrieveFilersSinceDate"
+  url <- paste0(base_url, endpoint)
+  data_series <- "Call"
 
   # Build the request following the API specification
-  request(base_url) |>
-    req_method("GET") |>
-    req_headers(
+  req <- httr2::request(url) |>
+    httr2::req_method("GET") |>
+    httr2::req_headers(
       "Content-Type" = "application/json",
       "UserID" = user_id,
       "Authentication" = paste0("Bearer ", bearer_token),
       "dataSeries" = data_series,
       "reportingPeriodEndDate" = reporting_period_end_date,
       "lastUpdateDateTime" = last_update_date_time
-    ) |>
-    httr2::req_error(is_error = function(resp) FALSE) |>  # Handle errors manually
-    req_perform() |>
-    resp_body_json()
+    )
+
+  # Perform the request and collect the JSON response into an R list object
+  resp <- req |>
+    httr2::req_perform() |>
+    httr2::resp_body_json()
+
+  # Convert to a tibble (if desired)
+  if (as_data_frame) {
+    resp <- tibble::tibble(
+      rssd_id = unlist(resp)
+    )
+  }
+
+  return(req)
+
 }
 
 
 
-retrieve_filers_since_date(
-  base_url = "https://ffieccdr.azure-api.us/public/RetrieveFilersSinceDate",
-  user_id = Sys.getenv("FFIEC_USER_ID"),
-  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-  data_series = "Call",
-  reporting_period_end_date = "06/30/2025",
-  last_update_date_time = "08/15/2025"
-)
+# # Retrieve filers since 2025-03-31, as of 2025-04-15 and return as a list
+# retrieve_reporting_periods(
+#   reporting_period_end_date = "03/31/2025",
+#   last_update_date_time = "04/15/2025"
+# )
+
+# # Retrieve filers since 2025-03-31, as of 2025-04-15 21:00:00.000 and return
+# # as a tibble
+# retrieve_reporting_periods(
+#   reporting_period_end_date = "03/31/2025",
+#   last_update_date_time = "04/15/2025 21:00:00.000",
+#   as_data_frame = TRUE
+# )
