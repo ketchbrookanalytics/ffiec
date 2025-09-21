@@ -57,7 +57,7 @@ retrieve_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   # Convert to a tibble (if desired)
   if (as_data_frame) {
     resp <- tibble::tibble(
-      reporting_period = unlist(resp)
+      ReportingPeriod = unlist(resp)
     )
   }
 

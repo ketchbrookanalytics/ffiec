@@ -22,7 +22,11 @@
 #' - "2025-04-15 21:00:00.000"
 #' - "04/15/2025 9:00 PM"
 #'
-#' @return A list containing the parsed JSON response from the API
+#' @return A list containing the parsed JSON response from the API, where each
+#'   element in the list represents an RSSD ID value.  If
+#'   `as_data_frame = TRUE`, then the list is converted to a tibble (and
+#'   returned as such).
+#'
 #' @export
 #'
 #' @examples
@@ -32,14 +36,14 @@
 #' # - FFIEC_BEARER_TOKEN
 #'
 #' # Retrieve filers since 2025-03-31, as of 2025-04-15 and return as a list
-#' retrieve_reporting_periods(
+#' retrieve_filers_since_date(
 #'   reporting_period_end_date = "03/31/2025",
 #'   last_update_date_time = "04/15/2025"
 #' )
 #'
 #' # Retrieve filers since 2025-03-31, as of 2025-04-15 21:00:00.000 and return
 #' # as a tibble
-#' retrieve_reporting_periods(
+#' retrieve_filers_since_date(
 #'   reporting_period_end_date = "03/31/2025",
 #'   last_update_date_time = "04/15/2025 21:00:00.000",
 #'   as_data_frame = TRUE
@@ -77,26 +81,10 @@ retrieve_filers_since_date <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   # Convert to a tibble (if desired)
   if (as_data_frame) {
     resp <- tibble::tibble(
-      rssd_id = unlist(resp)
+      ID_RSSD = unlist(resp)
     )
   }
 
-  return(req)
+  return(resp)
 
 }
-
-
-
-# # Retrieve filers since 2025-03-31, as of 2025-04-15 and return as a list
-# retrieve_reporting_periods(
-#   reporting_period_end_date = "03/31/2025",
-#   last_update_date_time = "04/15/2025"
-# )
-
-# # Retrieve filers since 2025-03-31, as of 2025-04-15 21:00:00.000 and return
-# # as a tibble
-# retrieve_reporting_periods(
-#   reporting_period_end_date = "03/31/2025",
-#   last_update_date_time = "04/15/2025 21:00:00.000",
-#   as_data_frame = TRUE
-# )

@@ -2,4 +2,3 @@
 
 export(retrieve_filers_since_date)
 export(retrieve_reporting_periods)
-export(set_ffiec_auth)
