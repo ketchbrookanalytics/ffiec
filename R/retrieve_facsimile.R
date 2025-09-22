@@ -93,3 +93,73 @@ retrieve_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   return(resp)
 
 }
+
+
+
+
+
+
+
+
+
+
+
+user_id <- Sys.getenv("FFIEC_USER_ID"),
+bearer_token <- Sys.getenv("FFIEC_BEARER_TOKEN")
+base_url <- "https://ffieccdr.azure-api.us/public/"
+endpoint <- "RetrieveUBPRXBRLFacsimile"
+url <- paste0(base_url, endpoint)
+reporting_period_end_date <- "03/31/2025"
+fi_id_type <- "ID_RSSD"
+fi_id <- "480228"
+
+# Build the request following the API specification
+req <- httr2::request(url) |>
+  httr2::req_method("GET") |>
+  httr2::req_headers(
+    "Content-Type" = "application/json",
+    "UserID" = user_id,
+    "Authentication" = paste0("Bearer ", bearer_token),
+    "reportingPeriodEndDate" = reporting_period_end_date,
+    "fiIdType" = fi_id_type,
+    "fiId" = as.character(fi_id)
+  )
+
+# Perform the request and collect the raw response that can be decoded into
+# semicolon-delimited data
+resp <- req |>
+  httr2::req_perform() |>
+  httr2::resp_body_string() |>
+  jsonlite::base64_dec() |>
+  rawToChar()
+
+tmp <- xml2::read_xml(resp)
+
+# Filter to just the rectangular data
+tmp3 <- xml2::xml_find_all(tmp, ".//uc:* | .//cc:*")
+
+tmp3 |> xml2::xml_attrs() |> head()
+tmp3 |> xml2::as_list() |> head()
+
+# Get metric code
+tmp3 |> xml2::xml_name()
+
+# Get context
+tmp3 |> xml2::xml_attr("contextRef")
+
+# Get unit
+tmp3 |> xml2::xml_attr("unitRef")
+
+# Get decimals
+tmp3 |> xml2::xml_attr("decimals")
+
+# Get the values
+tmp3 |> xml2::xml_text()
+
+tibble::tibble(
+  Metric = xml2::xml_name(tmp3),
+  Context = xml2::xml_attr(tmp3, "contextRef"),
+  Unit = xml2::xml_attr(tmp3, "unitRef"),
+  Decimals = xml2::xml_attr(tmp3, "decimals"),
+  Value = xml2::xml_text(tmp3)
+)
