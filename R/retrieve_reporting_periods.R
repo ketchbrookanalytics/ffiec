@@ -4,11 +4,11 @@
 get_reporting_periods_base <- function(endpoint,
                                        user_id,
                                        bearer_token,
-                                       as_data_frame = FALSE) {
+                                       as_data_frame = FALSE,
+                                       ubpr = FALSE) {
 
   base_url <- "https://ffieccdr.azure-api.us/public/"
   url <- paste0(base_url, endpoint)
-  data_series <- "Call"
 
   # Build the request following the API specification
   req <- httr2::request(url) |>
@@ -16,9 +16,14 @@ get_reporting_periods_base <- function(endpoint,
     httr2::req_headers(
       "Content-Type" = "application/json",
       "UserID" = user_id,
-      "Authentication" = paste0("Bearer ", bearer_token),
-      "dataSeries" = data_series
+      "Authentication" = paste0("Bearer ", bearer_token)
     )
+
+  # If using the non-UBPR endpoint, add an additional header
+  if (!ubpr) {
+    req <- req |>
+      httr2::req_headers("dataSeries" = "Call")
+  }
 
   # Perform the request and collect the JSON response into an R list object
   resp <- req |>
@@ -75,12 +80,14 @@ retrieve_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                        as_data_frame = FALSE) {
 
   endpoint <- "RetrieveReportingPeriods"
+  ubpr <- FALSE
 
   resp <- get_reporting_periods_base(
     endpoint = endpoint,
     user_id = user_id,
     bearer_token = bearer_token,
-    as_data_frame = as_data_frame
+    as_data_frame = as_data_frame,
+    ubpr = ubpr
   )
 
   return(resp)
@@ -127,12 +134,14 @@ retrieve_ubpr_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"
                                             as_data_frame = FALSE) {
 
   endpoint <- "RetrieveUBPRReportingPeriods"
+  ubpr <- TRUE
 
   resp <- get_reporting_periods_base(
     endpoint = endpoint,
     user_id = user_id,
     bearer_token = bearer_token,
-    as_data_frame = as_data_frame
+    as_data_frame = as_data_frame,
+    ubpr = ubpr
   )
 
   return(resp)
