@@ -3,7 +3,7 @@
 #' @description Retrieves facsimile data from the FFIEC Central Data
 #' Repository API for the requested financial institution.
 #'
-#' @param user_id (String) The UserID for authenticating against the FFIEC API.
+#' @param user_id (String) The UserID for authenticating against the FFIEC API
 #' @param bearer_token (String) The Bearer Token for authenticating against the
 #'   FFIEC API
 #' @param reporting_period_end_date (String) The reporting period end date,
@@ -30,8 +30,8 @@
 #'   fi_id = 480228
 #' )
 #'
-#' # Retrieve expected filers for reporting period 2025-03-31 and return as a
-#' # list
+#' # Retrieve facsimile data for reporting period 2025-03-31 for instutition
+#' # with FDIC Cert Number "3510"
 #' retrieve_facsimile(
 #'   reporting_period_end_date = "03/31/2025",
 #'   fi_id_type = "FDICCertNumber",
@@ -88,7 +88,7 @@ retrieve_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
       "LineNumber"
     )
   ) |>
-  tibble::as_tibble()
+    tibble::as_tibble()
 
   return(resp)
 
@@ -96,70 +96,118 @@ retrieve_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 
 
 
+#' Retrieve UBPR Facsimile
+#'
+#' @description Retrieves UBPR facsimile data from the FFIEC Central Data
+#' Repository API for the requested financial institution.
+#'
+#' @param user_id (String) The UserID for authenticating against the FFIEC API
+#' @param bearer_token (String) The Bearer Token for authenticating against the
+#'   FFIEC API
+#' @param reporting_period_end_date (String) The reporting period end date,
+#'   formatted as "MM/DD/YYYY"
+#' @param fi_id_type (String) The type of identifier being provided; one of
+#'   `c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`
+#' @param fi_id (String) The financial institution's identifier (can also be
+#'   supplied as an integer instead of a string)
+#'
+#' @return A tibble containing the UBPR facsimile data.
+#'
+#' @importFrom rlang .data
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # Assume you have set the following environment variables:
+#' # - FFIEC_USER_ID
+#' # - FFIEC_BEARER_TOKEN
+#'
+#' # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
+#' # instutition with ID RSSD "480228"
+#' retrieve_ubpr_facsimile(
+#'   reporting_period_end_date = "03/31/2025",
+#'   fi_id = 480228
+#' )
+#'
+#' # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
+#' # instutition with FDIC Cert Number "3510"
+#' retrieve_ubpr_facsimile(
+#'   reporting_period_end_date = "03/31/2025",
+#'   fi_id_type = "FDICCertNumber",
+#'   fi_id = "3510"
+#' )
+#'
+#' }
+retrieve_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
+                                    bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+                                    reporting_period_end_date,
+                                    fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
+                                    fi_id) {
 
+  base_url <- "https://ffieccdr.azure-api.us/public/"
+  endpoint <- "RetrieveUBPRXBRLFacsimile"
+  url <- paste0(base_url, endpoint)
+  fi_id_type <- match.arg(fi_id_type)
 
+  # Build the request following the API specification
+  req <- httr2::request(url) |>
+    httr2::req_method("GET") |>
+    httr2::req_headers(
+      "Content-Type" = "application/json",
+      "UserID" = user_id,
+      "Authentication" = paste0("Bearer ", bearer_token),
+      "reportingPeriodEndDate" = reporting_period_end_date,
+      "fiIdType" = fi_id_type,
+      "fiId" = as.character(fi_id)
+    )
 
+  # Perform the request and collect the raw response that can be decoded into
+  # semicolon-delimited data
+  resp <- req |>
+    httr2::req_perform() |>
+    httr2::resp_body_string() |>
+    jsonlite::base64_dec() |>
+    rawToChar()
 
+  # Read the raw response into a formal XML document
+  resp <- xml2::read_xml(resp)
 
+  # Filter to just the UBPR tabular data
+  resp <- xml2::xml_find_all(resp, ".//uc:* | .//cc:*")
 
+  # Read the raw file (semicolon-delimited data) into a tibble
+  df <- tibble::tibble(
+    Metric = xml2::xml_name(resp),
+    Context = xml2::xml_attr(resp, "contextRef"),
+    Unit = xml2::xml_attr(resp, "unitRef"),
+    Decimals = xml2::xml_attr(resp, "decimals"),
+    Value = xml2::xml_text(resp)
+  ) |>
+    dplyr::distinct() |>   # remove completely duplicated rows
+    dplyr::mutate(
+      ContextList = stringr::str_split(
+        string = .data[["Context"]],
+        patter = "_",
+        n = 3L
+      ),
+      ID_RSSD = purrr::map_chr(ContextList, ~ .x[2]),
+      Quarter = purrr::map_chr(ContextList, ~ .x[3]) |> as.Date(),
+      data_type = dplyr::case_when(
+        Decimals == "0" ~ "integer",
+        is.na(Decimals) ~ "character",
+        .default = "double"
+      )
+    ) |>
+    dplyr::select(
+      "ID_RSSD",
+      "Quarter",
+      "Metric",
+      "Unit",
+      "Decimals",
+      "Value"
+    )
 
+  return(df)
 
-user_id <- Sys.getenv("FFIEC_USER_ID"),
-bearer_token <- Sys.getenv("FFIEC_BEARER_TOKEN")
-base_url <- "https://ffieccdr.azure-api.us/public/"
-endpoint <- "RetrieveUBPRXBRLFacsimile"
-url <- paste0(base_url, endpoint)
-reporting_period_end_date <- "03/31/2025"
-fi_id_type <- "ID_RSSD"
-fi_id <- "480228"
-
-# Build the request following the API specification
-req <- httr2::request(url) |>
-  httr2::req_method("GET") |>
-  httr2::req_headers(
-    "Content-Type" = "application/json",
-    "UserID" = user_id,
-    "Authentication" = paste0("Bearer ", bearer_token),
-    "reportingPeriodEndDate" = reporting_period_end_date,
-    "fiIdType" = fi_id_type,
-    "fiId" = as.character(fi_id)
-  )
-
-# Perform the request and collect the raw response that can be decoded into
-# semicolon-delimited data
-resp <- req |>
-  httr2::req_perform() |>
-  httr2::resp_body_string() |>
-  jsonlite::base64_dec() |>
-  rawToChar()
-
-tmp <- xml2::read_xml(resp)
-
-# Filter to just the rectangular data
-tmp3 <- xml2::xml_find_all(tmp, ".//uc:* | .//cc:*")
-
-tmp3 |> xml2::xml_attrs() |> head()
-tmp3 |> xml2::as_list() |> head()
-
-# Get metric code
-tmp3 |> xml2::xml_name()
-
-# Get context
-tmp3 |> xml2::xml_attr("contextRef")
-
-# Get unit
-tmp3 |> xml2::xml_attr("unitRef")
-
-# Get decimals
-tmp3 |> xml2::xml_attr("decimals")
-
-# Get the values
-tmp3 |> xml2::xml_text()
-
-tibble::tibble(
-  Metric = xml2::xml_name(tmp3),
-  Context = xml2::xml_attr(tmp3, "contextRef"),
-  Unit = xml2::xml_attr(tmp3, "unitRef"),
-  Decimals = xml2::xml_attr(tmp3, "decimals"),
-  Value = xml2::xml_text(tmp3)
-)
+}
