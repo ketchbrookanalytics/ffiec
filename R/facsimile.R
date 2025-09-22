@@ -25,25 +25,25 @@
 #'
 #' # Retrieve facsimile data for reporting period 2025-03-31 for instutition
 #' # with ID RSSD "480228"
-#' retrieve_facsimile(
+#' get_facsimile(
 #'   reporting_period_end_date = "03/31/2025",
 #'   fi_id = 480228
 #' )
 #'
 #' # Retrieve facsimile data for reporting period 2025-03-31 for instutition
 #' # with FDIC Cert Number "3510"
-#' retrieve_facsimile(
+#' get_facsimile(
 #'   reporting_period_end_date = "03/31/2025",
 #'   fi_id_type = "FDICCertNumber",
 #'   fi_id = "3510"
 #' )
 #'
 #' }
-retrieve_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                               bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                               reporting_period_end_date,
-                               fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
-                               fi_id) {
+get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
+                          bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+                          reporting_period_end_date,
+                          fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
+                          fi_id) {
 
   base_url <- "https://ffieccdr.azure-api.us/public/"
   endpoint <- "RetrieveFacsimile"
@@ -88,7 +88,13 @@ retrieve_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
       "LineNumber"
     )
   ) |>
-    tibble::as_tibble()
+    tibble::as_tibble() |>
+    dplyr::mutate(
+      dplyr::across(
+        .cols = c("CallDate", "LastUpdate"),
+        .fns = ~ as.Date(as.character(.x), format = "%Y%m%d")
+      )
+    )
 
   return(resp)
 
@@ -125,25 +131,25 @@ retrieve_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 #'
 #' # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
 #' # instutition with ID RSSD "480228"
-#' retrieve_ubpr_facsimile(
+#' get_ubpr_facsimile(
 #'   reporting_period_end_date = "03/31/2025",
 #'   fi_id = 480228
 #' )
 #'
 #' # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
 #' # instutition with FDIC Cert Number "3510"
-#' retrieve_ubpr_facsimile(
+#' get_ubpr_facsimile(
 #'   reporting_period_end_date = "03/31/2025",
 #'   fi_id_type = "FDICCertNumber",
 #'   fi_id = "3510"
 #' )
 #'
 #' }
-retrieve_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                                    bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                                    reporting_period_end_date,
-                                    fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
-                                    fi_id) {
+get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
+                               bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+                               reporting_period_end_date,
+                               fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
+                               fi_id) {
 
   base_url <- "https://ffieccdr.azure-api.us/public/"
   endpoint <- "RetrieveUBPRXBRLFacsimile"

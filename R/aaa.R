@@ -1,1 +1,0 @@
-base_url <- "https://ffieccdr.azure-api.us/public/"

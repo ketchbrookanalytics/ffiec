@@ -27,22 +27,22 @@
 #'
 #' # Retrieve expected filers for reporting period 2025-03-31 and return as a
 #' # tibble
-#' retrieve_panel_of_reporters(
+#' get_panel_of_reporters(
 #'   reporting_period_end_date = "03/31/2025"
 #' )
 #'
 #' # Retrieve expected filers for reporting period 2025-03-31 and return as a
 #' # list
-#' retrieve_panel_of_reporters(
+#' get_panel_of_reporters(
 #'   reporting_period_end_date = "03/31/2025",
 #'   as_data_frame = FALSE
 #' )
 #'
 #' }
-retrieve_panel_of_reporters <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                                        bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                                        reporting_period_end_date,
-                                        as_data_frame = TRUE) {
+get_panel_of_reporters <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
+                                   bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+                                   reporting_period_end_date,
+                                   as_data_frame = TRUE) {
 
   base_url <- "https://ffieccdr.azure-api.us/public/"
   endpoint <- "RetrievePanelOfReporters"

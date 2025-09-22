@@ -36,25 +36,25 @@
 #' # - FFIEC_BEARER_TOKEN
 #'
 #' # Retrieve filers since 2025-03-31, as of 2025-04-15 and return as a list
-#' retrieve_filers_since_date(
+#' get_filers_since_date(
 #'   reporting_period_end_date = "03/31/2025",
 #'   last_update_date_time = "04/15/2025"
 #' )
 #'
 #' # Retrieve filers since 2025-03-31, as of 2025-04-15 21:00:00.000 and return
 #' # as a tibble
-#' retrieve_filers_since_date(
+#' get_filers_since_date(
 #'   reporting_period_end_date = "03/31/2025",
 #'   last_update_date_time = "04/15/2025 21:00:00.000",
 #'   as_data_frame = TRUE
 #' )
 #'
 #' }
-retrieve_filers_since_date <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                                       bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                                       reporting_period_end_date,
-                                       last_update_date_time,
-                                       as_data_frame = FALSE) {
+get_filers_since_date <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
+                                  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+                                  reporting_period_end_date,
+                                  last_update_date_time,
+                                  as_data_frame = FALSE) {
 
   base_url <- "https://ffieccdr.azure-api.us/public/"
   endpoint <- "RetrieveFilersSinceDate"

@@ -69,15 +69,15 @@ get_reporting_periods_base <- function(endpoint,
 #' # - FFIEC_BEARER_TOKEN
 #'
 #' # Retrieve reporting periods and return as a list
-#' retrieve_reporting_periods()
+#' get_reporting_periods()
 #'
 #' # Retrieve reporting periods and return as a tibble
-#' retrieve_reporting_periods(as_data_frame = TRUE)
+#' get_reporting_periods(as_data_frame = TRUE)
 #'
 #' }
-retrieve_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                                       bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                                       as_data_frame = FALSE) {
+get_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
+                                  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+                                  as_data_frame = FALSE) {
 
   endpoint <- "RetrieveReportingPeriods"
   ubpr <- FALSE
@@ -123,15 +123,15 @@ retrieve_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 #' # - FFIEC_BEARER_TOKEN
 #'
 #' # Retrieve UBPR reporting periods and return as a list
-#' retrieve_ubpr_reporting_periods()
+#' get_ubpr_reporting_periods()
 #'
 #' # Retrieve UBPR reporting periods and return as a tibble
-#' retrieve_ubpr_reporting_periods(as_data_frame = TRUE)
+#' get_ubpr_reporting_periods(as_data_frame = TRUE)
 #'
 #' }
-retrieve_ubpr_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                                            bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                                            as_data_frame = FALSE) {
+get_ubpr_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
+                                       bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+                                       as_data_frame = FALSE) {
 
   endpoint <- "RetrieveUBPRReportingPeriods"
   ubpr <- TRUE
