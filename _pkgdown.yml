@@ -1,0 +1,11 @@
+url: https://ketchbrookanalytics.github.io/ffiec/
+template:
+  bootstrap: 5
+  bootswatch: simplex
+  bslib:
+    base_font: {google: "Lora"}
+  theme: breeze-light
+navbar:
+  structure:
+    left:  [intro, reference, news]
+    right: [search, github]
