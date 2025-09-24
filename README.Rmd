@@ -4,7 +4,7 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -31,27 +31,61 @@ You can install the development version of {ffiec} from [GitHub](https://github.
 pak::pak("ketchbrookanalytics/ffiec")
 ```
 
-## Example
+## Authentication
 
-This is a basic example which shows you how to solve a common problem:
+In order to use {ffiec}, you will first need to [create an account](https://cdr.ffiec.gov/public/PWS/CreateAccount.aspx?PWS=true) through the FFIEC's Web Service portal, which will provide you with a **User ID** and **Token** that must be provided to each function in this R package. Note that the **Token** is not the same as the *password* to your FFIEC Web Service account.
 
-```{r example}
+### Microsoft Entra ID
+
+As of August 25, 2025, authentication into the FFIEC Central Data Repository requires Multifactor Authentication via Microsoft Entra ID.
+
+Organizations that don't already have a Microsoft Entra identity provider (IDP) should choose one of the following options to create an account:
+
+- Microsoft 365 Products for Business | Microsoft 365 (RECOMMENDED)
+  + <https://www.microsoft.com/en-us/microsoft-365/microsoft-365-business>
+- Microsoft Account (Free)
+  + <https://support.microsoft.com/en-us/account-billing/how-to-create-a-new-microsoft-account-a84675c3-3e9e-17cf-2911-3d56b15c0aaf>
+
+### Using Your Credentials with {ffiec}
+
+Once you have your username and password, we recommend setting them as the environment variables `FFIEC_USER_ID` and `FFIEC_BEARER_TOKEN`. Perhaps the easiest way to do this is to create an `.Renviron` file at the root of your project like so:
+
+```.Renviron
+FFIEC_USER_ID=MyUserId123
+FFIEC_BEARER_TOKEN=ZyXwVuT98765
+```
+
+*Note: the above credentials are example values and will not work -- they must be replaced with valid User ID and Token values.*
+
+If you prefer not to set these environment variables, you can pass your FFIEC Web Service **User ID** and **Token** values to the `user_id` and `bearer_token` arguments available in each function in {ffiec}.
+
+## Examples
+
+```{r example-1}
 library(ffiec)
-## basic example code
+
+# Retrieve filers since 2025-03-31, as of 2025-04-15 21:00:00.000 and return
+# as a tibble
+get_filers_since_date(
+  reporting_period_end_date = "03/31/2025",
+  last_update_date_time = "04/15/2025 21:00:00.000",
+  as_data_frame = TRUE
+) |>
+  head()
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+Though the FFIEC Web Service returns data in a few different formats (e.g., XBRL, semicolon-delimited, etc.), {ffiec} returns all data in a tibble for easy of downstream analysis.
 
-```{r cars}
-summary(cars)
+```{r example-2}
+# Retrieve facsimile data for reporting period 2025-03-31 for instutition
+# with ID RSSD "480228"
+get_facsimile(
+  reporting_period_end_date = "03/31/2025",
+  fi_id = 480228
+) |>
+  head()
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+## Need Help?
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+If you're in need of assistance working with {ffiec}, don't hesitate to reach out to our team at [info@ketchbrookanalytics.com](mailto:info@ketchbrookanalytics.com).
