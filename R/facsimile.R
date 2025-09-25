@@ -15,6 +15,8 @@
 #'
 #' @return A tibble containing the facsimile data.
 #'
+#' @importFrom utils read.delim
+#'
 #' @export
 #'
 #' @examples
@@ -197,8 +199,8 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
         patter = "_",
         n = 3L
       ),
-      ID_RSSD = purrr::map_chr(ContextList, ~ .x[2]),
-      Quarter = purrr::map_chr(ContextList, ~ .x[3]) |> as.Date(),
+      ID_RSSD = purrr::map_chr(.data[["ContextList"]], ~ .x[2]),
+      Quarter = purrr::map_chr(.data[["ContextList"]], ~ .x[3]) |> as.Date(),
       data_type = dplyr::case_when(
         Decimals == "0" ~ "integer",
         is.na(Decimals) ~ "character",

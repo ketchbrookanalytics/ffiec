@@ -1,10 +1,9 @@
-
-/\.devcontainer/
 ^LICENSE\.md$
 ^README\.Rmd$
-/reference/
 ^\.Renviron$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
 ^\.github$
+^\.devcontainer$
+^reference$
