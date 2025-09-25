@@ -57,7 +57,6 @@ get_filers_submission_datetime <- function(user_id = Sys.getenv("FFIEC_USER_ID")
                                            last_update_date_time,
                                            as_data_frame = TRUE) {
 
-  base_url <- "https://ffieccdr.azure-api.us/public/"
   endpoint <- "RetrieveFilersSubmissionDateTime"
   url <- paste0(base_url, endpoint)
   data_series <- "Call"
@@ -72,7 +71,8 @@ get_filers_submission_datetime <- function(user_id = Sys.getenv("FFIEC_USER_ID")
       "dataSeries" = data_series,
       "reportingPeriodEndDate" = reporting_period_end_date,
       "lastUpdateDateTime" = last_update_date_time
-    )
+    ) |>
+    httr2::req_error(body = ffiec_error_message)
 
   # Perform the request and collect the JSON response into an R list object
   resp <- req |>

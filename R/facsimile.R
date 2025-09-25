@@ -47,7 +47,6 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                           fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
                           fi_id) {
 
-  base_url <- "https://ffieccdr.azure-api.us/public/"
   endpoint <- "RetrieveFacsimile"
   url <- paste0(base_url, endpoint)
   data_series <- "Call"
@@ -65,7 +64,8 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
       "fiIdType" = fi_id_type,
       "fiId" = as.character(fi_id),
       "facsimileFormat" = "SDF"
-    )
+    ) |>
+    httr2::req_error(body = ffiec_error_message)
 
   # Perform the request and collect the raw response that can be decoded into
   # semicolon-delimited data
@@ -153,7 +153,6 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
                                fi_id) {
 
-  base_url <- "https://ffieccdr.azure-api.us/public/"
   endpoint <- "RetrieveUBPRXBRLFacsimile"
   url <- paste0(base_url, endpoint)
   fi_id_type <- match.arg(fi_id_type)
@@ -168,7 +167,8 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
       "reportingPeriodEndDate" = reporting_period_end_date,
       "fiIdType" = fi_id_type,
       "fiId" = as.character(fi_id)
-    )
+    ) |>
+    httr2::req_error(body = ffiec_error_message)
 
   # Perform the request and collect the raw response that can be decoded into
   # semicolon-delimited data
