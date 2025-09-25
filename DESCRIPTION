@@ -20,6 +20,7 @@ Imports:
     jsonlite,
     purrr,
     rlang,
+    stringr,
     tibble,
     xml2
 Suggests:
