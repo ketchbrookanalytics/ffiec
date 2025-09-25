@@ -6,7 +6,7 @@
 
         // https://github.com/rocker-org/devcontainer-features/tree/main/src/r-packages
         "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-            "packages": "devtools, dplyr, github::nx10/httpgd, httr2, languageserver, rlang, tidyr, xml2",
+            "packages": "devtools, dplyr, github::nx10/httpgd, httr2, languageserver, rlang, xml2",
             "installSystemRequirements": true
         }
 
