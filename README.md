@@ -4,6 +4,8 @@
 # ffiec
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/ketchbrookanalytics/ffiec/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ketchbrookanalytics/ffiec/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 R package for retrieving data from the [FFIEC Central Data Repository
@@ -77,7 +79,7 @@ get_filers_since_date(
 #> # A tibble: 6 × 1
 #>   ID_RSSD
 #>     <int>
-#> 1  516873
+#> 1   31835
 #> 2  783648
 #> 3  562058
 #> 4 2745529

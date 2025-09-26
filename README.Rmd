@@ -18,6 +18,7 @@ devtools::load_all()
 # ffiec
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/ketchbrookanalytics/ffiec/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ketchbrookanalytics/ffiec/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 R package for retrieving data from the [FFIEC Central Data Repository Web Service](https://cdr.ffiec.gov/public/ManageFacsimiles.aspx).
