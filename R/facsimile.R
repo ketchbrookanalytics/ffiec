@@ -15,6 +15,9 @@
 #'
 #' @return A tibble containing the facsimile data.
 #'
+#' @references
+#' https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf
+#'
 #' @importFrom utils read.delim
 #'
 #' @export
@@ -120,6 +123,9 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 #'   supplied as an integer instead of a string)
 #'
 #' @return A tibble containing the UBPR facsimile data.
+#'
+#' @references
+#' https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf
 #'
 #' @importFrom rlang .data
 #'

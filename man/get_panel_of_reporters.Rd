@@ -55,3 +55,6 @@ get_panel_of_reporters(
 
 }
 }
+\references{
+https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf
+}

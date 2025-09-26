@@ -27,6 +27,9 @@
 #'   `as_data_frame = TRUE`, then the list is converted to a tibble (and
 #'   returned as such).
 #'
+#' @references
+#' https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf
+#'
 #' @export
 #'
 #' @examples

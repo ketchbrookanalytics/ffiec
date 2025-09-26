@@ -17,6 +17,9 @@
 #'   `as_data_frame = FALSE`, then the result is returned as a nested list
 #'   object, where each element represents a unique `ID_RSSD` value.
 #'
+#' @references
+#' https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf
+#'
 #' @export
 #'
 #' @examples

@@ -57,3 +57,6 @@ get_ubpr_facsimile(
 
 }
 }
+\references{
+https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf
+}
