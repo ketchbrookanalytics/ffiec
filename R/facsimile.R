@@ -9,7 +9,8 @@
 #' @param reporting_period_end_date (String) The reporting period end date,
 #'   formatted as "MM/DD/YYYY"
 #' @param fi_id_type (String) The type of identifier being provided; one of
-#'   `c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`
+#'   `c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`;
+#'   default is "ID_RSSD"
 #' @param fi_id (String) The financial institution's identifier (can also be
 #'   supplied as an integer instead of a string)
 #'
@@ -118,7 +119,8 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 #' @param reporting_period_end_date (String) The reporting period end date,
 #'   formatted as "MM/DD/YYYY"
 #' @param fi_id_type (String) The type of identifier being provided; one of
-#'   `c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`
+#'   `c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`;
+#'   default is "ID_RSSD"
 #' @param fi_id (String) The financial institution's identifier (can also be
 #'   supplied as an integer instead of a string)
 #'

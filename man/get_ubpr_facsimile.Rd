@@ -22,7 +22,8 @@ FFIEC API}
 formatted as "MM/DD/YYYY"}
 
 \item{fi_id_type}{(String) The type of identifier being provided; one of
-`c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`}
+`c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`;
+default is "ID_RSSD"}
 
 \item{fi_id}{(String) The financial institution's identifier (can also be
 supplied as an integer instead of a string)}
