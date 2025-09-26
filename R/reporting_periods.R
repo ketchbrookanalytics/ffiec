@@ -17,7 +17,10 @@ get_reporting_periods_base <- function(endpoint,
       "UserID" = user_id,
       "Authentication" = paste0("Bearer ", bearer_token)
     ) |>
-    httr2::req_error(body = ffiec_error_message)
+    httr2::req_error(body = ffiec_error_message) |>
+    httr2::req_user_agent(
+      "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+    )
 
   # If using the non-UBPR endpoint, add an additional header
   if (!ubpr) {

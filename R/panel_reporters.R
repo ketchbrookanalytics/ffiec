@@ -61,7 +61,10 @@ get_panel_of_reporters <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
       "dataSeries" = data_series,
       "reportingPeriodEndDate" = reporting_period_end_date
     ) |>
-    httr2::req_error(body = ffiec_error_message)
+    httr2::req_error(body = ffiec_error_message) |>
+    httr2::req_user_agent(
+      "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+    )
 
   # Perform the request and collect the JSON response into an R list object
   resp <- req |>

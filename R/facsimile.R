@@ -69,7 +69,10 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
       "fiId" = as.character(fi_id),
       "facsimileFormat" = "SDF"
     ) |>
-    httr2::req_error(body = ffiec_error_message)
+    httr2::req_error(body = ffiec_error_message) |>
+    httr2::req_user_agent(
+      "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+    )
 
   # Perform the request and collect the raw response that can be decoded into
   # semicolon-delimited data
@@ -176,7 +179,10 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
       "fiIdType" = fi_id_type,
       "fiId" = as.character(fi_id)
     ) |>
-    httr2::req_error(body = ffiec_error_message)
+    httr2::req_error(body = ffiec_error_message) |>
+    httr2::req_user_agent(
+      "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+    )
 
   # Perform the request and collect the raw response that can be decoded into
   # semicolon-delimited data
