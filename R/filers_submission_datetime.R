@@ -60,6 +60,11 @@ get_filers_submission_datetime <- function(user_id = Sys.getenv("FFIEC_USER_ID")
                                            last_update_date_time,
                                            as_data_frame = TRUE) {
 
+  check_empty_creds(
+    user_id = user_id,
+    bearer_token = bearer_token
+  )
+
   endpoint <- "RetrieveFilersSubmissionDateTime"
   url <- paste0(base_url, endpoint)
   data_series <- "Call"

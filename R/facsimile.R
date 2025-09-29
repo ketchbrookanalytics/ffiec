@@ -51,6 +51,11 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                           fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
                           fi_id) {
 
+  check_empty_creds(
+    user_id = user_id,
+    bearer_token = bearer_token
+  )
+
   endpoint <- "RetrieveFacsimile"
   url <- paste0(base_url, endpoint)
   data_series <- "Call"
@@ -163,6 +168,11 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                reporting_period_end_date,
                                fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
                                fi_id) {
+
+  check_empty_creds(
+    user_id = user_id,
+    bearer_token = bearer_token
+  )
 
   endpoint <- "RetrieveUBPRXBRLFacsimile"
   url <- paste0(base_url, endpoint)

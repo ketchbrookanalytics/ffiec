@@ -47,6 +47,11 @@ get_panel_of_reporters <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                    reporting_period_end_date,
                                    as_data_frame = TRUE) {
 
+  check_empty_creds(
+    user_id = user_id,
+    bearer_token = bearer_token
+  )
+
   endpoint <- "RetrievePanelOfReporters"
   url <- paste0(base_url, endpoint)
   data_series <- "Call"

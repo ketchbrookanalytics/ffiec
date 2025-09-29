@@ -7,6 +7,46 @@ out_list <- get_panel_of_reporters(
   as_data_frame = FALSE
 )
 
+test_that("`get_panel_of_reporters()` throws an error with empty creds", {
+
+  expect_error(
+    get_panel_of_reporters(
+      user_id = NULL,
+      reporting_period_end_date = "03/31/2025",
+      as_data_frame = FALSE
+    ),
+    "`user_id` is missing"
+  )
+
+  expect_error(
+    get_panel_of_reporters(
+      bearer_token = NULL,
+      reporting_period_end_date = "03/31/2025",
+    ),
+    "`bearer_token` is missing"
+  )
+
+  expect_error(
+    get_panel_of_reporters(
+      user_id = "",
+      reporting_period_end_date = "03/31/2025",
+    ),
+    "`user_id` is missing"
+  )
+
+  expect_error(
+    get_panel_of_reporters(
+      bearer_token = "",
+      reporting_period_end_date = "03/31/2025",
+      as_data_frame = FALSE
+    ),
+    "`bearer_token` is missing"
+  )
+
+})
+
+
+
 test_that("`get_panel_of_reporters()` returns correct output type", {
 
   # list

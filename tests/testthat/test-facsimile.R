@@ -6,6 +6,48 @@ out <- get_facsimile(
   fi_id = 480228
 )
 
+test_that("`get_facsimile()` throws an error with empty creds", {
+
+  expect_error(
+    get_facsimile(
+      user_id = NULL,
+      reporting_period_end_date = "03/31/2025",
+      fi_id = 480228
+    ),
+    "`user_id` is missing"
+  )
+
+  expect_error(
+    get_facsimile(
+      bearer_token = NULL,
+      reporting_period_end_date = "03/31/2025",
+      fi_id = 480228
+    ),
+    "`bearer_token` is missing"
+  )
+
+  expect_error(
+    get_facsimile(
+      user_id = "",
+      reporting_period_end_date = "03/31/2025",
+      fi_id = 480228
+    ),
+    "`user_id` is missing"
+  )
+
+  expect_error(
+    get_facsimile(
+      bearer_token = "",
+      reporting_period_end_date = "03/31/2025",
+      fi_id = 480228
+    ),
+    "`bearer_token` is missing"
+  )
+
+})
+
+
+
 test_that("`get_facsimile()` returns a tibble", {
 
   expect_true(
@@ -70,6 +112,48 @@ out <- get_ubpr_facsimile(
   reporting_period_end_date = "03/31/2025",
   fi_id = 480228
 )
+
+test_that("`get_ubpr_facsimile()` throws an error with empty creds", {
+
+  expect_error(
+    get_ubpr_facsimile(
+      user_id = NULL,
+      reporting_period_end_date = "03/31/2025",
+      fi_id = 480228
+    ),
+    "`user_id` is missing"
+  )
+
+  expect_error(
+    get_ubpr_facsimile(
+      bearer_token = NULL,
+      reporting_period_end_date = "03/31/2025",
+      fi_id = 480228
+    ),
+    "`bearer_token` is missing"
+  )
+
+  expect_error(
+    get_ubpr_facsimile(
+      user_id = "",
+      reporting_period_end_date = "03/31/2025",
+      fi_id = 480228
+    ),
+    "`user_id` is missing"
+  )
+
+  expect_error(
+    get_ubpr_facsimile(
+      bearer_token = "",
+      reporting_period_end_date = "03/31/2025",
+      fi_id = 480228
+    ),
+    "`bearer_token` is missing"
+  )
+
+})
+
+
 
 test_that("`get_ubpr_facsimile()` returns a tibble", {
 

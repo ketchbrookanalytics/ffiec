@@ -59,6 +59,11 @@ get_filers_since_date <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                   last_update_date_time,
                                   as_data_frame = FALSE) {
 
+  check_empty_creds(
+    user_id = user_id,
+    bearer_token = bearer_token
+  )
+
   endpoint <- "RetrieveFilersSinceDate"
   url <- paste0(base_url, endpoint)
   data_series <- "Call"

@@ -7,6 +7,11 @@ get_reporting_periods_base <- function(endpoint,
                                        as_data_frame = FALSE,
                                        ubpr = FALSE) {
 
+  check_empty_creds(
+    user_id = user_id,
+    bearer_token = bearer_token
+  )
+
   url <- paste0(base_url, endpoint)
 
   # Build the request following the API specification

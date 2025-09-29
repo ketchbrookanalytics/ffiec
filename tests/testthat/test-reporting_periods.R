@@ -6,6 +6,42 @@ out_list <- get_reporting_periods()
 # Return the results as a list
 out_df <- get_reporting_periods(as_data_frame = TRUE)
 
+test_that("`get_reporting_periods()` throws an error with empty creds", {
+
+  expect_error(
+    get_reporting_periods(
+      user_id = NULL,
+      as_data_frame = TRUE
+    ),
+    "`user_id` is missing"
+  )
+
+  expect_error(
+    get_reporting_periods(
+      bearer_token = NULL,
+    ),
+    "`bearer_token` is missing"
+  )
+
+  expect_error(
+    get_reporting_periods(
+      user_id = "",
+    ),
+    "`user_id` is missing"
+  )
+
+  expect_error(
+    get_reporting_periods(
+      bearer_token = "",
+      as_data_frame = TRUE
+    ),
+    "`bearer_token` is missing"
+  )
+
+})
+
+
+
 test_that("`get_reporting_periods()` returns correct output type", {
 
   # list
