@@ -15,13 +15,17 @@ knitr::opts_chunk$set(
 devtools::load_all()
 ```
 
-# ffiec
+# ffiec <a href="https://ketchbrookanalytics.github.io/ffiec/"><img src="man/figures/logo.png" align="right" height="275" alt="ffiec website" /></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/ketchbrookanalytics/ffiec/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ketchbrookanalytics/ffiec/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 R package for retrieving data from the [FFIEC Central Data Repository Web Service](https://cdr.ffiec.gov/public/ManageFacsimiles.aspx).
+
+<br>
+
+<img src="man/figures/ffiec_example_plot.png" align="center" height="400" alt="Example Plot of FFIEC Call Report Data" />
 
 ## Installation
 

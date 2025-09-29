@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ffiec
+# ffiec <a href="https://ketchbrookanalytics.github.io/ffiec/"><img src="man/figures/logo.png" align="right" height="275" alt="ffiec website" /></a>
 
 <!-- badges: start -->
 
@@ -10,6 +10,10 @@
 
 R package for retrieving data from the [FFIEC Central Data Repository
 Web Service](https://cdr.ffiec.gov/public/ManageFacsimiles.aspx).
+
+<br>
+
+<img src="man/figures/ffiec_example_plot.png" align="center" height="400" alt="Example Plot of FFIEC Call Report Data" />
 
 ## Installation
 
@@ -79,12 +83,12 @@ get_filers_since_date(
 #> # A tibble: 6 × 1
 #>   ID_RSSD
 #>     <int>
-#> 1   31835
-#> 2  783648
-#> 3  562058
-#> 4 2745529
-#> 5  644057
-#> 6 3316739
+#> 1  783648
+#> 2  562058
+#> 3 2745529
+#> 4  644057
+#> 5 3316739
+#> 6 3282012
 ```
 
 Though the FFIEC Web Service returns data in a few different formats
