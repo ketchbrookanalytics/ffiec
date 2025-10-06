@@ -17,8 +17,9 @@ Web Service](https://cdr.ffiec.gov/public/ManageFacsimiles.aspx).
 
 ## Installation
 
-You can install the development version of {ffiec} from
-[GitHub](https://github.com/) with:
+{ffiec} can be installed from CRAN using `install.packages("ffiec")`.
+Alternatively you can install the development version from GitHub using
+{pak} like so:
 
 ``` r
 # install.packages("pak")
