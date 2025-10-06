@@ -7,9 +7,11 @@ Authors@R: c(
            role = c("aut", "cre")),
     person("Ketchbrook Analytics", role = c("cph", "fnd"))
   )
-Description: A client for the FFIEC (Federal Financial Institutions Examination Council)
-    Central Data Repository REST API. Provides functions to retrieve filer data
-    and other regulatory information using the httr2 package.
+Description: A client for the FFIEC (Federal Financial Institutions Examination
+    Council) Central Data Repository REST API. Provides functions to retrieve
+    Reports of Condition and Income (Call Reports) and Uniform Bank Performance
+    Reports (UBPRs) in list or tidy data frame format for most FDIC-insured
+    institutions.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
