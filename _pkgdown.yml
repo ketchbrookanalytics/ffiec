@@ -9,3 +9,19 @@ navbar:
   structure:
     left:  [intro, reference, news]
     right: [search, github]
+reference:
+  - title: "Call Report / UBPR Data"
+    desc: "Retrive reported financial metrics"
+    contents:
+    - get_facsimile
+  - title: "Call Report / UBPR Metadata"
+    desc: "Retrieve metadata about who has filed and when"
+    contents:
+    - get_filers_since_date
+    - get_filers_submission_datetime
+    - get_panel_of_reporters
+    - get_reporting_periods
+  - title: "Internal Functions"
+    desc: "Internal package utility functions"
+    contents:
+    - no_creds_available
