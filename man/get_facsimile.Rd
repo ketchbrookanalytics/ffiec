@@ -31,7 +31,7 @@ FFIEC API}
 formatted as "MM/DD/YYYY"}
 
 \item{fi_id_type}{(String) The type of identifier being provided; one of
-`c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`;
+\code{c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")};
 default is "ID_RSSD"}
 
 \item{fi_id}{(String) The financial institution's identifier (can also be
@@ -67,5 +67,5 @@ if (!no_creds_available()) {
 }
 }
 \references{
-<https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
+\url{https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf}
 }

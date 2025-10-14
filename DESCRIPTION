@@ -33,3 +33,4 @@ Suggests:
 URL: https://github.com/ketchbrookanalytics/ffiec, https://ketchbrookanalytics.github.io/ffiec/
 BugReports: https://github.com/ketchbrookanalytics/ffiec/issues
 Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)

@@ -22,29 +22,30 @@ FFIEC API}
 formatted as "MM/DD/YYYY".}
 
 \item{last_update_date_time}{(String) Filter for records updated
-since this date/time. See `Details` for formatting options.}
+since this date/time. See \code{Details} for formatting options.}
 
 \item{as_data_frame}{(Logical) Should the result be returned as a tibble?
-Default is `FALSE`.}
+Default is \code{FALSE}.}
 }
 \value{
 A list containing the parsed JSON response from the API, where each
-  element in the list represents an RSSD ID value.  If
-  `as_data_frame = TRUE`, then the list is converted to a tibble (and
-  returned as such).
+element in the list represents an RSSD ID value.  If
+\code{as_data_frame = TRUE}, then the list is converted to a tibble (and
+returned as such).
 }
 \description{
 Retrieves filer information from the FFIEC Central Data
 Repository API for filers updated since a specified date.
 }
 \details{
-Set the `last_update_date_time` value to the last time you ran the
+Set the \code{last_update_date_time} value to the last time you ran the
 method to retrieve only those institutions that have filed a newer report.
 Possible formatting options include:
-
-- "04/15/2025"
-- "2025-04-15 21:00:00.000"
-- "04/15/2025 9:00 PM"
+\itemize{
+\item "04/15/2025"
+\item "2025-04-15 21:00:00.000"
+\item "04/15/2025 9:00 PM"
+}
 }
 \examples{
 if (!no_creds_available()) {
@@ -68,5 +69,5 @@ if (!no_creds_available()) {
 }
 }
 \references{
-<https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
+\url{https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf}
 }

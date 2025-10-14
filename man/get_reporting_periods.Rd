@@ -24,13 +24,13 @@ get_ubpr_reporting_periods(
 FFIEC API}
 
 \item{as_data_frame}{(Logical) Should the result be returned as a tibble?
-Default is `FALSE`.}
+Default is \code{FALSE}.}
 }
 \value{
 A list containing the parsed JSON response from the API, where each
-  element in the list represents an available reporting period. If
-  `as_data_frame = TRUE`, then the list is converted to a tibble (and
-  returned as such).
+element in the list represents an available reporting period. If
+\code{as_data_frame = TRUE}, then the list is converted to a tibble (and
+returned as such).
 }
 \description{
 Retrieves Call Report or UBPR filer information from the FFIEC
@@ -50,5 +50,5 @@ if (!no_creds_available()) {
 }
 }
 \references{
-<https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
+\url{https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf}
 }

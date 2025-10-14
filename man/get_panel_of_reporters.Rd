@@ -21,13 +21,13 @@ FFIEC API}
 formatted as "MM/DD/YYYY".}
 
 \item{as_data_frame}{(Logical) Should the result be returned as a tibble?
-Default is `TRUE`.}
+Default is \code{TRUE}.}
 }
 \value{
 A tibble containing the parsed JSON response from the API of filer
-  information since the given `reporting_period_end_date` date value. If
-  `as_data_frame = FALSE`, then the result is returned as a nested list
-  object, where each element represents a unique `ID_RSSD` value.
+information since the given \code{reporting_period_end_date} date value. If
+\code{as_data_frame = FALSE}, then the result is returned as a nested list
+object, where each element represents a unique \code{ID_RSSD} value.
 }
 \description{
 Retrieves filer information from the FFIEC Central Data
@@ -55,5 +55,5 @@ if (!no_creds_available()) {
 }
 }
 \references{
-<https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
+\url{https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf}
 }
