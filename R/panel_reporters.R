@@ -16,7 +16,7 @@
 #'   object, where each element represents a unique `ID_RSSD` value.
 #'
 #' @references
-#' https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf
+#' <https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
 #'
 #' @export
 #'

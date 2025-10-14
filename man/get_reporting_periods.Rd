@@ -49,3 +49,6 @@ if (!no_creds_available()) {
   get_ubpr_reporting_periods(as_data_frame = TRUE)
 }
 }
+\references{
+<https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
+}

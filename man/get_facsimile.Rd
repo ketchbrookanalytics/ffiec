@@ -41,8 +41,8 @@ supplied as an integer instead of a string)}
 A tibble containing the facsimile data.
 }
 \description{
-Retrieves Call Report or UBPR facsimile data from the FFIEC Central Data
-Repository API for the requested financial institution.
+Retrieves Call Report or UBPR facsimile data from the FFIEC
+Central Data Repository API for the requested financial institution.
 }
 \examples{
 if (!no_creds_available()) {
@@ -67,5 +67,5 @@ if (!no_creds_available()) {
 }
 }
 \references{
-https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf
+<https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
 }

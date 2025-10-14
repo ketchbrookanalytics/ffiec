@@ -55,5 +55,5 @@ if (!no_creds_available()) {
 }
 }
 \references{
-https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf
+<https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
 }
