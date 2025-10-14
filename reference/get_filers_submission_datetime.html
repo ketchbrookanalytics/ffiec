@@ -76,32 +76,31 @@ formatted as "MM/DD/YYYY".</p></dd>
 
 <dt id="arg-last-update-date-time">last_update_date_time<a class="anchor" aria-label="anchor" href="#arg-last-update-date-time"></a></dt>
 <dd><p>(String) Filter for records updated
-since this date/time. See `Details` for formatting options.</p></dd>
+since this date/time. See <code>Details</code> for formatting options.</p></dd>
 
 
 <dt id="arg-as-data-frame">as_data_frame<a class="anchor" aria-label="anchor" href="#arg-as-data-frame"></a></dt>
 <dd><p>(Logical) Should the result be returned as a tibble?
-Default is `FALSE`.</p></dd>
+Default is <code>FALSE</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A list containing the parsed JSON response from the API, where each
-  element in the list represents an RSSD ID value.  If
-  `as_data_frame = TRUE`, then the list is converted to a tibble (and
-  returned as such).</p>
+element in the list represents an RSSD ID value.  If
+<code>as_data_frame = TRUE</code>, then the list is converted to a tibble (and
+returned as such).</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Set the `last_update_date_time` value to the last time you ran the
+    <p>Set the <code>last_update_date_time</code> value to the last time you ran the
 method to retrieve only those institutions that have filed a newer report.
-Possible formatting options include:</p>
-<p>- "04/15/2025"
-- "04/15/2025 9:00 PM"</p>
-    </div>
+Possible formatting options include:</p><ul><li><p>"04/15/2025"</p></li>
+<li><p>"04/15/2025 9:00 PM"</p></li>
+</ul></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>&lt;https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf&gt;</p>
+    <p><a href="https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf" class="external-link">https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf</a></p>
     </div>
 
     <div class="section level2">
