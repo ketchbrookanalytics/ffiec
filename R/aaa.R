@@ -31,3 +31,18 @@ check_empty_creds <- function(user_id, bearer_token) {
   }
 
 }
+
+#' Handle missing UserID / Bearer Token values without throwing an error
+#' for unit testing purposes
+#' @noRd
+no_creds_available <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
+                               bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN")) {
+
+  if (
+    is.null(user_id) ||
+      trimws(user_id) == "" ||
+      is.null(bearer_token) ||
+      trimws(bearer_token) == ""
+  ) TRUE else FALSE
+
+}

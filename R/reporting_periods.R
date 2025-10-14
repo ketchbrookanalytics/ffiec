@@ -70,18 +70,16 @@ get_reporting_periods_base <- function(endpoint,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' if (!ffiec:::no_creds_available()) {
+#'   # Assume you have set the following environment variables:
+#'   # - FFIEC_USER_ID
+#'   # - FFIEC_BEARER_TOKEN
 #'
-#' # Assume you have set the following environment variables:
-#' # - FFIEC_USER_ID
-#' # - FFIEC_BEARER_TOKEN
+#'   # Retrieve reporting periods and return as a list
+#'   get_reporting_periods()
 #'
-#' # Retrieve reporting periods and return as a list
-#' get_reporting_periods()
-#'
-#' # Retrieve reporting periods and return as a tibble
-#' get_reporting_periods(as_data_frame = TRUE)
-#'
+#'   # Retrieve reporting periods and return as a tibble
+#'   get_reporting_periods(as_data_frame = TRUE)
 #' }
 get_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                   bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
@@ -124,18 +122,16 @@ get_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' if (!ffiec:::no_creds_available()) {
+#'   # Assume you have set the following environment variables:
+#'   # - FFIEC_USER_ID
+#'   # - FFIEC_BEARER_TOKEN
 #'
-#' # Assume you have set the following environment variables:
-#' # - FFIEC_USER_ID
-#' # - FFIEC_BEARER_TOKEN
+#'   # Retrieve UBPR reporting periods and return as a list
+#'   get_ubpr_reporting_periods()
 #'
-#' # Retrieve UBPR reporting periods and return as a list
-#' get_ubpr_reporting_periods()
-#'
-#' # Retrieve UBPR reporting periods and return as a tibble
-#' get_ubpr_reporting_periods(as_data_frame = TRUE)
-#'
+#'   # Retrieve UBPR reporting periods and return as a tibble
+#'   get_ubpr_reporting_periods(as_data_frame = TRUE)
 #' }
 get_ubpr_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                        bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),

@@ -35,24 +35,23 @@ Repository API for the financial institutions in the Panel of Reporters (POR)
 expected to file for a given Call reporting period.
 }
 \examples{
-\dontrun{
-# Assume you have set the following environment variables:
-# - FFIEC_USER_ID
-# - FFIEC_BEARER_TOKEN
+if (!ffiec:::no_creds_available()) {
+  # Assume you have set the following environment variables:
+  # - FFIEC_USER_ID
+  # - FFIEC_BEARER_TOKEN
 
-# Retrieve expected filers for reporting period 2025-03-31 and return as a
-# tibble
-get_panel_of_reporters(
-  reporting_period_end_date = "03/31/2025"
-)
+  # Retrieve expected filers for reporting period 2025-03-31 and return as a
+  # tibble
+  get_panel_of_reporters(
+    reporting_period_end_date = "03/31/2025"
+  )
 
-# Retrieve expected filers for reporting period 2025-03-31 and return as a
-# list
-get_panel_of_reporters(
-  reporting_period_end_date = "03/31/2025",
-  as_data_frame = FALSE
-)
-
+  # Retrieve expected filers for reporting period 2025-03-31 and return as a
+  # list
+  get_panel_of_reporters(
+    reporting_period_end_date = "03/31/2025",
+    as_data_frame = FALSE
+  )
 }
 }
 \references{

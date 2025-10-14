@@ -36,26 +36,25 @@ Retrieves UBPR facsimile data from the FFIEC Central Data
 Repository API for the requested financial institution.
 }
 \examples{
-\dontrun{
-# Assume you have set the following environment variables:
-# - FFIEC_USER_ID
-# - FFIEC_BEARER_TOKEN
+if (!ffiec:::no_creds_available()) {
+  # Assume you have set the following environment variables:
+  # - FFIEC_USER_ID
+  # - FFIEC_BEARER_TOKEN
 
-# Retrieve UBPR facsimile data for reporting period 2025-03-31 for
-# instutition with ID RSSD "480228"
-get_ubpr_facsimile(
-  reporting_period_end_date = "03/31/2025",
-  fi_id = 480228
-)
+  # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
+  # instutition with ID RSSD "480228"
+  get_ubpr_facsimile(
+    reporting_period_end_date = "03/31/2025",
+    fi_id = 480228
+  )
 
-# Retrieve UBPR facsimile data for reporting period 2025-03-31 for
-# instutition with FDIC Cert Number "3510"
-get_ubpr_facsimile(
-  reporting_period_end_date = "03/31/2025",
-  fi_id_type = "FDICCertNumber",
-  fi_id = "3510"
-)
-
+  # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
+  # instutition with FDIC Cert Number "3510"
+  get_ubpr_facsimile(
+    reporting_period_end_date = "03/31/2025",
+    fi_id_type = "FDICCertNumber",
+    fi_id = "3510"
+  )
 }
 }
 \references{

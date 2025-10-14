@@ -30,17 +30,15 @@ Retrieves filer information from the FFIEC Central Data
 Repository API for available reporating periods.
 }
 \examples{
-\dontrun{
+if (!ffiec:::no_creds_available()) {
+  # Assume you have set the following environment variables:
+  # - FFIEC_USER_ID
+  # - FFIEC_BEARER_TOKEN
 
-# Assume you have set the following environment variables:
-# - FFIEC_USER_ID
-# - FFIEC_BEARER_TOKEN
+  # Retrieve reporting periods and return as a list
+  get_reporting_periods()
 
-# Retrieve reporting periods and return as a list
-get_reporting_periods()
-
-# Retrieve reporting periods and return as a tibble
-get_reporting_periods(as_data_frame = TRUE)
-
+  # Retrieve reporting periods and return as a tibble
+  get_reporting_periods(as_data_frame = TRUE)
 }
 }

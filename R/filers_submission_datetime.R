@@ -34,25 +34,24 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' # Assume you have set the following environment variables:
-#' # - FFIEC_USER_ID
-#' # - FFIEC_BEARER_TOKEN
+#' if (!ffiec:::no_creds_available()) {
+#'   # Assume you have set the following environment variables:
+#'   # - FFIEC_USER_ID
+#'   # - FFIEC_BEARER_TOKEN
 #'
-#' # Retrieve filers since 2025-03-31, as of 2025-04-15 and return as a tibble
-#' get_filers_submission_datetime(
-#'   reporting_period_end_date = "03/31/2025",
-#'   last_update_date_time = "04/15/2025"
-#' )
+#'   # Retrieve filers since 2025-03-31, as of 2025-04-15 and return as a tibble
+#'   get_filers_submission_datetime(
+#'     reporting_period_end_date = "03/31/2025",
+#'     last_update_date_time = "04/15/2025"
+#'   )
 #'
-#' # Retrieve filers since 2025-03-31, as of 2025-04-15 21:00:00.000 and return
-#' # as a list
-#' get_filers_submission_datetime(
-#'   reporting_period_end_date = "03/31/2025",
-#'   last_update_date_time = "04/15/2025 21:00:00.000",
-#'   as_data_frame = FALSE
-#' )
-#'
+#'   # Retrieve filers since 2025-03-31, as of 2025-04-15 21:00:00.000 and return
+#'   # as a list
+#'   get_filers_submission_datetime(
+#'     reporting_period_end_date = "03/31/2025",
+#'     last_update_date_time = "04/15/2025 21:00:00.000",
+#'     as_data_frame = FALSE
+#'   )
 #' }
 get_filers_submission_datetime <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                            bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
