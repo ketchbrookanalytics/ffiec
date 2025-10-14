@@ -5,9 +5,7 @@
 #' who have filed after the provided `last_update_date_time`` and whose new
 #' filings are available for public distribution.
 #'
-#' @param user_id (String) The UserID for authenticating against the FFIEC API.
-#' @param bearer_token (String) The Bearer Token for authenticating against the
-#'   FFIEC API.
+#' @inheritParams no_creds_available
 #' @param reporting_period_end_date (String) The reporting period end date,
 #'   formatted as "MM/DD/YYYY".
 #' @param last_update_date_time (String) Filter for records updated

@@ -2,9 +2,18 @@
 % Please edit documentation in R/facsimile.R
 \name{get_facsimile}
 \alias{get_facsimile}
+\alias{get_ubpr_facsimile}
 \title{Retrieve Facsimile}
 \usage{
 get_facsimile(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  reporting_period_end_date,
+  fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
+  fi_id
+)
+
+get_ubpr_facsimile(
   user_id = Sys.getenv("FFIEC_USER_ID"),
   bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
   reporting_period_end_date,
@@ -32,11 +41,11 @@ supplied as an integer instead of a string)}
 A tibble containing the facsimile data.
 }
 \description{
-Retrieves facsimile data from the FFIEC Central Data
+Retrieves Call Report or UBPR facsimile data from the FFIEC Central Data
 Repository API for the requested financial institution.
 }
 \examples{
-if (!ffiec:::no_creds_available()) {
+if (!no_creds_available()) {
   # Assume you have set the following environment variables:
   # - FFIEC_USER_ID
   # - FFIEC_BEARER_TOKEN
@@ -48,9 +57,9 @@ if (!ffiec:::no_creds_available()) {
     fi_id = 480228
   )
 
-  # Retrieve facsimile data for reporting period 2025-03-31 for institution
-  # with FDIC Cert Number "3510"
-  get_facsimile(
+  # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
+  # instutition with FDIC Cert Number "3510"
+  get_ubpr_facsimile(
     reporting_period_end_date = "03/31/2025",
     fi_id_type = "FDICCertNumber",
     fi_id = "3510"

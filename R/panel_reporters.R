@@ -4,9 +4,7 @@
 #' Repository API for the financial institutions in the Panel of Reporters (POR)
 #' expected to file for a given Call reporting period.
 #'
-#' @param user_id (String) The UserID for authenticating against the FFIEC API.
-#' @param bearer_token (String) The Bearer Token for authenticating against the
-#'   FFIEC API.
+#' @inheritParams no_creds_available
 #' @param reporting_period_end_date (String) The reporting period end date,
 #'   formatted as "MM/DD/YYYY".
 #' @param as_data_frame (Logical) Should the result be returned as a tibble?

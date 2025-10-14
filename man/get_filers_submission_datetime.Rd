@@ -13,10 +13,10 @@ get_filers_submission_datetime(
 )
 }
 \arguments{
-\item{user_id}{(String) The UserID for authenticating against the FFIEC API.}
+\item{user_id}{(String) The UserID for authenticating against the FFIEC API}
 
 \item{bearer_token}{(String) The Bearer Token for authenticating against the
-FFIEC API.}
+FFIEC API}
 
 \item{reporting_period_end_date}{(String) The reporting period end date,
 formatted as "MM/DD/YYYY".}
@@ -48,7 +48,7 @@ Possible formatting options include:
 - "04/15/2025 9:00 PM"
 }
 \examples{
-if (!ffiec:::no_creds_available()) {
+if (!no_creds_available()) {
   # Assume you have set the following environment variables:
   # - FFIEC_USER_ID
   # - FFIEC_BEARER_TOKEN

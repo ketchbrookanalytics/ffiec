@@ -1,11 +1,9 @@
 #' Retrieve Facsimile
 #'
-#' @description Retrieves facsimile data from the FFIEC Central Data
-#' Repository API for the requested financial institution.
+#' @description Retrieves Call Report or UBPR facsimile data from the FFIEC
+#' Central Data Repository API for the requested financial institution.
 #'
-#' @param user_id (String) The UserID for authenticating against the FFIEC API
-#' @param bearer_token (String) The Bearer Token for authenticating against the
-#'   FFIEC API
+#' @inheritParams no_creds_available
 #' @param reporting_period_end_date (String) The reporting period end date,
 #'   formatted as "MM/DD/YYYY"
 #' @param fi_id_type (String) The type of identifier being provided; one of
@@ -36,9 +34,9 @@
 #'     fi_id = 480228
 #'   )
 #'
-#'   # Retrieve facsimile data for reporting period 2025-03-31 for institution
-#'   # with FDIC Cert Number "3510"
-#'   get_facsimile(
+#'   # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
+#'   # instutition with FDIC Cert Number "3510"
+#'   get_ubpr_facsimile(
 #'     reporting_period_end_date = "03/31/2025",
 #'     fi_id_type = "FDICCertNumber",
 #'     fi_id = "3510"
@@ -115,52 +113,9 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 
 
 
-#' Retrieve UBPR Facsimile
-#'
-#' @description Retrieves UBPR facsimile data from the FFIEC Central Data
-#' Repository API for the requested financial institution.
-#'
-#' @param user_id (String) The UserID for authenticating against the FFIEC API
-#' @param bearer_token (String) The Bearer Token for authenticating against the
-#'   FFIEC API
-#' @param reporting_period_end_date (String) The reporting period end date,
-#'   formatted as "MM/DD/YYYY"
-#' @param fi_id_type (String) The type of identifier being provided; one of
-#'   `c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`;
-#'   default is "ID_RSSD"
-#' @param fi_id (String) The financial institution's identifier (can also be
-#'   supplied as an integer instead of a string)
-#'
-#' @return A tibble containing the UBPR facsimile data.
-#'
-#' @references
-#' https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf
-#'
+#' @rdname get_facsimile
 #' @importFrom rlang .data
-#'
 #' @export
-#'
-#' @examples
-#' if (!ffiec:::no_creds_available()) {
-#'   # Assume you have set the following environment variables:
-#'   # - FFIEC_USER_ID
-#'   # - FFIEC_BEARER_TOKEN
-#'
-#'   # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
-#'   # instutition with ID RSSD "480228"
-#'   get_ubpr_facsimile(
-#'     reporting_period_end_date = "03/31/2025",
-#'     fi_id = 480228
-#'   )
-#'
-#'   # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
-#'   # instutition with FDIC Cert Number "3510"
-#'   get_ubpr_facsimile(
-#'     reporting_period_end_date = "03/31/2025",
-#'     fi_id_type = "FDICCertNumber",
-#'     fi_id = "3510"
-#'   )
-#' }
 get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
                                reporting_period_end_date,

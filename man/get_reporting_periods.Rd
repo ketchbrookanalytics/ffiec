@@ -2,6 +2,7 @@
 % Please edit documentation in R/reporting_periods.R
 \name{get_reporting_periods}
 \alias{get_reporting_periods}
+\alias{get_ubpr_reporting_periods}
 \title{Retrieve Reporting Periods}
 \usage{
 get_reporting_periods(
@@ -9,12 +10,18 @@ get_reporting_periods(
   bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
   as_data_frame = FALSE
 )
+
+get_ubpr_reporting_periods(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  as_data_frame = FALSE
+)
 }
 \arguments{
-\item{user_id}{(String) The UserID for authenticating against the FFIEC API.}
+\item{user_id}{(String) The UserID for authenticating against the FFIEC API}
 
 \item{bearer_token}{(String) The Bearer Token for authenticating against the
-FFIEC API.}
+FFIEC API}
 
 \item{as_data_frame}{(Logical) Should the result be returned as a tibble?
 Default is `FALSE`.}
@@ -26,11 +33,11 @@ A list containing the parsed JSON response from the API, where each
   returned as such).
 }
 \description{
-Retrieves filer information from the FFIEC Central Data
-Repository API for available reporating periods.
+Retrieves Call Report or UBPR filer information from the FFIEC
+Central Data Repository API for available reporating periods.
 }
 \examples{
-if (!ffiec:::no_creds_available()) {
+if (!no_creds_available()) {
   # Assume you have set the following environment variables:
   # - FFIEC_USER_ID
   # - FFIEC_BEARER_TOKEN
@@ -38,7 +45,7 @@ if (!ffiec:::no_creds_available()) {
   # Retrieve reporting periods and return as a list
   get_reporting_periods()
 
-  # Retrieve reporting periods and return as a tibble
-  get_reporting_periods(as_data_frame = TRUE)
+  # Retrieve UBPR reporting periods and return as a tibble
+  get_ubpr_reporting_periods(as_data_frame = TRUE)
 }
 }

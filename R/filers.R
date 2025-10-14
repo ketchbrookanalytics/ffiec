@@ -3,9 +3,7 @@
 #' @description Retrieves filer information from the FFIEC Central Data
 #' Repository API for filers updated since a specified date.
 #'
-#' @param user_id (String) The UserID for authenticating against the FFIEC API.
-#' @param bearer_token (String) The Bearer Token for authenticating against the
-#'   FFIEC API.
+#' @inheritParams no_creds_available
 #' @param reporting_period_end_date (String) The reporting period end date,
 #'   formatted as "MM/DD/YYYY".
 #' @param last_update_date_time (String) Filter for records updated
