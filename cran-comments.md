@@ -1,5 +1,5 @@
-## R CMD check results
+## Resubmission
 
-0 errors | 0 warnings | 1 note
+This is a resubmission; the initial version was rejected. In this version I have:
 
-* This is a new release.
+* Wrapped all examples & tests in conditional logic that checks to see if required API keys are available.

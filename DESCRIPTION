@@ -1,7 +1,7 @@
 Package: ffiec
 Type: Package
 Title: FFIEC Central Data Repository REST API Client
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person("Michael", "Thomas", email = "mthomas@ketchbrookanalytics.com",
            role = c("aut", "cre")),
