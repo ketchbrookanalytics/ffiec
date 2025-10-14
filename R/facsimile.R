@@ -24,7 +24,7 @@
 #' @export
 #'
 #' @examples
-#' if (!ffiec:::no_creds_available()) {
+#' if (!no_creds_available()) {
 #'   # Assume you have set the following environment variables:
 #'   # - FFIEC_USER_ID
 #'   # - FFIEC_BEARER_TOKEN

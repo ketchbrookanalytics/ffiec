@@ -32,9 +32,19 @@ check_empty_creds <- function(user_id, bearer_token) {
 
 }
 
-#' Handle missing UserID / Bearer Token values without throwing an error
-#' for unit testing purposes
-#' @noRd
+#' Handle missing UserID / Bearer Token values without throwing an error for
+#' unit testing purposes
+#'
+#' @param user_id (String) The UserID for authenticating against the FFIEC API
+#' @param bearer_token (String) The Bearer Token for authenticating against the
+#'   FFIEC API
+#'
+#' @return (Logical) `FALSE` if a valid `user_id` and `bearer_token` are
+#'   available; otherwise `TRUE`.
+#'
+#' @details Intended for internal use.
+#'
+#' @export
 no_creds_available <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN")) {
 
