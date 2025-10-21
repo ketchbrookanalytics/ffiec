@@ -1,3 +1,9 @@
+# ffiec 0.1.3
+
+## Fixes for CRAN
+
+- Amended the `DESCRIPTION` file to address two more comments from CRAN regarding spelling & formatting
+
 # ffiec 0.1.2
 
 ## Fixes for CRAN
