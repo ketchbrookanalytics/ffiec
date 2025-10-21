@@ -1,17 +1,20 @@
 Package: ffiec
 Type: Package
-Title: FFIEC Central Data Repository REST API Client
-Version: 0.1.1
+Title: R Interface to 'FFIEC Central Data Repository REST API' Service
+Version: 0.1.2
 Authors@R: c(
     person("Michael", "Thomas", email = "mthomas@ketchbrookanalytics.com",
            role = c("aut", "cre")),
     person("Ketchbrook Analytics", role = c("cph", "fnd"))
   )
-Description: A client for the FFIEC (Federal Financial Institutions Examination
-    Council) Central Data Repository REST API. Provides functions to retrieve
-    Reports of Condition and Income (Call Reports) and Uniform Bank Performance
-    Reports (UBPRs) in list or tidy data frame format for most FDIC-insured
-    institutions.
+Description: Provides a simplified interace to the Central Data Repository 'REST
+    API' service made available by the United States Federal Financial
+    Institutions Examination Council ('FFIEC'). Contains functions to retrieve
+    reports of Condition and Income (Call Reports) and Uniform Bank Performance
+    Reports ('UBPR') in list or tidy data frame format for most 'FDIC' insured
+    institutions. See
+    <[https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf]https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
+    for the official 'REST API' documentation published by the 'FFIEC'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

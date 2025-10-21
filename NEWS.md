@@ -1,3 +1,9 @@
+# ffiec 0.1.2
+
+## Fixes for CRAN
+
+- Amended `DESCRIPTION` file to address two comments from CRAN team regarding formatting & references
+
 # ffiec 0.1.1
 
 ## Bug Fixes
