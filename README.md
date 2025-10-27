@@ -4,7 +4,7 @@
 # ffiec <a href="https://ketchbrookanalytics.github.io/ffiec/"><img src="man/figures/logo.png" align="right" height="275" alt="ffiec website" /></a>
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/tidyUSDA)](https://CRAN.R-project.org/package=tidyUSDA)
+[![CRAN status](https://www.r-pkg.org/badges/version/ffiec)](https://CRAN.R-project.org/package=ffiec)
 [![R-CMD-check](https://github.com/ketchbrookanalytics/ffiec/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ketchbrookanalytics/ffiec/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
