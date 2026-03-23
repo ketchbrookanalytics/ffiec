@@ -4,13 +4,13 @@
 #' Central Data Repository API for the requested financial institution.
 #'
 #' @inheritParams no_creds_available
-#' @param reporting_period_end_date (String) The reporting period end date,
-#'   formatted as "MM/DD/YYYY"
+#' @param reporting_period_end_date (Character vector) One or more reporting
+#'   period end dates, formatted as "MM/DD/YYYY"
 #' @param fi_id_type (String) The type of identifier being provided; one of
 #'   `c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`;
 #'   default is "ID_RSSD"
-#' @param fi_id (String) The financial institution's identifier (can also be
-#'   supplied as an integer instead of a string)
+#' @param fi_id (Character vector) One or more financial institution identifiers
+#'   (can also be supplied as an integer vector)
 #'
 #' @return A tibble containing the facsimile data.
 #'
@@ -58,54 +58,75 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   data_series <- "Call"
   fi_id_type <- match.arg(fi_id_type)
 
-  # Build the request following the API specification
-  req <- httr2::request(url) |>
-    httr2::req_method("GET") |>
-    httr2::req_headers(
-      "Content-Type" = "application/json",
-      "UserID" = user_id,
-      "Authentication" = paste0("Bearer ", bearer_token),
-      "dataSeries" = data_series,
-      "reportingPeriodEndDate" = reporting_period_end_date,
-      "fiIdType" = fi_id_type,
-      "fiId" = as.character(fi_id),
-      "facsimileFormat" = "SDF"
-    ) |>
-    httr2::req_error(body = ffiec_error_message) |>
-    httr2::req_user_agent(
-      "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+  # Create the request grid to iterate over
+  req_grid <- expand.grid(
+    reporting_period_end_date = reporting_period_end_date,
+    fi_id = fi_id
+  )
+
+  # Build the request(s) following the API specification
+  req <- req_grid |>
+    purrr::map(
+      \(reporting_period_end_date, fi_id) {
+        httr2::request(url) |>
+          httr2::req_method("GET") |>
+          httr2::req_headers(
+            "Content-Type" = "application/json",
+            "UserID" = user_id,
+            "Authentication" = paste0("Bearer ", bearer_token),
+            "dataSeries" = data_series,
+            "reportingPeriodEndDate" = reporting_period_end_date,
+            "fiIdType" = fi_id_type,
+            "fiId" = as.character(fi_id),
+            "facsimileFormat" = "SDF"
+          ) |>
+          httr2::req_error(body = ffiec_error_message) |>
+          httr2::req_user_agent(
+            "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+          )
+      }
     )
 
-  # Perform the request and collect the raw response that can be decoded into
-  # semicolon-delimited data
+  # Perform the request(s) and collect the raw response(s) that can be decoded
+  # into semicolon-delimited data
   resp <- req |>
-    httr2::req_perform() |>
-    httr2::resp_body_string() |>
-    jsonlite::base64_dec() |>
-    rawToChar()
+    purrr::map(
+      \(req) {
+        httr2::req_perform() |>
+          httr2::resp_body_string() |>
+          jsonlite::base64_dec() |>
+          rawToChar()
+      }
+    )
 
-  # Read the raw file (semicolon-delimited data) into a tibble
-  resp <- read.delim(
-    file = textConnection(resp),
-    sep = ";",
-    col.names = c(
-      "CallDate",
-      "BankRSSDIdentifier",
-      "MDRM",
-      "Value",
-      "LastUpdate",
-      "ShortDefinition",
-      "CallSchedule",
-      "LineNumber"
-    )
-  ) |>
-    tibble::as_tibble() |>
-    dplyr::mutate(
-      dplyr::across(
-        .cols = c("CallDate", "LastUpdate"),
-        .fns = ~ as.Date(as.character(.x), format = "%Y%m%d")
-      )
-    )
+  # Read the raw file(s) (semicolon-delimited data) into a tibble
+  resp <- resp |>
+    purrr::map(
+      \(resp) {
+        read.delim(
+          file = textConnection(resp),
+          sep = ";",
+          col.names = c(
+            "CallDate",
+            "BankRSSDIdentifier",
+            "MDRM",
+            "Value",
+            "LastUpdate",
+            "ShortDefinition",
+            "CallSchedule",
+            "LineNumber"
+          )
+        ) |>
+          tibble::as_tibble() |>
+          dplyr::mutate(
+            dplyr::across(
+              .cols = c("CallDate", "LastUpdate"),
+              .fns = ~ as.Date(as.character(.x), format = "%Y%m%d")
+            )
+          )
+      }
+    ) |>
+    dplyr::bind_rows()
 
   return(resp)
 
