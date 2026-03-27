@@ -111,5 +111,34 @@ get_ffiec <- function(endpoint,
 
 
 
+#' Perform, collect, and parse an HTTP response
+#'
+#' @description Performs an HTTP request, returns the response, and, by default,
+#'   parses the JSON response to a list. Provides optional handling for
+#'   decoding the response to a character string.
+#'
+#' @param req A [httr2::request()] object.
+#' @param decode (Logical) Should the result be decoded into a character string?
+#'   Default is `FALSE`.
+#'
+#' @return A list containing the parsed JSON response from the API.
+#'   If `decode = TRUE`, then the response body is decoded and converted to a
+#'   character string.
+#'
+#' @details Intended for internal use.
+#'
+#' @export
+collect_response <- function(req, decode = FALSE) {
+  resp <- req |>
+    httr2::req_perform()
+
+  if (decode) {
+    resp <- httr2::resp_body_string(resp) |>
+      jsonlite::base64_dec() |>
+      rawToChar()
+  } else {
+    resp <- httr2::resp_body_json(resp)
+  }
+
   return(resp)
 }
