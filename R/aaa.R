@@ -56,3 +56,60 @@ no_creds_available <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   ) TRUE else FALSE
 
 }
+
+
+
+#' Define an extensible HTTP request to obtain data from the FFIEC API
+#'
+#' @description Defines the base requirements to request data from the
+#' FFIEC API. Allows for additional headers to be passed via `...`.
+#'
+#' @inheritParams no_creds_available
+#' @param endpoint (String) The API endpoint to query
+#' @param req_method (String) The API request method
+#' @param content_type (String) The API request format
+#' @param ... Other request headers to pass to [httr2::req_headers()]
+#'
+#' @return An HTTP request via [httr2::request()].
+#'
+#' @details Additional headers are converted to camel case due to API
+#'   specification.
+#' @details Intended for internal use.
+#'
+#' @export
+get_ffiec <- function(endpoint,
+                      user_id,
+                      bearer_token,
+                      req_method = "GET",
+                      content_type = "application/json",
+                      ...) {
+
+  url <- paste0(base_url, endpoint)
+
+  headers <- list(
+    ...
+  )
+
+  names(headers) <- stringr::str_to_camel(names(headers))
+
+  req <- httr2::request(url) |>
+    httr2::req_method(req_method) |>
+    httr2::req_headers(
+      "Content-Type" = content_type,
+      "UserID" = user_id,
+      "Authentication" = paste0("Bearer ", bearer_token),
+      !!!headers
+    ) |>
+    httr2::req_error(body = ffiec_error_message) |>
+    httr2::req_user_agent(
+      "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+    )
+
+  return(req)
+
+}
+
+
+
+  return(resp)
+}
