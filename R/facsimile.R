@@ -153,7 +153,7 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 
   # Perform the request(s) and collect the raw response(s) that can be decoded
   # into semicolon-delimited data
-  resp <- purrr::map(req, .f = collect_response(.x, decode = TRUE))
+  resp <- purrr::map(req, .f = \(req) collect_response(req, decode = TRUE))
 
   # Read the raw file(s) (semicolon-delimited data) into a tibble
   resp <- purrr::map(resp, .f = process_facsimile_response) |>
