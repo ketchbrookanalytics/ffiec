@@ -1,4 +1,6 @@
 #' Define a helper function to process `get_facsimile()` responses
+#'
+#' @importFrom utils read.delim
 #' @noRd
 process_facsimile_response <- function(resp) {
   df <- read.delim(
@@ -29,6 +31,8 @@ process_facsimile_response <- function(resp) {
 
 
 #' Define a helper function to process `get_ubpr_facsimile()` responses
+#'
+#' @importFrom rlang .data
 #' @noRd
 process_ubpr_response <- function(resp) {
   # Read the raw response into a formal XML document
@@ -76,20 +80,18 @@ process_ubpr_response <- function(resp) {
 #' Central Data Repository API for the requested financial institution.
 #'
 #' @inheritParams no_creds_available
-#' @param reporting_period_end_date (Character vector) One or more reporting
-#'   period end dates, formatted as "MM/DD/YYYY"
+#' @param reporting_period_end_date (String or character vector) One or more
+#'   reporting period end dates, formatted as "MM/DD/YYYY"
 #' @param fi_id_type (String) The type of identifier being provided; one of
 #'   `c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`;
 #'   default is "ID_RSSD"
-#' @param fi_id (Character vector) One or more financial institution identifiers
-#'   (can also be supplied as an integer vector)
+#' @param fi_id (String or character vector) One or more financial institution
+#'   identifiers (can also be supplied as an integer vector)
 #'
 #' @return A tibble containing the facsimile data.
 #'
 #' @references
 #' <https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
-#'
-#' @importFrom utils read.delim
 #'
 #' @export
 #'
@@ -112,6 +114,20 @@ process_ubpr_response <- function(resp) {
 #'     reporting_period_end_date = "03/31/2025",
 #'     fi_id_type = "FDICCertNumber",
 #'     fi_id = "3510"
+#'   )
+#'
+#'   # Retrieve facsimile data for reporting periods 2025-03-31 and 2025-06-30
+#'   # for institutions with ID RSSD of "783648" and "562058"
+#'   get_facsimile(
+#'     reporting_period_end_date = c("03/31/2025", "06/30/2025"),
+#'     fi_id = c("783648", "562058")
+#'   )
+#'
+#'   # Retrieve UBPR data for reporting periods 2025-03-31 and 2025-06-30
+#'   # for institution with ID RSSD of "480228"
+#'   get_ubpr_facsimile(
+#'     reporting_period_end_date = c("03/31/2025", "06/30/2025"),
+#'     fi_id = 480228
 #'   )
 #' }
 get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
@@ -166,7 +182,6 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 
 
 #' @rdname get_facsimile
-#' @importFrom rlang .data
 #' @export
 get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
