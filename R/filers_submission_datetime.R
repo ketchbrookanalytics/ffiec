@@ -63,29 +63,19 @@ get_filers_submission_datetime <- function(user_id = Sys.getenv("FFIEC_USER_ID")
   )
 
   endpoint <- "RetrieveFilersSubmissionDateTime"
-  url <- paste0(base_url, endpoint)
-  data_series <- "Call"
 
-  # Build the request following the API specification
-  req <- httr2::request(url) |>
-    httr2::req_method("GET") |>
-    httr2::req_headers(
-      "Content-Type" = "application/json",
-      "UserID" = user_id,
-      "Authentication" = paste0("Bearer ", bearer_token),
-      "dataSeries" = data_series,
-      "reportingPeriodEndDate" = reporting_period_end_date,
-      "lastUpdateDateTime" = last_update_date_time
-    ) |>
-    httr2::req_error(body = ffiec_error_message) |>
-    httr2::req_user_agent(
-      "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
-    )
+  # Build the request(s) following the API specification
+  req <- get_ffiec(
+    endpoint = endpoint,
+    user_id = user_id,
+    bearer_token = bearer_token,
+    reporting_period_end_date = reporting_period_end_date,
+    last_update_date_time = last_update_date_time,
+    data_series = "Call"
+  )
 
   # Perform the request and collect the JSON response into an R list object
-  resp <- req |>
-    httr2::req_perform() |>
-    httr2::resp_body_json()
+  resp <- collect_response(req)
 
   # Convert to a tibble (if desired)
   if (as_data_frame) {
