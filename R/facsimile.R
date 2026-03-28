@@ -128,15 +128,15 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   endpoint <- "RetrieveFacsimile"
   fi_id_type <- match.arg(fi_id_type)
 
-  # Create the request grid to iterate over
-  req_grid <- expand.grid(
+  # Create a data frame of report dates and institution ids to interate over
+  req_df <- expand.grid(
     reporting_period_end_date = reporting_period_end_date,
     fi_id = fi_id
   )
 
   # Build the request(s) following the API specification
-  req <- req_grid |>
-    purrr::map(
+  req <- req_df |>
+    purrr::pmap(
       \(reporting_period_end_date, fi_id) {
         get_ffiec(
           endpoint = endpoint,
