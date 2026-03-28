@@ -1,3 +1,75 @@
+#' Define a helper function to process `get_facsimile()` responses
+#' @noRd
+process_facsimile_response <- function(resp) {
+  df <- read.delim(
+    file = textConnection(resp),
+    sep = ";",
+    col.names = c(
+      "CallDate",
+      "BankRSSDIdentifier",
+      "MDRM",
+      "Value",
+      "LastUpdate",
+      "ShortDefinition",
+      "CallSchedule",
+      "LineNumber"
+    )
+  ) |>
+    tibble::as_tibble() |>
+    dplyr::mutate(
+      dplyr::across(
+        .cols = c("CallDate", "LastUpdate"),
+        .fns = ~ as.Date(as.character(.x), format = "%Y%m%d")
+      )
+    )
+
+  return(df)
+
+}
+
+
+#' Define a helper function to process `get_ubpr_facsimile()` responses
+#' @noRd
+process_ubpr_response <- function(resp) {
+  # Read the raw response into a formal XML document
+  resp <- xml2::read_xml(resp)
+
+  # Filter to just the UBPR tabular data
+  resp <- xml2::xml_find_all(resp, ".//uc:* | .//cc:*")
+
+  # Read the raw file (semicolon-delimited data) into a tibble
+  df <- tibble::tibble(
+    Metric = xml2::xml_name(resp),
+    Context = xml2::xml_attr(resp, "contextRef"),
+    Unit = xml2::xml_attr(resp, "unitRef"),
+    Decimals = xml2::xml_attr(resp, "decimals"),
+    Value = xml2::xml_text(resp)
+  ) |>
+    dplyr::distinct() |>   # remove completely duplicated rows
+    dplyr::mutate(
+      ContextList = stringr::str_split(
+        string = .data[["Context"]],
+        patter = "_",
+        n = 3L
+      ),
+      ID_RSSD = purrr::map_chr(.data[["ContextList"]], ~ .x[2]),
+      Quarter = purrr::map_chr(.data[["ContextList"]], ~ .x[3]) |> as.Date()
+    ) |>
+    dplyr::select(
+      "ID_RSSD",
+      "Quarter",
+      "Metric",
+      "Unit",
+      "Decimals",
+      "Value"
+    )
+
+  return(df)
+
+}
+
+
+
 #' Retrieve Facsimile
 #'
 #' @description Retrieves Call Report or UBPR facsimile data from the FFIEC
