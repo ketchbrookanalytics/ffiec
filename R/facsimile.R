@@ -180,71 +180,37 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   )
 
   endpoint <- "RetrieveUBPRXBRLFacsimile"
-  url <- paste0(base_url, endpoint)
   fi_id_type <- match.arg(fi_id_type)
 
-  # Build the request following the API specification
-  req <- httr2::request(url) |>
-    httr2::req_method("GET") |>
-    httr2::req_headers(
-      "Content-Type" = "application/json",
-      "UserID" = user_id,
-      "Authentication" = paste0("Bearer ", bearer_token),
-      "reportingPeriodEndDate" = reporting_period_end_date,
-      "fiIdType" = fi_id_type,
-      "fiId" = as.character(fi_id)
-    ) |>
-    httr2::req_error(body = ffiec_error_message) |>
-    httr2::req_user_agent(
-      "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+  # Create a data frame of report dates and institution ids to interate over
+  req_df <- expand.grid(
+    reporting_period_end_date = reporting_period_end_date,
+    fi_id = fi_id
+  )
+
+  # Build the request(s) following the API specification
+  req <- req_df |>
+    purrr::pmap(
+      \(reporting_period_end_date, fi_id) {
+        get_ffiec(
+          endpoint = endpoint,
+          user_id = user_id,
+          bearer_token = bearer_token,
+          reporting_period_end_date = reporting_period_end_date,
+          fi_id_type = fi_id_type,
+          fi_id = as.character(fi_id)
+        )
+      }
     )
 
-  # Perform the request and collect the raw response that can be decoded into
-  # semicolon-delimited data
-  resp <- req |>
-    httr2::req_perform() |>
-    httr2::resp_body_string() |>
-    jsonlite::base64_dec() |>
-    rawToChar()
+  # Perform the request(s) and collect the raw response(s) that can be decoded
+  # into semicolon-delimited data
+  resp <- purrr::map(req, .f = collect_response)
 
-  # Read the raw response into a formal XML document
-  resp <- xml2::read_xml(resp)
+  # Read the raw file(s) (XML) into a tibble
+  resp <- purrr::map(resp, .f = process_ubpr_response) |>
+    dplyr::bind_rows()
 
-  # Filter to just the UBPR tabular data
-  resp <- xml2::xml_find_all(resp, ".//uc:* | .//cc:*")
-
-  # Read the raw file (semicolon-delimited data) into a tibble
-  df <- tibble::tibble(
-    Metric = xml2::xml_name(resp),
-    Context = xml2::xml_attr(resp, "contextRef"),
-    Unit = xml2::xml_attr(resp, "unitRef"),
-    Decimals = xml2::xml_attr(resp, "decimals"),
-    Value = xml2::xml_text(resp)
-  ) |>
-    dplyr::distinct() |>   # remove completely duplicated rows
-    dplyr::mutate(
-      ContextList = stringr::str_split(
-        string = .data[["Context"]],
-        patter = "_",
-        n = 3L
-      ),
-      ID_RSSD = purrr::map_chr(.data[["ContextList"]], ~ .x[2]),
-      Quarter = purrr::map_chr(.data[["ContextList"]], ~ .x[3]) |> as.Date(),
-      data_type = dplyr::case_when(
-        Decimals == "0" ~ "integer",
-        is.na(Decimals) ~ "character",
-        .default = "double"
-      )
-    ) |>
-    dplyr::select(
-      "ID_RSSD",
-      "Quarter",
-      "Metric",
-      "Unit",
-      "Decimals",
-      "Value"
-    )
-
-  return(df)
+  return(resp)
 
 }
