@@ -126,8 +126,6 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   )
 
   endpoint <- "RetrieveFacsimile"
-  url <- paste0(base_url, endpoint)
-  data_series <- "Call"
   fi_id_type <- match.arg(fi_id_type)
 
   # Create the request grid to iterate over
@@ -140,64 +138,25 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   req <- req_grid |>
     purrr::map(
       \(reporting_period_end_date, fi_id) {
-        httr2::request(url) |>
-          httr2::req_method("GET") |>
-          httr2::req_headers(
-            "Content-Type" = "application/json",
-            "UserID" = user_id,
-            "Authentication" = paste0("Bearer ", bearer_token),
-            "dataSeries" = data_series,
-            "reportingPeriodEndDate" = reporting_period_end_date,
-            "fiIdType" = fi_id_type,
-            "fiId" = as.character(fi_id),
-            "facsimileFormat" = "SDF"
-          ) |>
-          httr2::req_error(body = ffiec_error_message) |>
-          httr2::req_user_agent(
-            "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
-          )
+        get_ffiec(
+          endpoint = endpoint,
+          user_id = user_id,
+          bearer_token = bearer_token,
+          reporting_period_end_date = reporting_period_end_date,
+          fi_id_type = fi_id_type,
+          fi_id = as.character(fi_id),
+          data_series = "Call",
+          facsimile_format = "SDF"
+        )
       }
     )
 
   # Perform the request(s) and collect the raw response(s) that can be decoded
   # into semicolon-delimited data
-  resp <- req |>
-    purrr::map(
-      \(req) {
-        httr2::req_perform() |>
-          httr2::resp_body_string() |>
-          jsonlite::base64_dec() |>
-          rawToChar()
-      }
-    )
+  resp <- purrr::map(req, .f = collect_response(.x, decode = TRUE))
 
   # Read the raw file(s) (semicolon-delimited data) into a tibble
-  resp <- resp |>
-    purrr::map(
-      \(resp) {
-        read.delim(
-          file = textConnection(resp),
-          sep = ";",
-          col.names = c(
-            "CallDate",
-            "BankRSSDIdentifier",
-            "MDRM",
-            "Value",
-            "LastUpdate",
-            "ShortDefinition",
-            "CallSchedule",
-            "LineNumber"
-          )
-        ) |>
-          tibble::as_tibble() |>
-          dplyr::mutate(
-            dplyr::across(
-              .cols = c("CallDate", "LastUpdate"),
-              .fns = ~ as.Date(as.character(.x), format = "%Y%m%d")
-            )
-          )
-      }
-    ) |>
+  resp <- purrr::map(resp, .f = process_facsimile_response) |>
     dplyr::bind_rows()
 
   return(resp)
