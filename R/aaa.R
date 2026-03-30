@@ -59,21 +59,25 @@ no_creds_available <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 
 
 
-#' Define an extensible HTTP request to obtain data from the FFIEC API
+#' Create an extensible HTTP request to obtain data from the FFIEC API
 #'
 #' @description Defines the base requirements to request data from the
-#' FFIEC API. Allows for additional headers to be passed via `...`.
+#' FFIEC API.
 #'
 #' @inheritParams no_creds_available
 #' @param endpoint (String) The API endpoint to query
 #' @param req_method (String) The API request method
 #' @param content_type (String) The API request format
-#' @param ... Other request headers to pass to [httr2::req_headers()]
+#' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Other request headers to pass
 #'
 #' @return An HTTP request via [httr2::request()].
 #'
-#' @details Additional headers are converted to camel case due to API
-#'   specification.
+#' @references
+#' <https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
+#'
+#' @details Additional headers are converted to camel case (per API spec)
+#'   and spliced into `httr2::req_headers()` (if provided).
+#' @details Requests throttled at maximum of 2,400 per hour (per API spec)
 #' @details Intended for internal use.
 #'
 #' @export
@@ -86,11 +90,16 @@ get_ffiec <- function(endpoint,
 
   url <- paste0(base_url, endpoint)
 
-  headers <- list(
+  headers <- rlang::list2(
     ...
   )
 
-  names(headers) <- stringr::str_to_camel(names(headers))
+  # If headers are passed, convert to camel case
+  if (length(headers) > 0) {
+    names(headers) <- stringr::str_to_camel(names(headers))
+  } else {
+    headers <- NULL
+  }
 
   req <- httr2::request(url) |>
     httr2::req_method(req_method) |>
@@ -103,6 +112,10 @@ get_ffiec <- function(endpoint,
     httr2::req_error(body = ffiec_error_message) |>
     httr2::req_user_agent(
       "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+    ) |>
+    httr2::req_throttle(
+      capacity = 40,
+      fill_time_s = 60
     )
 
   return(req)
