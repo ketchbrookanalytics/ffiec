@@ -36,7 +36,7 @@ returned as such).
 \description{
 Retrieves filer information from the FFIEC Central Data
 Repository API for the ID RSSDs and submission date and time of the reporters
-who have filed after the provided `last_update_date_time`` and whose new
+who have filed after the provided \code{last_update_date_time} and whose new
 filings are available for public distribution.
 }
 \details{
