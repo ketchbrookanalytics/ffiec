@@ -57,8 +57,6 @@ no_creds_available <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 
 }
 
-
-
 #' Create an extensible HTTP request to obtain data from the FFIEC API
 #'
 #' @description Defines the base requirements to request data from the
@@ -121,8 +119,6 @@ get_ffiec <- function(endpoint,
   return(req)
 
 }
-
-
 
 #' Perform, collect, and parse an HTTP response
 #'
