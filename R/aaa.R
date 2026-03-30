@@ -78,7 +78,7 @@ no_creds_available <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 #' @details Requests throttled at maximum of 2,400 per hour (per API spec)
 #' @details Intended for internal use.
 #'
-#' @export
+#' @noRd
 get_ffiec <- function(endpoint,
                       user_id,
                       bearer_token,
@@ -136,7 +136,7 @@ get_ffiec <- function(endpoint,
 #'
 #' @details Intended for internal use.
 #'
-#' @export
+#' @noRd
 collect_response <- function(req, decode = FALSE) {
   resp <- req |>
     httr2::req_perform()
