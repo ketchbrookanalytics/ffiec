@@ -33,6 +33,11 @@ get_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                   bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
                                   as_data_frame = FALSE) {
 
+  check_empty_creds(
+    user_id = user_id,
+    bearer_token = bearer_token
+  )
+
   endpoint <- "RetrieveReportingPeriods"
 
   # Build the request(s) following the API specification
@@ -64,6 +69,11 @@ get_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 get_ubpr_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
                                        bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
                                        as_data_frame = FALSE) {
+
+  check_empty_creds(
+    user_id = user_id,
+    bearer_token = bearer_token
+  )
 
   endpoint <- "RetrieveUBPRReportingPeriods"
 
