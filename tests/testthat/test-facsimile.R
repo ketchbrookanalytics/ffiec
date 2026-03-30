@@ -107,6 +107,45 @@ if (!no_creds_available()) {
 
 
 
+  test_that("`get_facsimile()` allows more than one reporting period", {
+
+    reporting_periods <- c("03/31/2025", "06/30/2025")
+
+    out_w_multi_report_period <- get_facsimile(
+      reporting_period_end_date = reporting_periods,
+      fi_id = 480228
+    )
+
+    expect_equal(
+      out_w_multi_report_period$CallDate |>
+        unique() |>
+        length(),
+      length(reporting_periods)
+    )
+
+  })
+
+
+  test_that("`get_facsimile()` allows more than one institution identifier", {
+
+    institution_ids <- c(480228, 783648)
+
+    out_w_multi_inst_ids <- get_facsimile(
+      reporting_period_end_date = "03/31/2025",
+      fi_id = institution_ids
+    )
+
+    expect_equal(
+      out_w_multi_inst_ids$BankRSSDIdentifier |>
+        unique() |>
+        length(),
+      length(institution_ids)
+    )
+
+  })
+
+
+
   # Tests for `get_ubpr_facsimile()`
 
   # Store an example (successful) result for testing
@@ -206,6 +245,57 @@ if (!no_creds_available()) {
     expect_identical(
       out,
       out_w_fdic_cert_number
+    )
+
+  })
+
+
+
+  test_that("`get_ubpr_facsimile()` allows more than one reporting period", {
+
+    fi_id = 480228
+    reporting_periods = c("03/31/2025", "06/30/2025")
+
+    out_period_one <- get_ubpr_facsimile(
+      reporting_period_end_date = reporting_periods[1],
+      fi_id = fi_id
+    )
+
+    out_period_two <- get_ubpr_facsimile(
+      reporting_period_end_date = reporting_periods[2],
+      fi_id = fi_id
+    )
+
+    out_w_multi_report_period <- get_ubpr_facsimile(
+      reporting_period_end_date = reporting_periods,
+      fi_id = fi_id
+    )
+
+    expect_identical(
+      rbind(
+        out_period_one,
+        out_period_two
+      ),
+      out_w_multi_report_period
+    )
+
+  })
+
+
+  test_that("`get_ubpr_facsimile()` allows more than one institution identifier", {
+
+    institution_ids <- c(480228, 783648)
+
+    out_w_multi_inst_ids <- get_ubpr_facsimile(
+      reporting_period_end_date = "03/31/2025",
+      fi_id = institution_ids
+    )
+
+    expect_equal(
+      out_w_multi_inst_ids$ID_RSSD |>
+        unique() |>
+        length(),
+      length(institution_ids)
     )
 
   })
