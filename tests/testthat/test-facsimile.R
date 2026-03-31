@@ -107,6 +107,18 @@ if (!no_creds_available()) {
 
 
 
+  test_that("`get_facsimile()` accepts Date objects for `reporting_period_end_date`", {
+
+    out_date <- get_facsimile(
+      reporting_period_end_date = as.Date("2025-03-31"),
+      fi_id = 480228
+    )
+
+    expect_identical(out, out_date)
+
+  })
+
+
   test_that("`get_facsimile()` allows more than one reporting period", {
 
     reporting_periods <- c("03/31/2025", "06/30/2025")
@@ -249,6 +261,18 @@ if (!no_creds_available()) {
 
   })
 
+
+
+  test_that("`get_ubpr_facsimile()` accepts Date objects for `reporting_period_end_date`", {
+
+    out_date <- get_ubpr_facsimile(
+      reporting_period_end_date = as.Date("2025-03-31"),
+      fi_id = 480228
+    )
+
+    expect_identical(out, out_date)
+
+  })
 
 
   test_that("`get_ubpr_facsimile()` allows more than one reporting period", {
