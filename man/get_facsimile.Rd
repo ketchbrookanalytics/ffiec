@@ -27,8 +27,10 @@ get_ubpr_facsimile(
 \item{bearer_token}{(String) The Bearer Token for authenticating against the
 FFIEC API}
 
-\item{reporting_period_end_date}{(String or character vector) One or more
-reporting period end dates, formatted as "MM/DD/YYYY"}
+\item{reporting_period_end_date}{(String, character vector, Date, or Date
+vector) One or more reporting period end dates. Character values must be
+formatted as "MM/DD/YYYY". Date objects are also accepted and will be
+coerced to the required format automatically.}
 
 \item{fi_id_type}{(String) The type of identifier being provided; one of
 \code{c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")};
@@ -66,10 +68,10 @@ if (!no_creds_available()) {
   )
 
   # Retrieve facsimile data for reporting periods 2025-03-31 and 2025-06-30
-  # for institutions with ID RSSD of "783648" and "562058"
+  # for institutions with ID RSSD of "480228" and "451965"
   get_facsimile(
     reporting_period_end_date = c("03/31/2025", "06/30/2025"),
-    fi_id = c("783648", "562058")
+    fi_id = c("480228", "451965")
   )
 
   # Retrieve UBPR data for reporting periods 2025-03-31 and 2025-06-30
