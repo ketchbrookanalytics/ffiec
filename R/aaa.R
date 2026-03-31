@@ -57,6 +57,37 @@ no_creds_available <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 
 }
 
+#' Validate and coerce `reporting_period_end_date` to MM/DD/YYYY character
+#' @noRd
+check_report_dates <- function(reporting_period_end_date) {
+
+  if (inherits(reporting_period_end_date, "Date")) {
+    return(format(reporting_period_end_date, "%m/%d/%Y"))
+  }
+
+  if (is.character(reporting_period_end_date)) {
+    valid <- grepl("^\\d{2}/\\d{2}/\\d{4}$", reporting_period_end_date)
+    if (!all(valid)) {
+      cli::cli_abort(
+        paste(
+          "`reporting_period_end_date` values provided as character strings",
+          "must be formatted as \"MM/DD/YYYY\" (e.g., \"03/31/2025\")."
+        )
+      )
+    }
+    return(reporting_period_end_date)
+  }
+
+  cli::cli_abort(
+    paste(
+      "`reporting_period_end_date` must be a character string formatted as",
+      "\"MM/DD/YYYY\" or a Date object."
+    )
+  )
+
+}
+
+
 #' Create an extensible HTTP request to obtain data from the FFIEC API
 #'
 #' @description Defines the base requirements to request data from the
@@ -76,7 +107,6 @@ no_creds_available <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 #' @details Additional headers are converted to camel case (per API spec)
 #'   and spliced into `httr2::req_headers()` (if provided).
 #' @details Requests throttled at maximum of 2,400 per hour (per API spec)
-#' @details Intended for internal use.
 #'
 #' @noRd
 get_ffiec <- function(endpoint,
@@ -133,8 +163,6 @@ get_ffiec <- function(endpoint,
 #' @return A list containing the parsed JSON response from the API.
 #'   If `decode = TRUE`, then the response body is decoded and converted to a
 #'   character string.
-#'
-#' @details Intended for internal use.
 #'
 #' @noRd
 collect_response <- function(req, decode = FALSE) {
