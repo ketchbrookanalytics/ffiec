@@ -119,10 +119,10 @@ process_ubpr_response <- function(resp) {
 #'   )
 #'
 #'   # Retrieve facsimile data for reporting periods 2025-03-31 and 2025-06-30
-#'   # for institutions with ID RSSD of "783648" and "562058"
+#'   # for institutions with ID RSSD of "480228" and "451965"
 #'   get_facsimile(
 #'     reporting_period_end_date = c("03/31/2025", "06/30/2025"),
-#'     fi_id = c("783648", "562058")
+#'     fi_id = c("480228", "451965")
 #'   )
 #'
 #'   # Retrieve UBPR data for reporting periods 2025-03-31 and 2025-06-30
