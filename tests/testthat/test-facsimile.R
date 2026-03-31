@@ -140,7 +140,7 @@ if (!no_creds_available()) {
 
   test_that("`get_facsimile()` allows more than one institution identifier", {
 
-    institution_ids <- c(480228, 783648)
+    institution_ids <- c(480228, 451965)
 
     out_w_multi_inst_ids <- get_facsimile(
       reporting_period_end_date = "03/31/2025",
@@ -308,7 +308,7 @@ if (!no_creds_available()) {
 
   test_that("`get_ubpr_facsimile()` allows more than one institution identifier", {
 
-    institution_ids <- c(480228, 783648)
+    institution_ids <- c(480228, 451965)
 
     out_w_multi_inst_ids <- get_ubpr_facsimile(
       reporting_period_end_date = "03/31/2025",
