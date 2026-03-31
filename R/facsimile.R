@@ -53,7 +53,7 @@ process_ubpr_response <- function(resp) {
     dplyr::mutate(
       ContextList = stringr::str_split(
         string = .data[["Context"]],
-        patter = "_",
+        pattern = "_",
         n = 3L
       ),
       ID_RSSD = purrr::map_chr(.data[["ContextList"]], ~ .x[2]),
@@ -111,7 +111,7 @@ process_ubpr_response <- function(resp) {
 #'   )
 #'
 #'   # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
-#'   # instutition with FDIC Cert Number "3510"
+#'   # institution with FDIC Cert Number "3510"
 #'   get_ubpr_facsimile(
 #'     reporting_period_end_date = "03/31/2025",
 #'     fi_id_type = "FDICCertNumber",
@@ -148,7 +148,7 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   endpoint <- "RetrieveFacsimile"
   fi_id_type <- match.arg(fi_id_type)
 
-  # Create a data frame of report dates and institution IDs to interate over
+  # Create a data frame of report dates and institution IDs to iterate over
   req_df <- expand.grid(
     reporting_period_end_date = reporting_period_end_date,
     fi_id = fi_id
@@ -208,7 +208,7 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   endpoint <- "RetrieveUBPRXBRLFacsimile"
   fi_id_type <- match.arg(fi_id_type)
 
-  # Create a data frame of report dates and institution IDs to interate over
+  # Create a data frame of report dates and institution IDs to iterate over
   req_df <- expand.grid(
     reporting_period_end_date = reporting_period_end_date,
     fi_id = fi_id

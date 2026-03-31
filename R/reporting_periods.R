@@ -1,7 +1,7 @@
 #' Retrieve Reporting Periods
 #'
 #' @description Retrieves Call Report or UBPR filer information from the FFIEC
-#' Central Data Repository API for available reporating periods.
+#' Central Data Repository API for available reporting periods.
 #'
 #' @inheritParams no_creds_available
 #' @param as_data_frame (Logical) Should the result be returned as a tibble?

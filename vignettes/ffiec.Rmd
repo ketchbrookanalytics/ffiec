@@ -30,7 +30,7 @@ This package attempts to offer a convenient interface to interact with the Centr
 
 ## Getting Started
 
-If you haven't done so already, install {ffiec} and create an account through the FFIEC's Web Serivce portal using the instructions in the [README section](https://ketchbrookanalytics.github.io/ffiec/#installation).
+If you haven't done so already, install {ffiec} and create an account through the FFIEC's Web Service portal using the instructions in the [README section](https://ketchbrookanalytics.github.io/ffiec/#installation).
 
 With your username and password from the FFIEC's Web Service portal in-hand (either stored as environment variables or ready to be passed as function arguments), load the package using `library()`.
 
