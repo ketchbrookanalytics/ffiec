@@ -3,3 +3,4 @@
 scratch.R
 *.xml
 docs
+inst/doc
