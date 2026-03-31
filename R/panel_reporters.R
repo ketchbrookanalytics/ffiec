@@ -5,8 +5,9 @@
 #' expected to file for a given Call reporting period.
 #'
 #' @inheritParams no_creds_available
-#' @param reporting_period_end_date (String) The reporting period end date,
-#'   formatted as "MM/DD/YYYY".
+#' @param reporting_period_end_date (String or Date) The reporting period end
+#'   date. Character values must be formatted as "MM/DD/YYYY". Date objects are
+#'   also accepted and will be coerced to the required format automatically.
 #' @param as_data_frame (Logical) Should the result be returned as a tibble?
 #'   Default is `TRUE`.
 #'
@@ -48,6 +49,8 @@ get_panel_of_reporters <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
     user_id = user_id,
     bearer_token = bearer_token
   )
+
+  reporting_period_end_date <- check_report_dates(reporting_period_end_date)
 
   endpoint <- "RetrievePanelOfReporters"
 

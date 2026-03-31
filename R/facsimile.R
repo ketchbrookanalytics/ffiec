@@ -80,8 +80,10 @@ process_ubpr_response <- function(resp) {
 #' Central Data Repository API for the requested financial institution.
 #'
 #' @inheritParams no_creds_available
-#' @param reporting_period_end_date (String or character vector) One or more
-#'   reporting period end dates, formatted as "MM/DD/YYYY"
+#' @param reporting_period_end_date (String, character vector, Date, or Date
+#'   vector) One or more reporting period end dates. Character values must be
+#'   formatted as "MM/DD/YYYY". Date objects are also accepted and will be
+#'   coerced to the required format automatically.
 #' @param fi_id_type (String) The type of identifier being provided; one of
 #'   `c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`;
 #'   default is "ID_RSSD"
@@ -141,6 +143,8 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
     bearer_token = bearer_token
   )
 
+  reporting_period_end_date <- check_report_dates(reporting_period_end_date)
+
   endpoint <- "RetrieveFacsimile"
   fi_id_type <- match.arg(fi_id_type)
 
@@ -198,6 +202,8 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
     user_id = user_id,
     bearer_token = bearer_token
   )
+
+  reporting_period_end_date <- check_report_dates(reporting_period_end_date)
 
   endpoint <- "RetrieveUBPRXBRLFacsimile"
   fi_id_type <- match.arg(fi_id_type)
