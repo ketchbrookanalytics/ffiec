@@ -129,8 +129,6 @@ get_ffiec <- function(endpoint,
   # If headers are passed, convert to camel case
   if (length(headers) > 0) {
     names(headers) <- stringr::str_to_camel(names(headers))
-  } else {
-    headers <- NULL
   }
 
   req <- httr2::request(url) |>
