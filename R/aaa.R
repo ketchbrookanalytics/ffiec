@@ -107,6 +107,10 @@ check_report_dates <- function(reporting_period_end_date) {
 #' @details Additional headers are converted to camel case (per API spec)
 #'   and spliced into `httr2::req_headers()` (if provided).
 #' @details Requests throttled at maximum of 2,400 per hour (per API spec)
+#' @details We can't use `httr2::req_auth_bearer_token()` for passing the bearer
+#'   token because the API expects that header to be named "Authentication",
+#'   while the `httr2::req_auth_bearer_token()` function hardcodes the header
+#'   name as "Authorization".
 #'
 #' @noRd
 get_ffiec <- function(endpoint,
@@ -131,10 +135,12 @@ get_ffiec <- function(endpoint,
 
   req <- httr2::request(url) |>
     httr2::req_method(req_method) |>
-    httr2::req_headers(
-      "Content-Type" = content_type,
+    httr2::req_headers_redacted(
       "UserID" = user_id,
       "Authentication" = paste0("Bearer ", bearer_token),
+    ) |>
+    httr2::req_headers(
+      "Content-Type" = content_type,
       !!!headers
     ) |>
     httr2::req_error(body = ffiec_error_message) |>
