@@ -112,7 +112,8 @@ if (!no_creds_available()) {
     out_date <- get_facsimile(
       reporting_period_end_date = as.Date("2025-03-31"),
       fi_id = 480228
-    )
+    ) |> 
+      suppressMessages()
 
     expect_identical(out, out_date)
 
@@ -268,7 +269,8 @@ if (!no_creds_available()) {
     out_date <- get_ubpr_facsimile(
       reporting_period_end_date = as.Date("2025-03-31"),
       fi_id = 480228
-    )
+    ) |>
+      suppressMessages()
 
     expect_identical(out, out_date)
 

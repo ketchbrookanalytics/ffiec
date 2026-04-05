@@ -61,29 +61,59 @@ no_creds_available <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
 #' @noRd
 check_report_dates <- function(reporting_period_end_date) {
 
+  # Convert `Date` objects to the character string format that the API asks for
   if (inherits(reporting_period_end_date, "Date")) {
-    return(format(reporting_period_end_date, "%m/%d/%Y"))
+    old <- reporting_period_end_date
+
+    # Coerce `Date` type values to `character` formatted for API
+    new <- format(reporting_period_end_date, "%m/%d/%Y")
+
+    # Show users the value-by-value conversions taking place
+    cli::cli_alert_info(
+      "Converting {.cls Date} values to {.val MM/DD/YYYY} character strings:"
+    )
+    bullets <- rlang::set_names(
+      x = paste(old, "\u2192", new),
+      rep("*", length(old))
+    )
+    cli::cli_bullets(bullets)
+
+    reporting_period_end_date <- new
   }
 
   if (is.character(reporting_period_end_date)) {
-    valid <- grepl("^\\d{2}/\\d{2}/\\d{4}$", reporting_period_end_date)
-    if (!all(valid)) {
-      cli::cli_abort(
-        paste(
-          "`reporting_period_end_date` values provided as character strings",
-          "must be formatted as \"MM/DD/YYYY\" (e.g., \"03/31/2025\")."
-        )
-      )
-    }
-    return(reporting_period_end_date)
-  }
 
-  cli::cli_abort(
-    paste(
-      "`reporting_period_end_date` must be a character string formatted as",
-      "\"MM/DD/YYYY\" or a Date object."
+    # Validate that each `reporting_period_end_date` value is correctly
+    # formatted
+    valid <- grepl("^\\d{2}/\\d{2}/\\d{4}$", reporting_period_end_date)
+    
+    # If there are incorrectly formatted `reporting_period_end_date` values,
+    # throw an error that calls out the invalid values
+    if (!all(valid)) {
+      invalid <- reporting_period_end_date[!valid]
+      msg <- paste(
+        "{.var reporting_period_end_date} values must be formatted as",
+        "{.val MM/DD/YYYY} (e.g., {.val 03/31/2025})."
+      )
+      bullets <- rlang::set_names(
+        x = invalid,
+        rep("*", length(invalid))
+      )
+      cli::cli_abort(c(
+        msg,
+        "i" = "The following values are formatted incorrectly:",
+        bullets
+      ))
+    } else {
+      return(reporting_period_end_date)
+    }
+  } else {
+    msg <- paste(
+      "{.var reporting_period_end_date} must be type {.cls Date}, or type",
+      "{.cls character} formatted as {.val MM/DD/YYYY}."
     )
-  )
+    cli::cli_abort(msg)
+  }
 
 }
 
