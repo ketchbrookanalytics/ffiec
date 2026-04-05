@@ -20,7 +20,7 @@ process_facsimile_response <- function(resp) {
     tibble::as_tibble() |>
     dplyr::mutate(
       dplyr::across(
-        .cols = c("CallDate", "LastUpdate"),
+        .cols = dplyr::all_of(c("CallDate", "LastUpdate")),
         .fns = ~ as.Date(as.character(.x), format = "%Y%m%d")
       )
     )
