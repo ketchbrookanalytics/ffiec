@@ -37,6 +37,49 @@ test_that("`check_empty_creds()` fails without creds set", {
 })
 
 
+test_that("`no_creds_available()` returns correct boolean", {
+
+  # Check empty strings
+  expect_true(
+    no_creds_available(
+      user_id = "     ",
+      bearer_token = "abc123"
+    )
+  )
+
+  expect_true(
+    no_creds_available(
+      user_id = "abc123",
+      bearer_token = "   "
+    )
+  )
+
+  # Check NULLs
+  expect_true(
+    no_creds_available(
+      user_id = NULL,
+      bearer_token = "abc123"
+    )
+  )
+
+  expect_true(
+    no_creds_available(
+      user_id = "abc123",
+      bearer_token = NULL
+    )
+  )
+
+  # Returns `FALSE` with non-empty creds 
+  expect_false(
+    no_creds_available(
+      user_id = "abc123",
+      bearer_token = "def456"
+    )
+  )
+
+})
+
+
 # Tests for `check_report_dates()`
 
 test_that("`check_report_dates()` handles a single valid Date", {
