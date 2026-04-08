@@ -1,3 +1,42 @@
+test_that("`check_empty_creds()` fails without creds set", {
+
+  # Check empty strings
+  expect_error(
+    check_empty_creds(
+      user_id = "     ",
+      bearer_token = "abc123"
+    ),
+    "`user_id` is missing"
+  )
+
+  expect_error(
+    check_empty_creds(
+      user_id = "abc123",
+      bearer_token = "   "
+    ),
+    "`bearer_token` is missing"
+  )
+
+  # Check NULLs
+  expect_error(
+    check_empty_creds(
+      user_id = NULL,
+      bearer_token = "abc123"
+    ),
+    "`user_id` is missing"
+  )
+
+  expect_error(
+    check_empty_creds(
+      user_id = "abc123",
+      bearer_token = NULL
+    ),
+    "`bearer_token` is missing"
+  )
+
+})
+
+
 # Tests for `check_report_dates()`
 
 test_that("`check_report_dates()` handles a single valid Date", {
