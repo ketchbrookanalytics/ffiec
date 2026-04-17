@@ -6,7 +6,7 @@
         // https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
         "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
             "packages": "qpdf"
-    },
+        },
 
         // https://github.com/rocker-org/devcontainer-features/tree/main/src/r-packages
         "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
@@ -19,11 +19,13 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "REditorSupport.r",
-                "RDebugger.r-debugger"
+                "Anthropic.claude-code",
+                "RDebugger.r-debugger",
+                "REditorSupport.r"
             ],
             "settings": {
                 "editor.rulers": [80],
+                "files.useExperimentalFileWatcher": true,
                 "r.bracketedPaste": true,
                 "r.plot.useHttpgd": true
             }

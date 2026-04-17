@@ -6,6 +6,7 @@
 ^pkgdown$
 ^\.github$
 ^\.devcontainer$
+^\.claude$
 ^reference$
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
