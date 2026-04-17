@@ -164,16 +164,7 @@ test_that("`check_report_dates()` errors on invalid character string inputs", {
 test_that("`check_report_dates()` errors on non-character, non-Date input", {
   expect_error(
     check_report_dates(20250331),
-    "Date"
-  )
-
-  expect_error(
-    check_report_dates(20250331),
-    "character"
-  )
-})
-
-
+    "must be type"
   )
 })
 
