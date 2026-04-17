@@ -261,3 +261,40 @@ test_that("`get_ffiec()` converts extra header names to camelCase", {
   expect_false("my_custom_header" %in% header_names)
 
 })
+
+
+test_that("`collect_response()` returns the appropriate object type", {
+
+  # Returns a parsed list when `decode = FALSE`
+  mock_body <- list(foo = "bar", baz = 123L)
+
+  result <- httr2::with_mocked_responses(
+    list(httr2::response(
+      status_code = 200,
+      headers = list("Content-Type" = "application/json"),
+      body = charToRaw(jsonlite::toJSON(mock_body, auto_unbox = TRUE))
+    )),
+    collect_response(req, decode = FALSE)
+  )
+
+  expect_type(result, "list")
+  expect_identical(result$foo, "bar")
+  expect_identical(result$baz, 123L)
+
+
+  # Returns a character string when `decode = TRUE`
+  original <- "hello world"
+  encoded_body <- jsonlite::base64_enc(charToRaw(original))
+
+  result <- httr2::with_mocked_responses(
+    list(httr2::response(
+      status_code = 200,
+      body = charToRaw(encoded_body)
+    )),
+    collect_response(req, decode = TRUE)
+  )
+
+  expect_type(result, "character")
+  expect_identical(result, original)
+
+})
