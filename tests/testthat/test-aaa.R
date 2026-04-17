@@ -34,6 +34,14 @@ test_that("`check_empty_creds()` fails without creds set", {
     "`bearer_token` is missing"
   )
 
+  # Silent when non-empty creds are supplied to both args
+  expect_silent(
+    check_empty_creds(
+      user_id = "abc123",
+      bearer_token = "def456"
+    )
+  )
+
 })
 
 
