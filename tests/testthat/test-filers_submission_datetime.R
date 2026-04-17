@@ -1,5 +1,4 @@
 if (!no_creds_available()) {
-
   # Return the results as a tibble
   out_df <- get_filers_submission_datetime(
     reporting_period_end_date = "03/31/2025",
@@ -14,7 +13,6 @@ if (!no_creds_available()) {
   )
 
   test_that("`get_facsimile()` throws an error with empty creds", {
-
     expect_error(
       get_filers_submission_datetime(
         user_id = NULL,
@@ -52,13 +50,9 @@ if (!no_creds_available()) {
       ),
       "`bearer_token` is missing"
     )
-
   })
 
-
-
   test_that("`get_filers_submission_datetime()` returns correct output type", {
-
     # list
     expect_true(
       inherits(out_list, "list")
@@ -76,13 +70,9 @@ if (!no_creds_available()) {
     expect_true(
       inherits(out_df, "data.frame")
     )
-
   })
 
-
-
   test_that("`get_filers_submission_datetime()` returns expected names", {
-
     expected_col_names <- c(
       "ID_RSSD",
       "DateTime"
@@ -92,7 +82,5 @@ if (!no_creds_available()) {
       colnames(out_df),
       expected_col_names
     )
-
   })
-
 }

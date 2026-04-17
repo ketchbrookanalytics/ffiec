@@ -27,15 +27,17 @@ get_ubpr_facsimile(
 \item{bearer_token}{(String) The Bearer Token for authenticating against the
 FFIEC API}
 
-\item{reporting_period_end_date}{(String) The reporting period end date,
-formatted as "MM/DD/YYYY"}
+\item{reporting_period_end_date}{(String, character vector, Date, or Date
+vector) One or more reporting period end dates. Character values must be
+formatted as "MM/DD/YYYY". Date objects are also accepted and will be
+coerced to the required format automatically.}
 
 \item{fi_id_type}{(String) The type of identifier being provided; one of
 \code{c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")};
 default is "ID_RSSD"}
 
-\item{fi_id}{(String) The financial institution's identifier (can also be
-supplied as an integer instead of a string)}
+\item{fi_id}{(String or character vector) One or more financial institution
+identifiers (can also be supplied as an integer vector)}
 }
 \value{
 A tibble containing the facsimile data.
@@ -58,11 +60,25 @@ if (!no_creds_available()) {
   )
 
   # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
-  # instutition with FDIC Cert Number "3510"
+  # institution with FDIC Cert Number "3510"
   get_ubpr_facsimile(
     reporting_period_end_date = "03/31/2025",
     fi_id_type = "FDICCertNumber",
     fi_id = "3510"
+  )
+
+  # Retrieve facsimile data for reporting periods 2025-03-31 and 2025-06-30
+  # for institutions with ID RSSD of "480228" and "451965"
+  get_facsimile(
+    reporting_period_end_date = c("03/31/2025", "06/30/2025"),
+    fi_id = c("480228", "451965")
+  )
+
+  # Retrieve UBPR data for reporting periods 2025-03-31 and 2025-06-30
+  # for institution with ID RSSD of "480228"
+  get_ubpr_facsimile(
+    reporting_period_end_date = c("03/31/2025", "06/30/2025"),
+    fi_id = 480228
   )
 }
 }

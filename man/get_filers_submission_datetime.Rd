@@ -18,8 +18,9 @@ get_filers_submission_datetime(
 \item{bearer_token}{(String) The Bearer Token for authenticating against the
 FFIEC API}
 
-\item{reporting_period_end_date}{(String) The reporting period end date,
-formatted as "MM/DD/YYYY".}
+\item{reporting_period_end_date}{(String or Date) The reporting period end
+date. Character values must be formatted as "MM/DD/YYYY". Date objects are
+also accepted and will be coerced to the required format automatically.}
 
 \item{last_update_date_time}{(String) Filter for records updated
 since this date/time. See \code{Details} for formatting options.}
@@ -36,7 +37,7 @@ returned as such).
 \description{
 Retrieves filer information from the FFIEC Central Data
 Repository API for the ID RSSDs and submission date and time of the reporters
-who have filed after the provided `last_update_date_time`` and whose new
+who have filed after the provided \code{last_update_date_time} and whose new
 filings are available for public distribution.
 }
 \details{

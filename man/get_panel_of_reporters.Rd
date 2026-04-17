@@ -17,8 +17,9 @@ get_panel_of_reporters(
 \item{bearer_token}{(String) The Bearer Token for authenticating against the
 FFIEC API}
 
-\item{reporting_period_end_date}{(String) The reporting period end date,
-formatted as "MM/DD/YYYY".}
+\item{reporting_period_end_date}{(String or Date) The reporting period end
+date. Character values must be formatted as "MM/DD/YYYY". Date objects are
+also accepted and will be coerced to the required format automatically.}
 
 \item{as_data_frame}{(Logical) Should the result be returned as a tibble?
 Default is \code{TRUE}.}
