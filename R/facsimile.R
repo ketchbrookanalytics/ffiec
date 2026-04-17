@@ -41,7 +41,7 @@ process_ubpr_response <- function(resp) {
   # Filter to just the UBPR tabular data
   resp <- xml2::xml_find_all(resp, ".//uc:* | .//cc:*")
 
-  # Read the raw file (semicolon-delimited data) into a tibble
+  # Read the raw XML into a tibble
   df <- tibble::tibble(
     Metric = xml2::xml_name(resp),
     Context = xml2::xml_attr(resp, "contextRef"),
@@ -238,7 +238,7 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
       }
     )
 
-  # Read the raw file(s) (XML) into a tibble
+  # Read the XML data into a single tibble
   resp <- purrr::map(resp, .f = process_ubpr_response) |>
     dplyr::bind_rows()
 
