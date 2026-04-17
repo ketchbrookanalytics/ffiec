@@ -39,8 +39,8 @@ check_empty_creds <- function(user_id, bearer_token) {
 #' @param bearer_token (String) The Bearer Token for authenticating against the
 #'   FFIEC API
 #'
-#' @return (Logical) `FALSE` if a valid `user_id` and `bearer_token` are
-#'   available; otherwise `TRUE`.
+#' @return (Logical) `FALSE` if a non-empty `user_id` and `bearer_token` have
+#'   been supplied; otherwise `TRUE`.
 #'
 #' @details Intended for internal use.
 #'
