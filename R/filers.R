@@ -51,12 +51,13 @@
 #'     as_data_frame = TRUE
 #'   )
 #' }
-get_filers_since_date <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                                  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                                  reporting_period_end_date,
-                                  last_update_date_time,
-                                  as_data_frame = FALSE) {
-
+get_filers_since_date <- function(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  reporting_period_end_date,
+  last_update_date_time,
+  as_data_frame = FALSE
+) {
   check_empty_creds(
     user_id = user_id,
     bearer_token = bearer_token
@@ -87,5 +88,4 @@ get_filers_since_date <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   }
 
   return(resp)
-
 }

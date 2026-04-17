@@ -26,7 +26,6 @@ process_facsimile_response <- function(resp) {
     )
 
   return(df)
-
 }
 
 
@@ -49,7 +48,7 @@ process_ubpr_response <- function(resp) {
     Decimals = xml2::xml_attr(resp, "decimals"),
     Value = xml2::xml_text(resp)
   ) |>
-    dplyr::distinct() |>   # remove completely duplicated rows
+    dplyr::distinct() |> # remove completely duplicated rows
     dplyr::mutate(
       ContextList = stringr::str_split(
         string = .data[["Context"]],
@@ -69,9 +68,7 @@ process_ubpr_response <- function(resp) {
     )
 
   return(df)
-
 }
-
 
 
 #' Retrieve Facsimile
@@ -132,12 +129,18 @@ process_ubpr_response <- function(resp) {
 #'     fi_id = 480228
 #'   )
 #' }
-get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                          bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                          reporting_period_end_date,
-                          fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
-                          fi_id) {
-
+get_facsimile <- function(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  reporting_period_end_date,
+  fi_id_type = c(
+    "ID_RSSD",
+    "FDICCertNumber",
+    "OCCChartNumber",
+    "OTSDockNumber"
+  ),
+  fi_id
+) {
   check_empty_creds(
     user_id = user_id,
     bearer_token = bearer_token
@@ -180,24 +183,28 @@ get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
       }
     )
 
-  # Read the raw file(s) (semicolon-delimited data) into a tibble
+  # Read the raw file(s) (semicolon-delimited data) into a single tibble
   resp <- purrr::map(resp, .f = process_facsimile_response) |>
     dplyr::bind_rows()
 
   return(resp)
-
 }
-
 
 
 #' @rdname get_facsimile
 #' @export
-get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                               bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                               reporting_period_end_date,
-                               fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
-                               fi_id) {
-
+get_ubpr_facsimile <- function(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  reporting_period_end_date,
+  fi_id_type = c(
+    "ID_RSSD",
+    "FDICCertNumber",
+    "OCCChartNumber",
+    "OTSDockNumber"
+  ),
+  fi_id
+) {
   check_empty_creds(
     user_id = user_id,
     bearer_token = bearer_token
@@ -229,8 +236,7 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
       }
     )
 
-  # Perform the request(s) and collect the raw response(s) that can be decoded
-  # into semicolon-delimited data
+  # Perform the request(s) and collect the raw XML response(s)
   resp <- req |>
     purrr::map(
       .f = function(x) {
@@ -243,5 +249,4 @@ get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
     dplyr::bind_rows()
 
   return(resp)
-
 }

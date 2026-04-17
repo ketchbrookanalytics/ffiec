@@ -1,7 +1,6 @@
 # `get_reporting_periods()` tests
 
 if (!no_creds_available()) {
-
   # Return the results as a tibble
   out_list <- get_reporting_periods()
 
@@ -9,7 +8,6 @@ if (!no_creds_available()) {
   out_df <- get_reporting_periods(as_data_frame = TRUE)
 
   test_that("`get_reporting_periods()` throws an error with empty creds", {
-
     expect_error(
       get_reporting_periods(
         user_id = NULL,
@@ -39,13 +37,9 @@ if (!no_creds_available()) {
       ),
       "`bearer_token` is missing"
     )
-
   })
 
-
-
   test_that("`get_reporting_periods()` returns correct output type", {
-
     # list
     expect_true(
       inherits(out_list, "list")
@@ -63,21 +57,14 @@ if (!no_creds_available()) {
     expect_true(
       inherits(out_df, "data.frame")
     )
-
   })
 
-
-
   test_that("`get_reporting_periods()` returns expected names", {
-
     expect_identical(
       colnames(out_df),
       "ReportingPeriod"
     )
-
   })
-
-
 
   # `get_ubpr_reporting_periods()` tests
 
@@ -88,7 +75,6 @@ if (!no_creds_available()) {
   out_df <- get_ubpr_reporting_periods(as_data_frame = TRUE)
 
   test_that("`get_ubpr_reporting_periods()` returns correct output type", {
-
     # list
     expect_true(
       inherits(out_list, "list")
@@ -106,18 +92,12 @@ if (!no_creds_available()) {
     expect_true(
       inherits(out_df, "data.frame")
     )
-
   })
 
-
-
   test_that("`get_ubpr_reporting_periods()` returns expected names", {
-
     expect_identical(
       colnames(out_df),
       "ReportingPeriod"
     )
-
   })
-
 }

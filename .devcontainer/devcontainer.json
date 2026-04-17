@@ -20,6 +20,7 @@
         "vscode": {
             "extensions": [
                 "Anthropic.claude-code",
+                "Posit.air-vscode",
                 "RDebugger.r-debugger",
                 "REditorSupport.r"
             ],
@@ -27,7 +28,15 @@
                 "editor.rulers": [80],
                 "files.useExperimentalFileWatcher": true,
                 "r.bracketedPaste": true,
-                "r.plot.useHttpgd": true
+                "r.plot.useHttpgd": true,
+                "[r]": {
+    			    "editor.formatOnSave": true,
+    			    "editor.defaultFormatter": "Posit.air-vscode"
+    			},
+    			"[quarto]": {
+    			    "editor.formatOnSave": true,
+    			    "editor.defaultFormatter": "quarto.quarto"
+    			}
             }
         }
     }

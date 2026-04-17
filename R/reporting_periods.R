@@ -29,10 +29,11 @@
 #'   # Retrieve UBPR reporting periods and return as a tibble
 #'   get_ubpr_reporting_periods(as_data_frame = TRUE)
 #' }
-get_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                                  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                                  as_data_frame = FALSE) {
-
+get_reporting_periods <- function(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  as_data_frame = FALSE
+) {
   check_empty_creds(
     user_id = user_id,
     bearer_token = bearer_token
@@ -59,17 +60,16 @@ get_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   }
 
   return(resp)
-
 }
-
 
 
 #' @rdname get_reporting_periods
 #' @export
-get_ubpr_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                                       bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                                       as_data_frame = FALSE) {
-
+get_ubpr_reporting_periods <- function(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  as_data_frame = FALSE
+) {
   check_empty_creds(
     user_id = user_id,
     bearer_token = bearer_token
@@ -95,5 +95,4 @@ get_ubpr_reporting_periods <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   }
 
   return(resp)
-
 }

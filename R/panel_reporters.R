@@ -40,11 +40,12 @@
 #'     as_data_frame = FALSE
 #'   )
 #' }
-get_panel_of_reporters <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                                   bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                                   reporting_period_end_date,
-                                   as_data_frame = TRUE) {
-
+get_panel_of_reporters <- function(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  reporting_period_end_date,
+  as_data_frame = TRUE
+) {
   check_empty_creds(
     user_id = user_id,
     bearer_token = bearer_token
@@ -81,5 +82,4 @@ get_panel_of_reporters <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
   }
 
   return(resp)
-
 }

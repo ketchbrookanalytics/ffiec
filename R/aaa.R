@@ -2,16 +2,17 @@
 #' @noRd
 base_url <- "https://ffieccdr.azure-api.us/public/"
 
+
 #' Create a small error handler to return error messages from API
 #' @noRd
 ffiec_error_message <- function(resp) {
   httr2::resp_body_json(resp)$Message
 }
 
+
 #' Handle missing UserID / Bearer Token values
 #' @noRd
 check_empty_creds <- function(user_id, bearer_token) {
-
   msg <- paste(
     "is missing. If you do not have an account with the FFIEC's web service,",
     "you can register for one at",
@@ -29,8 +30,8 @@ check_empty_creds <- function(user_id, bearer_token) {
       paste("{.var bearer_token}", msg)
     )
   }
-
 }
+
 
 #' Handle missing UserID / Bearer Token values without throwing an error for
 #' unit testing purposes
@@ -45,22 +46,27 @@ check_empty_creds <- function(user_id, bearer_token) {
 #' @details Intended for internal use.
 #'
 #' @export
-no_creds_available <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                               bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN")) {
-
+no_creds_available <- function(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN")
+) {
   if (
     is.null(user_id) ||
       trimws(user_id) == "" ||
       is.null(bearer_token) ||
       trimws(bearer_token) == ""
-  ) TRUE else FALSE
-
+  ) {
+    TRUE
+  } else {
+    FALSE
+  }
 }
 
-#' Validate and coerce `reporting_period_end_date` to MM/DD/YYYY character
+
+#' Validate and coerce `reporting_period_end_date` values to "MM/DD/YYYY"
+#' character strings
 #' @noRd
 check_report_dates <- function(reporting_period_end_date) {
-
   # Convert `Date` objects to the character string format that the API asks for
   if (inherits(reporting_period_end_date, "Date")) {
     old <- reporting_period_end_date
@@ -82,11 +88,10 @@ check_report_dates <- function(reporting_period_end_date) {
   }
 
   if (is.character(reporting_period_end_date)) {
-
     # Validate that each `reporting_period_end_date` value is correctly
     # formatted
     valid <- grepl("^\\d{2}/\\d{2}/\\d{4}$", reporting_period_end_date)
-    
+
     # If there are incorrectly formatted `reporting_period_end_date` values,
     # throw an error that calls out the invalid values
     if (!all(valid)) {
@@ -114,14 +119,12 @@ check_report_dates <- function(reporting_period_end_date) {
     )
     cli::cli_abort(msg)
   }
-
 }
 
 
 #' Create an extensible HTTP request to obtain data from the FFIEC API
 #'
-#' @description Defines the base requirements to request data from the
-#' FFIEC API.
+#' @description Defines the base requirements to request data from the FFIEC API
 #'
 #' @inheritParams no_creds_available
 #' @param endpoint (String) The API endpoint to query
@@ -134,8 +137,8 @@ check_report_dates <- function(reporting_period_end_date) {
 #' @references
 #' <https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
 #'
-#' @details Additional headers are converted to camel case (per API spec)
-#'   and spliced into `httr2::req_headers()` (if provided).
+#' @details Additional headers are converted to camel case (per API spec) and
+#'   spliced into `httr2::req_headers()` (if provided).
 #' @details Requests throttled at maximum of 2,400 per hour (per API spec)
 #' @details We can't use `httr2::req_auth_bearer_token()` for passing the bearer
 #'   token because the API expects that header to be named "Authentication",
@@ -143,13 +146,14 @@ check_report_dates <- function(reporting_period_end_date) {
 #'   name as "Authorization".
 #'
 #' @noRd
-get_ffiec <- function(endpoint,
-                      user_id,
-                      bearer_token,
-                      req_method = "GET",
-                      content_type = "application/json",
-                      ...) {
-
+get_ffiec <- function(
+  endpoint,
+  user_id,
+  bearer_token,
+  req_method = "GET",
+  content_type = "application/json",
+  ...
+) {
   url <- paste0(base_url, endpoint)
 
   headers <- rlang::list2(
@@ -181,8 +185,8 @@ get_ffiec <- function(endpoint,
     )
 
   return(req)
-
 }
+
 
 #' Perform, collect, and parse an HTTP response
 #'
