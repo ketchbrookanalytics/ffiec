@@ -60,7 +60,7 @@ if (!no_creds_available()) {
   )
 
   # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
-  # instutition with FDIC Cert Number "3510"
+  # institution with FDIC Cert Number "3510"
   get_ubpr_facsimile(
     reporting_period_end_date = "03/31/2025",
     fi_id_type = "FDICCertNumber",
