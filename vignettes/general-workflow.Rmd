@@ -1,14 +1,15 @@
 ---
-title: "ffiec"
+title: "General Workflow"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{ffiec}
+  %\VignetteIndexEntry{General Workflow}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
-no_creds <- ffiec::no_creds_available()
+library(ffiec)
+no_creds <- no_creds_available()
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -17,11 +18,9 @@ knitr::opts_chunk$set(
 ```
 
 ```{r eval = no_creds, echo = FALSE, comment = NA}
-message("No FFIEC API credentials available. Code chunks will not be evaluated.")
-```
-
-```{r setup}
-library(ffiec)
+message(
+  "No FFIEC API credentials available. Code chunks will not be evaluated."
+)
 ```
 
 ## Using {ffiec}
@@ -53,10 +52,9 @@ Next, filter the `get_reporting_periods()` return value to the period(s) of inte
 
 ```{r last_four_quarters}
 reports_2025 <- reporting_periods |>
-  dplyr::filter(ReportingPeriod <= as.Date("2025-12-31")) |>
-  dplyr::slice_max(
-    n = 4,
-    order_by = ReportingPeriod
+  dplyr::filter(
+    ReportingPeriod <= as.Date("2025-12-31"),
+    ReportingPeriod >= as.Date("2025-01-01")
   ) |>
   dplyr::pull()
 ```
@@ -86,6 +84,7 @@ call_df |>
 ```
 
 ## Additional Uses
+
 The package offers functions to interact with both Call report data and Uniform Bank Performance Report (UBPR) data.
 
 To interact with the latter, simply substitute `get_ubpr_reporting_periods()` and `get_ubpr_facsimile()` into the above examples. However, please be aware that `get_ubpr_facsimile()` returns different column names than `get_facsimile()`.
