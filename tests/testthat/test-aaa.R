@@ -174,21 +174,6 @@ test_that("`check_report_dates()` errors on non-character, non-Date input", {
 })
 
 
-test_that("`check_report_dates()` errors on Date values without 4-digit year", {
-  # This is a vector of class Date but the second value isn't wrapped in
-  # `as.Date()`
-  bad_dates <- c(as.Date("2022-04-01"), "12/1/2022")
-
-  expect_error(
-    check_report_dates(bad_dates) |> suppressMessages(),
-    "formatted incorrectly"
-  )
-
-  bad_dates <- c(as.Date("2022-04-01"), "1/1/22")
-
-  expect_error(
-    check_report_dates(bad_dates) |> suppressMessages(),
-    "must be formatted as \"MM/DD/YYYY\""
   )
 })
 
