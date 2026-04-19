@@ -18,8 +18,9 @@ get_filers_since_date(
 \item{bearer_token}{(String) The Bearer Token for authenticating against the
 FFIEC API}
 
-\item{reporting_period_end_date}{(String) The reporting period end date,
-formatted as "MM/DD/YYYY".}
+\item{reporting_period_end_date}{(String or Date) The reporting period end
+date. Character values must be formatted as "MM/DD/YYYY". Date objects are
+also accepted and will be coerced to the required format automatically.}
 
 \item{last_update_date_time}{(String) Filter for records updated
 since this date/time. See \code{Details} for formatting options.}

@@ -1,5 +1,4 @@
 if (!no_creds_available()) {
-
   # Return results as a tibble
   out_df <- get_panel_of_reporters(reporting_period_end_date = "03/31/2025")
 
@@ -10,7 +9,6 @@ if (!no_creds_available()) {
   )
 
   test_that("`get_panel_of_reporters()` throws an error with empty creds", {
-
     expect_error(
       get_panel_of_reporters(
         user_id = NULL,
@@ -44,13 +42,9 @@ if (!no_creds_available()) {
       ),
       "`bearer_token` is missing"
     )
-
   })
 
-
-
   test_that("`get_panel_of_reporters()` returns correct output type", {
-
     # list
     expect_true(
       inherits(out_list, "list")
@@ -68,13 +62,9 @@ if (!no_creds_available()) {
     expect_true(
       inherits(out_df, "data.frame")
     )
-
   })
 
-
-
   test_that("`get_filers_since_date()` returns expected names", {
-
     expected_col_names <- c(
       "ID_RSSD",
       "FDICCertNumber",
@@ -94,7 +84,5 @@ if (!no_creds_available()) {
       colnames(out_df),
       expected_col_names
     )
-
   })
-
 }

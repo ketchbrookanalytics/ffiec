@@ -17,8 +17,8 @@ no_creds_available(
 FFIEC API}
 }
 \value{
-(Logical) \code{FALSE} if a valid \code{user_id} and \code{bearer_token} are
-available; otherwise \code{TRUE}.
+(Logical) \code{FALSE} if a non-empty \code{user_id} and \code{bearer_token} have
+been supplied; otherwise \code{TRUE}.
 }
 \description{
 Handle missing UserID / Bearer Token values without throwing an error for

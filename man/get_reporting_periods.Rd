@@ -34,7 +34,7 @@ returned as such).
 }
 \description{
 Retrieves Call Report or UBPR filer information from the FFIEC
-Central Data Repository API for available reporating periods.
+Central Data Repository API for available reporting periods.
 }
 \examples{
 if (!no_creds_available()) {

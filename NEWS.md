@@ -1,3 +1,17 @@
+# ffiec 0.2.0
+
+- Provides support for retrieval of multi-period and/or multi-institution data for `get_facsimile()` and `get_ubpr_facsimile()`
+
+## Documentation
+
+- New "General Workflow" vignette that describes a typical workflow for querying metadata, then leveraging those results to query Call Report data
+
+## Miscellenous
+
+- More robust error messaging with {cli}
+- Improved code modularization with a "base" API request structure
+- Significantly expanded unit test suite
+
 # ffiec 0.1.3
 
 ## Fixes for CRAN
@@ -18,10 +32,10 @@
 
 ## Miscellaneous
 
-* Organized pkgdown site
-* Reduced repitition in roxygen
-* Require R >= 4.1.0 due to use of base pipe
+- Organized pkgdown site
+- Reduced repitition in roxygen
+- Require R >= 4.1.0 due to use of base pipe
 
 # ffiec 0.1.0
 
-* Initial CRAN submission.
+- Initial CRAN submission.

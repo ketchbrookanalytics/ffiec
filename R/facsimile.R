@@ -1,23 +1,96 @@
+#' Define a helper function to process `get_facsimile()` responses
+#'
+#' @importFrom utils read.delim
+#' @noRd
+process_facsimile_response <- function(resp) {
+  df <- read.delim(
+    file = textConnection(resp),
+    sep = ";",
+    col.names = c(
+      "CallDate",
+      "BankRSSDIdentifier",
+      "MDRM",
+      "Value",
+      "LastUpdate",
+      "ShortDefinition",
+      "CallSchedule",
+      "LineNumber"
+    )
+  ) |>
+    tibble::as_tibble() |>
+    dplyr::mutate(
+      dplyr::across(
+        .cols = dplyr::all_of(c("CallDate", "LastUpdate")),
+        .fns = ~ as.Date(as.character(.x), format = "%Y%m%d")
+      )
+    )
+
+  return(df)
+}
+
+
+#' Define a helper function to process `get_ubpr_facsimile()` responses
+#'
+#' @importFrom rlang .data
+#' @noRd
+process_ubpr_response <- function(resp) {
+  # Read the raw response into a formal XML document
+  resp <- xml2::read_xml(resp)
+
+  # Filter to just the UBPR tabular data
+  resp <- xml2::xml_find_all(resp, ".//uc:* | .//cc:*")
+
+  # Read the raw XML into a tibble
+  df <- tibble::tibble(
+    Metric = xml2::xml_name(resp),
+    Context = xml2::xml_attr(resp, "contextRef"),
+    Unit = xml2::xml_attr(resp, "unitRef"),
+    Decimals = xml2::xml_attr(resp, "decimals"),
+    Value = xml2::xml_text(resp)
+  ) |>
+    dplyr::distinct() |> # remove completely duplicated rows
+    dplyr::mutate(
+      ContextList = stringr::str_split(
+        string = .data[["Context"]],
+        pattern = "_",
+        n = 3L
+      ),
+      ID_RSSD = purrr::map_chr(.data[["ContextList"]], ~ .x[2]),
+      Quarter = purrr::map_chr(.data[["ContextList"]], ~ .x[3]) |> as.Date()
+    ) |>
+    dplyr::select(
+      "ID_RSSD",
+      "Quarter",
+      "Metric",
+      "Unit",
+      "Decimals",
+      "Value"
+    )
+
+  return(df)
+}
+
+
 #' Retrieve Facsimile
 #'
 #' @description Retrieves Call Report or UBPR facsimile data from the FFIEC
 #' Central Data Repository API for the requested financial institution.
 #'
 #' @inheritParams no_creds_available
-#' @param reporting_period_end_date (String) The reporting period end date,
-#'   formatted as "MM/DD/YYYY"
+#' @param reporting_period_end_date (String, character vector, Date, or Date
+#'   vector) One or more reporting period end dates. Character values must be
+#'   formatted as "MM/DD/YYYY". Date objects are also accepted and will be
+#'   coerced to the required format automatically.
 #' @param fi_id_type (String) The type of identifier being provided; one of
 #'   `c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber")`;
 #'   default is "ID_RSSD"
-#' @param fi_id (String) The financial institution's identifier (can also be
-#'   supplied as an integer instead of a string)
+#' @param fi_id (String or character vector) One or more financial institution
+#'   identifiers (can also be supplied as an integer vector)
 #'
 #' @return A tibble containing the facsimile data.
 #'
 #' @references
 #' <https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
-#'
-#' @importFrom utils read.delim
 #'
 #' @export
 #'
@@ -35,164 +108,145 @@
 #'   )
 #'
 #'   # Retrieve UBPR facsimile data for reporting period 2025-03-31 for
-#'   # instutition with FDIC Cert Number "3510"
+#'   # institution with FDIC Cert Number "3510"
 #'   get_ubpr_facsimile(
 #'     reporting_period_end_date = "03/31/2025",
 #'     fi_id_type = "FDICCertNumber",
 #'     fi_id = "3510"
 #'   )
+#'
+#'   # Retrieve facsimile data for reporting periods 2025-03-31 and 2025-06-30
+#'   # for institutions with ID RSSD of "480228" and "451965"
+#'   get_facsimile(
+#'     reporting_period_end_date = c("03/31/2025", "06/30/2025"),
+#'     fi_id = c("480228", "451965")
+#'   )
+#'
+#'   # Retrieve UBPR data for reporting periods 2025-03-31 and 2025-06-30
+#'   # for institution with ID RSSD of "480228"
+#'   get_ubpr_facsimile(
+#'     reporting_period_end_date = c("03/31/2025", "06/30/2025"),
+#'     fi_id = 480228
+#'   )
 #' }
-get_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                          bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                          reporting_period_end_date,
-                          fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
-                          fi_id) {
-
+get_facsimile <- function(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  reporting_period_end_date,
+  fi_id_type = c(
+    "ID_RSSD",
+    "FDICCertNumber",
+    "OCCChartNumber",
+    "OTSDockNumber"
+  ),
+  fi_id
+) {
   check_empty_creds(
     user_id = user_id,
     bearer_token = bearer_token
   )
 
+  reporting_period_end_date <- check_report_dates(reporting_period_end_date)
+
   endpoint <- "RetrieveFacsimile"
-  url <- paste0(base_url, endpoint)
-  data_series <- "Call"
   fi_id_type <- match.arg(fi_id_type)
 
-  # Build the request following the API specification
-  req <- httr2::request(url) |>
-    httr2::req_method("GET") |>
-    httr2::req_headers(
-      "Content-Type" = "application/json",
-      "UserID" = user_id,
-      "Authentication" = paste0("Bearer ", bearer_token),
-      "dataSeries" = data_series,
-      "reportingPeriodEndDate" = reporting_period_end_date,
-      "fiIdType" = fi_id_type,
-      "fiId" = as.character(fi_id),
-      "facsimileFormat" = "SDF"
-    ) |>
-    httr2::req_error(body = ffiec_error_message) |>
-    httr2::req_user_agent(
-      "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+  # Create a data frame of report dates and institution IDs to iterate over
+  req_df <- expand.grid(
+    reporting_period_end_date = reporting_period_end_date,
+    fi_id = fi_id
+  )
+
+  # Build the request(s) following the API specification
+  req <- req_df |>
+    purrr::pmap(
+      \(reporting_period_end_date, fi_id) {
+        get_ffiec(
+          endpoint = endpoint,
+          user_id = user_id,
+          bearer_token = bearer_token,
+          reporting_period_end_date = reporting_period_end_date,
+          fi_id_type = fi_id_type,
+          fi_id = as.character(fi_id),
+          data_series = "Call",
+          facsimile_format = "SDF"
+        )
+      }
     )
 
-  # Perform the request and collect the raw response that can be decoded into
-  # semicolon-delimited data
+  # Perform the request(s) and collect the raw response(s) that can be decoded
+  # into semicolon-delimited data
   resp <- req |>
-    httr2::req_perform() |>
-    httr2::resp_body_string() |>
-    jsonlite::base64_dec() |>
-    rawToChar()
+    purrr::map(
+      .f = function(x) {
+        collect_response(x, decode = TRUE)
+      }
+    )
 
-  # Read the raw file (semicolon-delimited data) into a tibble
-  resp <- read.delim(
-    file = textConnection(resp),
-    sep = ";",
-    col.names = c(
-      "CallDate",
-      "BankRSSDIdentifier",
-      "MDRM",
-      "Value",
-      "LastUpdate",
-      "ShortDefinition",
-      "CallSchedule",
-      "LineNumber"
-    )
-  ) |>
-    tibble::as_tibble() |>
-    dplyr::mutate(
-      dplyr::across(
-        .cols = c("CallDate", "LastUpdate"),
-        .fns = ~ as.Date(as.character(.x), format = "%Y%m%d")
-      )
-    )
+  # Read the raw file(s) (semicolon-delimited data) into a single tibble
+  resp <- purrr::map(resp, .f = process_facsimile_response) |>
+    dplyr::bind_rows()
 
   return(resp)
-
 }
 
 
-
 #' @rdname get_facsimile
-#' @importFrom rlang .data
 #' @export
-get_ubpr_facsimile <- function(user_id = Sys.getenv("FFIEC_USER_ID"),
-                               bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
-                               reporting_period_end_date,
-                               fi_id_type = c("ID_RSSD", "FDICCertNumber", "OCCChartNumber", "OTSDockNumber"),
-                               fi_id) {
-
+get_ubpr_facsimile <- function(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  reporting_period_end_date,
+  fi_id_type = c(
+    "ID_RSSD",
+    "FDICCertNumber",
+    "OCCChartNumber",
+    "OTSDockNumber"
+  ),
+  fi_id
+) {
   check_empty_creds(
     user_id = user_id,
     bearer_token = bearer_token
   )
 
+  reporting_period_end_date <- check_report_dates(reporting_period_end_date)
+
   endpoint <- "RetrieveUBPRXBRLFacsimile"
-  url <- paste0(base_url, endpoint)
   fi_id_type <- match.arg(fi_id_type)
 
-  # Build the request following the API specification
-  req <- httr2::request(url) |>
-    httr2::req_method("GET") |>
-    httr2::req_headers(
-      "Content-Type" = "application/json",
-      "UserID" = user_id,
-      "Authentication" = paste0("Bearer ", bearer_token),
-      "reportingPeriodEndDate" = reporting_period_end_date,
-      "fiIdType" = fi_id_type,
-      "fiId" = as.character(fi_id)
-    ) |>
-    httr2::req_error(body = ffiec_error_message) |>
-    httr2::req_user_agent(
-      "ffiec R package (https://ketchbrookanalytics.github.io/ffiec/)"
+  # Create a data frame of report dates and institution IDs to iterate over
+  req_df <- expand.grid(
+    reporting_period_end_date = reporting_period_end_date,
+    fi_id = fi_id
+  )
+
+  # Build the request(s) following the API specification
+  req <- req_df |>
+    purrr::pmap(
+      \(reporting_period_end_date, fi_id) {
+        get_ffiec(
+          endpoint = endpoint,
+          user_id = user_id,
+          bearer_token = bearer_token,
+          reporting_period_end_date = reporting_period_end_date,
+          fi_id_type = fi_id_type,
+          fi_id = as.character(fi_id)
+        )
+      }
     )
 
-  # Perform the request and collect the raw response that can be decoded into
-  # semicolon-delimited data
+  # Perform the request(s) and collect the raw XML response(s)
   resp <- req |>
-    httr2::req_perform() |>
-    httr2::resp_body_string() |>
-    jsonlite::base64_dec() |>
-    rawToChar()
-
-  # Read the raw response into a formal XML document
-  resp <- xml2::read_xml(resp)
-
-  # Filter to just the UBPR tabular data
-  resp <- xml2::xml_find_all(resp, ".//uc:* | .//cc:*")
-
-  # Read the raw file (semicolon-delimited data) into a tibble
-  df <- tibble::tibble(
-    Metric = xml2::xml_name(resp),
-    Context = xml2::xml_attr(resp, "contextRef"),
-    Unit = xml2::xml_attr(resp, "unitRef"),
-    Decimals = xml2::xml_attr(resp, "decimals"),
-    Value = xml2::xml_text(resp)
-  ) |>
-    dplyr::distinct() |>   # remove completely duplicated rows
-    dplyr::mutate(
-      ContextList = stringr::str_split(
-        string = .data[["Context"]],
-        patter = "_",
-        n = 3L
-      ),
-      ID_RSSD = purrr::map_chr(.data[["ContextList"]], ~ .x[2]),
-      Quarter = purrr::map_chr(.data[["ContextList"]], ~ .x[3]) |> as.Date(),
-      data_type = dplyr::case_when(
-        Decimals == "0" ~ "integer",
-        is.na(Decimals) ~ "character",
-        .default = "double"
-      )
-    ) |>
-    dplyr::select(
-      "ID_RSSD",
-      "Quarter",
-      "Metric",
-      "Unit",
-      "Decimals",
-      "Value"
+    purrr::map(
+      .f = function(x) {
+        collect_response(x, decode = TRUE)
+      }
     )
 
-  return(df)
+  # Read the XML data into a single tibble
+  resp <- purrr::map(resp, .f = process_ubpr_response) |>
+    dplyr::bind_rows()
 
+  return(resp)
 }
