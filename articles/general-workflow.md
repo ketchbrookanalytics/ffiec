@@ -1,7 +1,5 @@
 # General Workflow
 
-    No FFIEC API credentials available. Code chunks will not be evaluated.
-
 ## Using {ffiec}
 
 This package attempts to offer a convenient interface to interact with
@@ -66,6 +64,11 @@ call_df <- get_facsimile(
   reporting_period_end_date = reports_2025,
   fi_id = c(480228, 451965)
 )
+#> ℹ Converting <Date> values to "MM/DD/YYYY" character strings:
+#> • 2025-12-31 → 12/31/2025
+#> • 2025-09-30 → 09/30/2025
+#> • 2025-06-30 → 06/30/2025
+#> • 2025-03-31 → 03/31/2025
 ```
 
 Notice that each institution ID (column `BankRSSDIdentifier`) contains
@@ -74,6 +77,17 @@ Call report data for each reporting period.
 ``` r
 call_df |>
   dplyr::count(CallDate, BankRSSDIdentifier)
+#> # A tibble: 8 × 3
+#>   CallDate   BankRSSDIdentifier     n
+#>   <date>                  <int> <int>
+#> 1 2025-03-31             451965  2116
+#> 2 2025-03-31             480228  2159
+#> 3 2025-06-30             451965  2135
+#> 4 2025-06-30             480228  2174
+#> 5 2025-09-30             451965  2114
+#> 6 2025-09-30             480228  2156
+#> 7 2025-12-31             451965  2223
+#> 8 2025-12-31             480228  2264
 ```
 
 This example can be extended by comparing Call report values, either
@@ -85,6 +99,18 @@ over the selected reporting periods.
 call_df |>
   dplyr::filter(MDRM == "RCFA8274") |>  # Tier 1 capital
   dplyr::mutate(Value = as.numeric(Value))
+#> # A tibble: 8 × 8
+#>   CallDate   BankRSSDIdentifier MDRM         Value LastUpdate ShortDefinition
+#>   <date>                  <int> <chr>        <dbl> <date>     <chr>          
+#> 1 2025-12-31             480228 RCFA8274 190831000 2026-03-02 Tier 1 capital 
+#> 2 2025-09-30             480228 RCFA8274 196596000 2025-11-04 Tier 1 capital 
+#> 3 2025-06-30             480228 RCFA8274 196227000 2025-08-28 Tier 1 capital 
+#> 4 2025-03-31             480228 RCFA8274 193808000 2025-08-28 Tier 1 capital 
+#> 5 2025-12-31             451965 RCFA8274 151833000 2026-02-04 Tier 1 capital 
+#> 6 2025-09-30             451965 RCFA8274 150610000 2025-11-04 Tier 1 capital 
+#> 7 2025-06-30             451965 RCFA8274 149749000 2025-08-04 Tier 1 capital 
+#> 8 2025-03-31             451965 RCFA8274 147334000 2025-05-05 Tier 1 capital 
+#> # ℹ 2 more variables: CallSchedule <chr>, LineNumber <chr>
 ```
 
 ## Additional Uses

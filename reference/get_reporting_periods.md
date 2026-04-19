@@ -59,4 +59,18 @@ if (!no_creds_available()) {
   # Retrieve UBPR reporting periods and return as a tibble
   get_ubpr_reporting_periods(as_data_frame = TRUE)
 }
+#> # A tibble: 94 × 1
+#>    ReportingPeriod
+#>    <date>         
+#>  1 2002-12-31     
+#>  2 2003-03-31     
+#>  3 2003-06-30     
+#>  4 2003-09-30     
+#>  5 2003-12-31     
+#>  6 2004-03-31     
+#>  7 2004-06-30     
+#>  8 2004-09-30     
+#>  9 2004-12-31     
+#> 10 2005-03-31     
+#> # ℹ 84 more rows
 ```

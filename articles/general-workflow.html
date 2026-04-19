@@ -70,7 +70,6 @@
 
     
     
-<pre><code>No FFIEC API credentials available. Code chunks will not be evaluated.</code></pre>
 <div class="section level2">
 <h2 id="using-ffiec">Using {ffiec}<a class="anchor" aria-label="anchor" href="#using-ffiec"></a>
 </h2>
@@ -88,7 +87,7 @@ section</a>.</p>
 <p>With your username and password from the FFIEC’s Web Service portal
 in-hand (either stored as environment variables or ready to be passed as
 function arguments), load the package using <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code>.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ketchbrookanalytics/ffiec" class="external-link">ffiec</a></span><span class="op">)</span></span></code></pre></div>
 <p>While the package offers several functions to enable different
 workflows and analyses, one general workflow is as follows:</p>
@@ -102,12 +101,12 @@ retrieve Call report data</li>
 <code>as_data_frame</code> argument is set to <code>TRUE</code> to alter
 the return behavior of the function. By default, the function will
 return a list object.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">reporting_periods</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_reporting_periods.html">get_reporting_periods</a></span><span class="op">(</span>as_data_frame <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Next, filter the <code><a href="../reference/get_reporting_periods.html">get_reporting_periods()</a></code> return value to
 the period(s) of interest. For the purposes of this example, the four
 reporting periods in calendar year 2025 will be used.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">reports_2025</span> <span class="op">&lt;-</span> <span class="va">reporting_periods</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
 <span>    <span class="va">ReportingPeriod</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2025-12-31"</span><span class="op">)</span>,</span>
@@ -117,25 +116,53 @@ reporting periods in calendar year 2025 will be used.</p>
 <p>Using the <code><a href="../reference/get_facsimile.html">get_facsimile()</a></code> function, Call report data can
 be collected for the selected reporting periods and one or more
 specified institutions.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">call_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_facsimile.html">get_facsimile</a></span><span class="op">(</span></span>
 <span>  reporting_period_end_date <span class="op">=</span> <span class="va">reports_2025</span>,</span>
 <span>  fi_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">480228</span>, <span class="fl">451965</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Converting <span style="color: #0000BB;">&lt;Date&gt;</span> values to <span style="color: #0000BB;">"MM/DD/YYYY"</span> character strings:</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> 2025-12-31 → 12/31/2025</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> 2025-09-30 → 09/30/2025</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> 2025-06-30 → 06/30/2025</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> 2025-03-31 → 03/31/2025</span></span></code></pre></div>
 <p>Notice that each institution ID (column
 <code>BankRSSDIdentifier</code>) contains Call report data for each
 reporting period.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">call_df</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">CallDate</span>, <span class="va">BankRSSDIdentifier</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">CallDate</span>, <span class="va">BankRSSDIdentifier</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8 × 3</span></span></span>
+<span><span class="co">#&gt;   CallDate   BankRSSDIdentifier     n</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 2025-03-31             <span style="text-decoration: underline;">451</span>965  <span style="text-decoration: underline;">2</span>116</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 2025-03-31             <span style="text-decoration: underline;">480</span>228  <span style="text-decoration: underline;">2</span>159</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 2025-06-30             <span style="text-decoration: underline;">451</span>965  <span style="text-decoration: underline;">2</span>135</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 2025-06-30             <span style="text-decoration: underline;">480</span>228  <span style="text-decoration: underline;">2</span>174</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 2025-09-30             <span style="text-decoration: underline;">451</span>965  <span style="text-decoration: underline;">2</span>114</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 2025-09-30             <span style="text-decoration: underline;">480</span>228  <span style="text-decoration: underline;">2</span>156</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> 2025-12-31             <span style="text-decoration: underline;">451</span>965  <span style="text-decoration: underline;">2</span>223</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> 2025-12-31             <span style="text-decoration: underline;">480</span>228  <span style="text-decoration: underline;">2</span>264</span></span></code></pre></div>
 <p>This example can be extended by comparing Call report values, either
 between periods or between institutions (or both). Below, the Call
 report data is filtered to display Tier 1 capital for each institution
 over the selected reporting periods.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">call_df</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">MDRM</span> <span class="op">==</span> <span class="st">"RCFA8274"</span><span class="op">)</span> <span class="op">|&gt;</span>  <span class="co"># Tier 1 capital</span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">Value</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">Value</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8 × 8</span></span></span>
+<span><span class="co">#&gt;   CallDate   BankRSSDIdentifier MDRM         Value LastUpdate ShortDefinition</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 2025-12-31             <span style="text-decoration: underline;">480</span>228 RCFA8274 190<span style="text-decoration: underline;">831</span>000 2026-03-02 Tier 1 capital </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 2025-09-30             <span style="text-decoration: underline;">480</span>228 RCFA8274 196<span style="text-decoration: underline;">596</span>000 2025-11-04 Tier 1 capital </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 2025-06-30             <span style="text-decoration: underline;">480</span>228 RCFA8274 196<span style="text-decoration: underline;">227</span>000 2025-08-28 Tier 1 capital </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 2025-03-31             <span style="text-decoration: underline;">480</span>228 RCFA8274 193<span style="text-decoration: underline;">808</span>000 2025-08-28 Tier 1 capital </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 2025-12-31             <span style="text-decoration: underline;">451</span>965 RCFA8274 151<span style="text-decoration: underline;">833</span>000 2026-02-04 Tier 1 capital </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 2025-09-30             <span style="text-decoration: underline;">451</span>965 RCFA8274 150<span style="text-decoration: underline;">610</span>000 2025-11-04 Tier 1 capital </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> 2025-06-30             <span style="text-decoration: underline;">451</span>965 RCFA8274 149<span style="text-decoration: underline;">749</span>000 2025-08-04 Tier 1 capital </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> 2025-03-31             <span style="text-decoration: underline;">451</span>965 RCFA8274 147<span style="text-decoration: underline;">334</span>000 2025-05-05 Tier 1 capital </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2 more variables: CallSchedule &lt;chr&gt;, LineNumber &lt;chr&gt;</span></span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="additional-uses">Additional Uses<a class="anchor" aria-label="anchor" href="#additional-uses"></a>
