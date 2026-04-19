@@ -1,0 +1,71 @@
+# Retrieve Panel of Reporters
+
+Retrieves filer information from the FFIEC Central Data Repository API
+for the financial institutions in the Panel of Reporters (POR) expected
+to file for a given Call reporting period.
+
+## Usage
+
+``` r
+get_panel_of_reporters(
+  user_id = Sys.getenv("FFIEC_USER_ID"),
+  bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN"),
+  reporting_period_end_date,
+  as_data_frame = TRUE
+)
+```
+
+## Arguments
+
+- user_id:
+
+  (String) The UserID for authenticating against the FFIEC API
+
+- bearer_token:
+
+  (String) The Bearer Token for authenticating against the FFIEC API
+
+- reporting_period_end_date:
+
+  (String or Date) The reporting period end date. Character values must
+  be formatted as "MM/DD/YYYY". Date objects are also accepted and will
+  be coerced to the required format automatically.
+
+- as_data_frame:
+
+  (Logical) Should the result be returned as a tibble? Default is
+  `TRUE`.
+
+## Value
+
+A tibble containing the parsed JSON response from the API of filer
+information since the given `reporting_period_end_date` date value. If
+`as_data_frame = FALSE`, then the result is returned as a nested list
+object, where each element represents a unique `ID_RSSD` value.
+
+## References
+
+<https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
+
+## Examples
+
+``` r
+if (!no_creds_available()) {
+  # Assume you have set the following environment variables:
+  # - FFIEC_USER_ID
+  # - FFIEC_BEARER_TOKEN
+
+  # Retrieve expected filers for reporting period 2025-03-31 and return as a
+  # tibble
+  get_panel_of_reporters(
+    reporting_period_end_date = "03/31/2025"
+  )
+
+  # Retrieve expected filers for reporting period 2025-03-31 and return as a
+  # list
+  get_panel_of_reporters(
+    reporting_period_end_date = "03/31/2025",
+    as_data_frame = FALSE
+  )
+}
+```

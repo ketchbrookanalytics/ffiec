@@ -1,0 +1,154 @@
+# ffiec
+
+R package for retrieving data from the [FFIEC Central Data Repository
+Web Service](https://cdr.ffiec.gov/public/ManageFacsimiles.aspx).
+
+  
+
+![Example Plot of FFIEC Call Report
+Data](reference/figures/ffiec_example_plot.png)
+
+## Installation
+
+{ffiec} can be installed from CRAN using `install.packages("ffiec")`.
+Alternatively you can install the development version from GitHub using
+{pak} like so:
+
+``` r
+# install.packages("pak")
+pak::pak("ketchbrookanalytics/ffiec")
+```
+
+## Authentication
+
+In order to use {ffiec}, you will first need to [create an
+account](https://cdr.ffiec.gov/public/PWS/CreateAccount.aspx?PWS=true)
+through the FFIEC’s Web Service portal, which will provide you with a
+**User ID** and **Token** that must be provided to each function in this
+R package. Note that the **Token** is not the same as the *password* to
+your FFIEC Web Service account.
+
+### Microsoft Entra ID
+
+As of August 25, 2025, authentication into the FFIEC Central Data
+Repository requires Multifactor Authentication via Microsoft Entra ID.
+
+Organizations that don’t already have a Microsoft Entra identity
+provider (IDP) should choose one of the following options to create an
+account:
+
+- Microsoft 365 Products for Business \| Microsoft 365 (RECOMMENDED)
+  - <https://www.microsoft.com/en-us/microsoft-365/microsoft-365-business>
+- Microsoft Account (Free)
+  - <https://support.microsoft.com/en-us/account-billing/how-to-create-a-new-microsoft-account-a84675c3-3e9e-17cf-2911-3d56b15c0aaf>
+
+### Using Your Credentials with {ffiec}
+
+Once you have your username and password, we recommend setting them as
+the environment variables `FFIEC_USER_ID` and `FFIEC_BEARER_TOKEN`.
+Perhaps the easiest way to do this is to create an `.Renviron` file at
+the root of your project like so:
+
+``` .renviron
+FFIEC_USER_ID=MyUserId123
+FFIEC_BEARER_TOKEN=ZyXwVuT98765
+```
+
+*Note: the above credentials are example values and will not work – they
+must be replaced with valid User ID and Token values.*
+
+If you prefer not to set these environment variables, you can pass your
+FFIEC Web Service **User ID** and **Token** values to the `user_id` and
+`bearer_token` arguments available in each function in {ffiec}.
+
+## Examples
+
+``` r
+library(ffiec)
+
+# Retrieve filers since 2025-03-31, as of 2025-04-15 21:00:00.000 and return
+# as a tibble
+get_filers_since_date(
+  reporting_period_end_date = "03/31/2025",
+  last_update_date_time = "04/15/2025 21:00:00.000",
+  as_data_frame = TRUE
+) |>
+  head()
+#> # A tibble: 6 × 1
+#>   ID_RSSD
+#>     <int>
+#> 1  783648
+#> 2  562058
+#> 3 2745529
+#> 4  644057
+#> 5 3316739
+#> 6 3282012
+```
+
+Though the FFIEC Web Service returns data in a few different formats
+(e.g., XBRL, semicolon-delimited, etc.), {ffiec} returns all data in a
+tibble for easy of downstream analysis.
+
+``` r
+# Retrieve facsimile data for reporting period 2025-03-31 for instutition
+# with ID RSSD "480228"
+get_facsimile(
+  reporting_period_end_date = "03/31/2025",
+  fi_id = 480228
+) |>
+  head()
+#> # A tibble: 6 × 8
+#>   CallDate   BankRSSDIdentifier MDRM     Value     LastUpdate ShortDefinition   
+#>   <date>                  <int> <chr>    <chr>     <date>     <chr>             
+#> 1 2025-03-31             480228 RCFA3792 209624000 2025-08-28 Total capital (su…
+#> 2 2025-03-31             480228 RCFA5310 14397000  2025-08-28 Adjusted allowanc…
+#> 3 2025-03-31             480228 RCFA5311 15816000  2025-08-28 Tier 2 capital (g…
+#> 4 2025-03-31             480228 RCFA7204 7.6139%   2025-08-28 Leverage ratio (i…
+#> 5 2025-03-31             480228 RCFA7205 14.4537%  2025-08-28 Total capital rat…
+#> 6 2025-03-31             480228 RCFA7206 13.3631%  2025-08-28 Tier 1 capital ra…
+#> # ℹ 2 more variables: CallSchedule <chr>, LineNumber <chr>
+```
+
+## Need Help?
+
+If you’re in need of assistance working with {ffiec}, don’t hesitate to
+reach out to our team at <info@ketchbrookanalytics.com>.
+
+# Package index
+
+## Call Report / UBPR Data
+
+Retrive reported financial metrics
+
+- [`get_facsimile()`](https://ketchbrookanalytics.github.io/ffiec/reference/get_facsimile.md)
+  [`get_ubpr_facsimile()`](https://ketchbrookanalytics.github.io/ffiec/reference/get_facsimile.md)
+  : Retrieve Facsimile
+
+## Call Report / UBPR Metadata
+
+Retrieve metadata about who has filed and when
+
+- [`get_filers_since_date()`](https://ketchbrookanalytics.github.io/ffiec/reference/get_filers_since_date.md)
+  : Retrieve Filers Since Date
+- [`get_filers_submission_datetime()`](https://ketchbrookanalytics.github.io/ffiec/reference/get_filers_submission_datetime.md)
+  : Retrieve Filers Submission Date Time
+- [`get_panel_of_reporters()`](https://ketchbrookanalytics.github.io/ffiec/reference/get_panel_of_reporters.md)
+  : Retrieve Panel of Reporters
+- [`get_reporting_periods()`](https://ketchbrookanalytics.github.io/ffiec/reference/get_reporting_periods.md)
+  [`get_ubpr_reporting_periods()`](https://ketchbrookanalytics.github.io/ffiec/reference/get_reporting_periods.md)
+  : Retrieve Reporting Periods
+
+## Internal Functions
+
+Internal package utility functions
+
+- [`no_creds_available()`](https://ketchbrookanalytics.github.io/ffiec/reference/no_creds_available.md)
+  : Handle missing UserID / Bearer Token values without throwing an
+  error for unit testing purposes
+
+# Articles
+
+### All vignettes
+
+- [General
+  Workflow](https://ketchbrookanalytics.github.io/ffiec/articles/general-workflow.md):

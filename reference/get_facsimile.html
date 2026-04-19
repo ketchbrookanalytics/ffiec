@@ -9,7 +9,7 @@ Central Data Repository API for the requested financial institution."><meta prop
 
     <a class="navbar-brand me-2" href="../index.html">ffiec</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,8 +72,10 @@ FFIEC API</p></dd>
 
 
 <dt id="arg-reporting-period-end-date">reporting_period_end_date<a class="anchor" aria-label="anchor" href="#arg-reporting-period-end-date"></a></dt>
-<dd><p>(String) The reporting period end date,
-formatted as "MM/DD/YYYY"</p></dd>
+<dd><p>(String, character vector, Date, or Date
+vector) One or more reporting period end dates. Character values must be
+formatted as "MM/DD/YYYY". Date objects are also accepted and will be
+coerced to the required format automatically.</p></dd>
 
 
 <dt id="arg-fi-id-type">fi_id_type<a class="anchor" aria-label="anchor" href="#arg-fi-id-type"></a></dt>
@@ -83,8 +85,8 @@ default is "ID_RSSD"</p></dd>
 
 
 <dt id="arg-fi-id">fi_id<a class="anchor" aria-label="anchor" href="#arg-fi-id"></a></dt>
-<dd><p>(String) The financial institution's identifier (can also be
-supplied as an integer instead of a string)</p></dd>
+<dd><p>(String or character vector) One or more financial institution
+identifiers (can also be supplied as an integer vector)</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -111,11 +113,25 @@ supplied as an integer instead of a string)</p></dd>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="co"># Retrieve UBPR facsimile data for reporting period 2025-03-31 for</span></span></span>
-<span class="r-in"><span>  <span class="co"># instutition with FDIC Cert Number "3510"</span></span></span>
+<span class="r-in"><span>  <span class="co"># institution with FDIC Cert Number "3510"</span></span></span>
 <span class="r-in"><span>  <span class="fu">get_ubpr_facsimile</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    reporting_period_end_date <span class="op">=</span> <span class="st">"03/31/2025"</span>,</span></span>
 <span class="r-in"><span>    fi_id_type <span class="op">=</span> <span class="st">"FDICCertNumber"</span>,</span></span>
 <span class="r-in"><span>    fi_id <span class="op">=</span> <span class="st">"3510"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="co"># Retrieve facsimile data for reporting periods 2025-03-31 and 2025-06-30</span></span></span>
+<span class="r-in"><span>  <span class="co"># for institutions with ID RSSD of "480228" and "451965"</span></span></span>
+<span class="r-in"><span>  <span class="fu">get_facsimile</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    reporting_period_end_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"03/31/2025"</span>, <span class="st">"06/30/2025"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    fi_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"480228"</span>, <span class="st">"451965"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="co"># Retrieve UBPR data for reporting periods 2025-03-31 and 2025-06-30</span></span></span>
+<span class="r-in"><span>  <span class="co"># for institution with ID RSSD of "480228"</span></span></span>
+<span class="r-in"><span>  <span class="fu">get_ubpr_facsimile</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    reporting_period_end_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"03/31/2025"</span>, <span class="st">"06/30/2025"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    fi_id <span class="op">=</span> <span class="fl">480228</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
@@ -129,7 +145,7 @@ supplied as an integer instead of a string)</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
