@@ -9,6 +9,12 @@ navbar:
   structure:
     left:  [intro, reference, news]
     right: [search, github]
+  components:
+    articles:
+      text: Articles
+      menu:
+      - text: General Workflow
+        href: articles/general-workflow.html
 reference:
   - title: "Call Report / UBPR Data"
     desc: "Retrive reported financial metrics"
