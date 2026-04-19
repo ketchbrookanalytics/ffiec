@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   general-workflow: general-workflow.html
-last_built: 2026-04-19T15:01Z
+last_built: 2026-04-19T15:07Z
 urls:
   reference: https://ketchbrookanalytics.github.io/ffiec/reference
   article: https://ketchbrookanalytics.github.io/ffiec/articles
