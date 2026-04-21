@@ -11,7 +11,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/ketchbrookanalytics/ffiec/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/ketchbrookanalytics/ffiec/blob/v0.2.0/DESCRIPTION)
 
 Thomas M (2026). *ffiec: R Interface to 'FFIEC Central Data Repository
 REST API' Service*. R package version 0.2.0,

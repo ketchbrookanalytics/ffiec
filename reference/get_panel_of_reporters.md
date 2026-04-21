@@ -18538,37 +18538,37 @@ if (!no_creds_available()) {
 #> 
 #> [[487]]
 #> [[487]]$ID_RSSD
-#> [1] 5906497
+#> [1] 867632
 #> 
 #> [[487]]$FDICCertNumber
-#> [1] 59354
+#> [1] 24823
 #> 
 #> [[487]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[487]]$OTSDockNumber
-#> [1] 0
+#> [1] 14561
 #> 
 #> [[487]]$PrimaryABARoutNumber
-#> [1] 67017146
+#> [1] 67011692
 #> 
 #> [[487]]$Name
-#> [1] "BANKMIAMI                                                                                                               "
+#> [1] "INTERNATIONAL FINANCE BANK                                                                                              "
 #> 
 #> [[487]]$State
 #> [1] "FL"
 #> 
 #> [[487]]$City
-#> [1] "CORAL GABLES             "
+#> [1] "MIAMI                    "
 #> 
 #> [[487]]$Address
-#> [1] "1515 SUNSET DRIVE                        SUITE 26                                "
+#> [1] "777 SOUTHWEST 37TH AVENUE                SUITE 700                               "
 #> 
 #> [[487]]$ZIP
-#> [1] 33143
+#> [1] 33135
 #> 
 #> [[487]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[487]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -18576,34 +18576,34 @@ if (!no_creds_available()) {
 #> 
 #> [[488]]
 #> [[488]]$ID_RSSD
-#> [1] 867632
+#> [1] 3938186
 #> 
 #> [[488]]$FDICCertNumber
-#> [1] 24823
+#> [1] 58979
 #> 
 #> [[488]]$OCCChartNumber
-#> [1] 0
+#> [1] 25028
 #> 
 #> [[488]]$OTSDockNumber
-#> [1] 14561
+#> [1] 0
 #> 
 #> [[488]]$PrimaryABARoutNumber
-#> [1] 67011692
+#> [1] 267090594
 #> 
 #> [[488]]$Name
-#> [1] "INTERNATIONAL FINANCE BANK                                                                                              "
+#> [1] "BANKUNITED, NATIONAL ASSOCIATION                                                                                        "
 #> 
 #> [[488]]$State
 #> [1] "FL"
 #> 
 #> [[488]]$City
-#> [1] "MIAMI                    "
+#> [1] "MIAMI LAKES              "
 #> 
 #> [[488]]$Address
-#> [1] "777 SOUTHWEST 37TH AVENUE                SUITE 700                               "
+#> [1] "14817 OAK LANE                          "
 #> 
 #> [[488]]$ZIP
-#> [1] 33135
+#> [1] 33016
 #> 
 #> [[488]]$FilingType
 #> [1] "041"
@@ -18614,37 +18614,37 @@ if (!no_creds_available()) {
 #> 
 #> [[489]]
 #> [[489]]$ID_RSSD
-#> [1] 3938186
+#> [1] 502111
 #> 
 #> [[489]]$FDICCertNumber
-#> [1] 58979
+#> [1] 18734
 #> 
 #> [[489]]$OCCChartNumber
-#> [1] 25028
+#> [1] 15070
 #> 
 #> [[489]]$OTSDockNumber
-#> [1] 0
+#> [1] 12245
 #> 
 #> [[489]]$PrimaryABARoutNumber
-#> [1] 267090594
+#> [1] 66017105
 #> 
 #> [[489]]$Name
-#> [1] "BANKUNITED, NATIONAL ASSOCIATION                                                                                        "
+#> [1] "NEWTEK BANK, NATIONAL ASSOCIATION                                                                                       "
 #> 
 #> [[489]]$State
 #> [1] "FL"
 #> 
 #> [[489]]$City
-#> [1] "MIAMI LAKES              "
+#> [1] "MIAMI                    "
 #> 
 #> [[489]]$Address
-#> [1] "14817 OAK LANE                          "
+#> [1] "1111 BRICKELL AVENUE                     SUITE 130                               "
 #> 
 #> [[489]]$ZIP
-#> [1] 33016
+#> [1] 33131
 #> 
 #> [[489]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[489]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -18652,37 +18652,37 @@ if (!no_creds_available()) {
 #> 
 #> [[490]]
 #> [[490]]$ID_RSSD
-#> [1] 502111
+#> [1] 725732
 #> 
 #> [[490]]$FDICCertNumber
-#> [1] 18734
+#> [1] 21265
 #> 
 #> [[490]]$OCCChartNumber
-#> [1] 15070
+#> [1] 0
 #> 
 #> [[490]]$OTSDockNumber
-#> [1] 12245
+#> [1] 10221
 #> 
 #> [[490]]$PrimaryABARoutNumber
-#> [1] 66017105
+#> [1] 67009044
 #> 
 #> [[490]]$Name
-#> [1] "NEWTEK BANK, NATIONAL ASSOCIATION                                                                                       "
+#> [1] "BRADESCO BANK                                                                                                           "
 #> 
 #> [[490]]$State
 #> [1] "FL"
 #> 
 #> [[490]]$City
-#> [1] "MIAMI                    "
+#> [1] "CORAL GABLES             "
 #> 
 #> [[490]]$Address
-#> [1] "1111 BRICKELL AVENUE                     SUITE 130                               "
+#> [1] "3011 PONCE DE LEON BLVD                 "
 #> 
 #> [[490]]$ZIP
-#> [1] 33131
+#> [1] 33134
 #> 
 #> [[490]]$FilingType
-#> [1] "051"
+#> [1] "031"
 #> 
 #> [[490]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -18690,37 +18690,37 @@ if (!no_creds_available()) {
 #> 
 #> [[491]]
 #> [[491]]$ID_RSSD
-#> [1] 725732
+#> [1] 1414819
 #> 
 #> [[491]]$FDICCertNumber
-#> [1] 21265
+#> [1] 32718
 #> 
 #> [[491]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[491]]$OTSDockNumber
-#> [1] 10221
+#> [1] 13285
 #> 
 #> [[491]]$PrimaryABARoutNumber
-#> [1] 67009044
+#> [1] 67011456
 #> 
 #> [[491]]$Name
-#> [1] "BRADESCO BANK                                                                                                           "
+#> [1] "HELM BANK USA                                                                                                           "
 #> 
 #> [[491]]$State
 #> [1] "FL"
 #> 
 #> [[491]]$City
-#> [1] "CORAL GABLES             "
+#> [1] "MIAMI                    "
 #> 
 #> [[491]]$Address
-#> [1] "3011 PONCE DE LEON BLVD                 "
+#> [1] "999 BRICKELL AVENUE                     "
 #> 
 #> [[491]]$ZIP
-#> [1] 33134
+#> [1] 33131
 #> 
 #> [[491]]$FilingType
-#> [1] "031"
+#> [1] "041"
 #> 
 #> [[491]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -18728,22 +18728,22 @@ if (!no_creds_available()) {
 #> 
 #> [[492]]
 #> [[492]]$ID_RSSD
-#> [1] 1414819
+#> [1] 171133
 #> 
 #> [[492]]$FDICCertNumber
-#> [1] 32718
+#> [1] 20026
 #> 
 #> [[492]]$OCCChartNumber
-#> [1] 0
+#> [1] 15748
 #> 
 #> [[492]]$OTSDockNumber
-#> [1] 13285
+#> [1] 15671
 #> 
 #> [[492]]$PrimaryABARoutNumber
-#> [1] 67011456
+#> [1] 67002533
 #> 
 #> [[492]]$Name
-#> [1] "HELM BANK USA                                                                                                           "
+#> [1] "EASTERN NATIONAL BANK                                                                                                   "
 #> 
 #> [[492]]$State
 #> [1] "FL"
@@ -18752,13 +18752,13 @@ if (!no_creds_available()) {
 #> [1] "MIAMI                    "
 #> 
 #> [[492]]$Address
-#> [1] "999 BRICKELL AVENUE                     "
+#> [1] "9700 SOUTH DIXIE HIGHWAY                "
 #> 
 #> [[492]]$ZIP
-#> [1] 33131
+#> [1] 33156
 #> 
 #> [[492]]$FilingType
-#> [1] "041"
+#> [1] "031"
 #> 
 #> [[492]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -18766,22 +18766,22 @@ if (!no_creds_available()) {
 #> 
 #> [[493]]
 #> [[493]]$ID_RSSD
-#> [1] 171133
+#> [1] 238737
 #> 
 #> [[493]]$FDICCertNumber
-#> [1] 20026
+#> [1] 26442
 #> 
 #> [[493]]$OCCChartNumber
-#> [1] 15748
+#> [1] 20157
 #> 
 #> [[493]]$OTSDockNumber
-#> [1] 15671
+#> [1] 17512
 #> 
 #> [[493]]$PrimaryABARoutNumber
-#> [1] 67002533
+#> [1] 66012333
 #> 
 #> [[493]]$Name
-#> [1] "EASTERN NATIONAL BANK                                                                                                   "
+#> [1] "TERRABANK, NATIONAL ASSOCIATION                                                                                         "
 #> 
 #> [[493]]$State
 #> [1] "FL"
@@ -18790,13 +18790,13 @@ if (!no_creds_available()) {
 #> [1] "MIAMI                    "
 #> 
 #> [[493]]$Address
-#> [1] "9700 SOUTH DIXIE HIGHWAY                "
+#> [1] "3191 CORAL WAY                          "
 #> 
 #> [[493]]$ZIP
-#> [1] 33156
+#> [1] 33145
 #> 
 #> [[493]]$FilingType
-#> [1] "031"
+#> [1] "051"
 #> 
 #> [[493]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -18804,22 +18804,22 @@ if (!no_creds_available()) {
 #> 
 #> [[494]]
 #> [[494]]$ID_RSSD
-#> [1] 238737
+#> [1] 2791085
 #> 
 #> [[494]]$FDICCertNumber
-#> [1] 26442
+#> [1] 34643
 #> 
 #> [[494]]$OCCChartNumber
-#> [1] 20157
+#> [1] 0
 #> 
 #> [[494]]$OTSDockNumber
-#> [1] 17512
+#> [1] 0
 #> 
 #> [[494]]$PrimaryABARoutNumber
-#> [1] 66012333
+#> [1] 67014592
 #> 
 #> [[494]]$Name
-#> [1] "TERRABANK, NATIONAL ASSOCIATION                                                                                         "
+#> [1] "SUNSTATE BANK                                                                                                           "
 #> 
 #> [[494]]$State
 #> [1] "FL"
@@ -18828,10 +18828,10 @@ if (!no_creds_available()) {
 #> [1] "MIAMI                    "
 #> 
 #> [[494]]$Address
-#> [1] "3191 CORAL WAY                          "
+#> [1] "14095 S DIXIE HWY                       "
 #> 
 #> [[494]]$ZIP
-#> [1] 33145
+#> [1] 33176
 #> 
 #> [[494]]$FilingType
 #> [1] "051"
@@ -18842,10 +18842,10 @@ if (!no_creds_available()) {
 #> 
 #> [[495]]
 #> [[495]]$ID_RSSD
-#> [1] 2791085
+#> [1] 5906497
 #> 
 #> [[495]]$FDICCertNumber
-#> [1] 34643
+#> [1] 59354
 #> 
 #> [[495]]$OCCChartNumber
 #> [1] 0
@@ -18854,22 +18854,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[495]]$PrimaryABARoutNumber
-#> [1] 67014592
+#> [1] 67017146
 #> 
 #> [[495]]$Name
-#> [1] "SUNSTATE BANK                                                                                                           "
+#> [1] "BANKMIAMI                                                                                                               "
 #> 
 #> [[495]]$State
 #> [1] "FL"
 #> 
 #> [[495]]$City
-#> [1] "MIAMI                    "
+#> [1] "CORAL GABLES             "
 #> 
 #> [[495]]$Address
-#> [1] "14095 S DIXIE HWY                       "
+#> [1] "1515 SUNSET DRIVE                        SUITE 26                                "
 #> 
 #> [[495]]$ZIP
-#> [1] 33176
+#> [1] 33143
 #> 
 #> [[495]]$FilingType
 #> [1] "051"
@@ -20704,22 +20704,22 @@ if (!no_creds_available()) {
 #> 
 #> [[544]]
 #> [[544]]$ID_RSSD
-#> [1] 553038
+#> [1] 491934
 #> 
 #> [[544]]$FDICCertNumber
-#> [1] 34160
+#> [1] 22257
 #> 
 #> [[544]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[544]]$OTSDockNumber
-#> [1] 15999
+#> [1] 14936
 #> 
 #> [[544]]$PrimaryABARoutNumber
-#> [1] 61204913
+#> [1] 61202672
 #> 
 #> [[544]]$Name
-#> [1] "COMMUNITY BANKING COMPANY OF FITZGERALD                                                                                 "
+#> [1] "COLONY BANK                                                                                                             "
 #> 
 #> [[544]]$State
 #> [1] "GA"
@@ -20728,7 +20728,7 @@ if (!no_creds_available()) {
 #> [1] "FITZGERALD               "
 #> 
 #> [[544]]$Address
-#> [1] "102 W ROANOKE DR                        "
+#> [1] "302 S MAIN ST                           "
 #> 
 #> [[544]]$ZIP
 #> [1] 31750
@@ -20742,22 +20742,22 @@ if (!no_creds_available()) {
 #> 
 #> [[545]]
 #> [[545]]$ID_RSSD
-#> [1] 491934
+#> [1] 553038
 #> 
 #> [[545]]$FDICCertNumber
-#> [1] 22257
+#> [1] 34160
 #> 
 #> [[545]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[545]]$OTSDockNumber
-#> [1] 14936
+#> [1] 15999
 #> 
 #> [[545]]$PrimaryABARoutNumber
-#> [1] 61202672
+#> [1] 61204913
 #> 
 #> [[545]]$Name
-#> [1] "COLONY BANK                                                                                                             "
+#> [1] "COMMUNITY BANKING COMPANY OF FITZGERALD                                                                                 "
 #> 
 #> [[545]]$State
 #> [1] "GA"
@@ -20766,7 +20766,7 @@ if (!no_creds_available()) {
 #> [1] "FITZGERALD               "
 #> 
 #> [[545]]$Address
-#> [1] "302 S MAIN ST                           "
+#> [1] "102 W ROANOKE DR                        "
 #> 
 #> [[545]]$ZIP
 #> [1] 31750
@@ -21882,22 +21882,22 @@ if (!no_creds_available()) {
 #> 
 #> [[575]]
 #> [[575]]$ID_RSSD
-#> [1] 2823221
+#> [1] 3341393
 #> 
 #> [[575]]$FDICCertNumber
-#> [1] 35320
+#> [1] 58074
 #> 
 #> [[575]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[575]]$OTSDockNumber
-#> [1] 17110
+#> [1] 47021
 #> 
 #> [[575]]$PrimaryABARoutNumber
-#> [1] 61211728
+#> [1] 61220654
 #> 
 #> [[575]]$Name
-#> [1] "GEORGIA COMMUNITY BANK                                                                                                  "
+#> [1] "FLINT COMMUNITY BANK                                                                                                    "
 #> 
 #> [[575]]$State
 #> [1] "GA"
@@ -21906,10 +21906,10 @@ if (!no_creds_available()) {
 #> [1] "ALBANY                   "
 #> 
 #> [[575]]$Address
-#> [1] "704 N WESTOVER BLVD                     "
+#> [1] "2910 MEREDYTH DRIVE                     "
 #> 
 #> [[575]]$ZIP
-#> [1] 31707
+#> [1] 31721
 #> 
 #> [[575]]$FilingType
 #> [1] "051"
@@ -21920,22 +21920,22 @@ if (!no_creds_available()) {
 #> 
 #> [[576]]
 #> [[576]]$ID_RSSD
-#> [1] 3341393
+#> [1] 2823221
 #> 
 #> [[576]]$FDICCertNumber
-#> [1] 58074
+#> [1] 35320
 #> 
 #> [[576]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[576]]$OTSDockNumber
-#> [1] 47021
+#> [1] 17110
 #> 
 #> [[576]]$PrimaryABARoutNumber
-#> [1] 61220654
+#> [1] 61211728
 #> 
 #> [[576]]$Name
-#> [1] "FLINT COMMUNITY BANK                                                                                                    "
+#> [1] "GEORGIA COMMUNITY BANK                                                                                                  "
 #> 
 #> [[576]]$State
 #> [1] "GA"
@@ -21944,10 +21944,10 @@ if (!no_creds_available()) {
 #> [1] "ALBANY                   "
 #> 
 #> [[576]]$Address
-#> [1] "2910 MEREDYTH DRIVE                     "
+#> [1] "704 N WESTOVER BLVD                     "
 #> 
 #> [[576]]$ZIP
-#> [1] 31721
+#> [1] 31707
 #> 
 #> [[576]]$FilingType
 #> [1] "051"
@@ -30698,22 +30698,22 @@ if (!no_creds_available()) {
 #> 
 #> [[807]]
 #> [[807]]$ID_RSSD
-#> [1] 671334
+#> [1] 2834759
 #> 
 #> [[807]]$FDICCertNumber
-#> [1] 19333
+#> [1] 35230
 #> 
 #> [[807]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[807]]$OTSDockNumber
-#> [1] 12444
+#> [1] 0
 #> 
 #> [[807]]$PrimaryABARoutNumber
-#> [1] 71001180
+#> [1] 71925981
 #> 
 #> [[807]]$Name
-#> [1] "REPUBLIC BANK OF CHICAGO                                                                                                "
+#> [1] "EVERGREEN BANK GROUP                                                                                                    "
 #> 
 #> [[807]]$State
 #> [1] "IL"
@@ -30722,13 +30722,13 @@ if (!no_creds_available()) {
 #> [1] "OAK BROOK                "
 #> 
 #> [[807]]$Address
-#> [1] "2221 CAMDEN COURT                       "
+#> [1] "1515 WEST 22ND STREET                   "
 #> 
 #> [[807]]$ZIP
 #> [1] 60523
 #> 
 #> [[807]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[807]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -30736,10 +30736,10 @@ if (!no_creds_available()) {
 #> 
 #> [[808]]
 #> [[808]]$ID_RSSD
-#> [1] 2834759
+#> [1] 812436
 #> 
 #> [[808]]$FDICCertNumber
-#> [1] 35230
+#> [1] 16666
 #> 
 #> [[808]]$OCCChartNumber
 #> [1] 0
@@ -30748,22 +30748,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[808]]$PrimaryABARoutNumber
-#> [1] 71925981
+#> [1] 71922175
 #> 
 #> [[808]]$Name
-#> [1] "EVERGREEN BANK GROUP                                                                                                    "
+#> [1] "ITASCA BANK & TRUST CO.                                                                                                 "
 #> 
 #> [[808]]$State
 #> [1] "IL"
 #> 
 #> [[808]]$City
-#> [1] "OAK BROOK                "
+#> [1] "ITASCA                   "
 #> 
 #> [[808]]$Address
-#> [1] "1515 WEST 22ND STREET                   "
+#> [1] "308 WEST IRVING PARK ROAD               "
 #> 
 #> [[808]]$ZIP
-#> [1] 60523
+#> [1] 60143
 #> 
 #> [[808]]$FilingType
 #> [1] "051"
@@ -30774,34 +30774,34 @@ if (!no_creds_available()) {
 #> 
 #> [[809]]
 #> [[809]]$ID_RSSD
-#> [1] 812436
+#> [1] 2960788
 #> 
 #> [[809]]$FDICCertNumber
-#> [1] 16666
+#> [1] 57150
 #> 
 #> [[809]]$OCCChartNumber
-#> [1] 0
+#> [1] 23918
 #> 
 #> [[809]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[809]]$PrimaryABARoutNumber
-#> [1] 71922175
+#> [1] 271250249
 #> 
 #> [[809]]$Name
-#> [1] "ITASCA BANK & TRUST CO.                                                                                                 "
+#> [1] "WHEATON COLLEGE TRUST COMPANY, NATIONAL ASSOCIATION                                                                     "
 #> 
 #> [[809]]$State
 #> [1] "IL"
 #> 
 #> [[809]]$City
-#> [1] "ITASCA                   "
+#> [1] "WHEATON                  "
 #> 
 #> [[809]]$Address
-#> [1] "308 WEST IRVING PARK ROAD               "
+#> [1] "501 COLLEGE AVENUE                      "
 #> 
 #> [[809]]$ZIP
-#> [1] 60143
+#> [1] 60187
 #> 
 #> [[809]]$FilingType
 #> [1] "051"
@@ -30812,34 +30812,34 @@ if (!no_creds_available()) {
 #> 
 #> [[810]]
 #> [[810]]$ID_RSSD
-#> [1] 2960788
+#> [1] 133971
 #> 
 #> [[810]]$FDICCertNumber
-#> [1] 57150
+#> [1] 29800
 #> 
 #> [[810]]$OCCChartNumber
-#> [1] 23918
-#> 
-#> [[810]]$OTSDockNumber
 #> [1] 0
 #> 
+#> [[810]]$OTSDockNumber
+#> [1] 4107
+#> 
 #> [[810]]$PrimaryABARoutNumber
-#> [1] 271250249
+#> [1] 271972404
 #> 
 #> [[810]]$Name
-#> [1] "WHEATON COLLEGE TRUST COMPANY, NATIONAL ASSOCIATION                                                                     "
+#> [1] "LISLE SAVINGS BANK                                                                                                      "
 #> 
 #> [[810]]$State
 #> [1] "IL"
 #> 
 #> [[810]]$City
-#> [1] "WHEATON                  "
+#> [1] "LISLE                    "
 #> 
 #> [[810]]$Address
-#> [1] "501 COLLEGE AVENUE                      "
+#> [1] "1450 MAPLE AVENUE                       "
 #> 
 #> [[810]]$ZIP
-#> [1] 60187
+#> [1] 60532
 #> 
 #> [[810]]$FilingType
 #> [1] "051"
@@ -30850,37 +30850,37 @@ if (!no_creds_available()) {
 #> 
 #> [[811]]
 #> [[811]]$ID_RSSD
-#> [1] 133971
+#> [1] 671334
 #> 
 #> [[811]]$FDICCertNumber
-#> [1] 29800
+#> [1] 19333
 #> 
 #> [[811]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[811]]$OTSDockNumber
-#> [1] 4107
+#> [1] 12444
 #> 
 #> [[811]]$PrimaryABARoutNumber
-#> [1] 271972404
+#> [1] 71001180
 #> 
 #> [[811]]$Name
-#> [1] "LISLE SAVINGS BANK                                                                                                      "
+#> [1] "REPUBLIC BANK OF CHICAGO                                                                                                "
 #> 
 #> [[811]]$State
 #> [1] "IL"
 #> 
 #> [[811]]$City
-#> [1] "LISLE                    "
+#> [1] "OAK BROOK                "
 #> 
 #> [[811]]$Address
-#> [1] "1450 MAPLE AVENUE                       "
+#> [1] "2221 CAMDEN COURT                       "
 #> 
 #> [[811]]$ZIP
-#> [1] 60532
+#> [1] 60523
 #> 
 #> [[811]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[811]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -31154,10 +31154,10 @@ if (!no_creds_available()) {
 #> 
 #> [[819]]
 #> [[819]]$ID_RSSD
-#> [1] 158741
+#> [1] 601041
 #> 
 #> [[819]]$FDICCertNumber
-#> [1] 21486
+#> [1] 10871
 #> 
 #> [[819]]$OCCChartNumber
 #> [1] 0
@@ -31166,25 +31166,25 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[819]]$PrimaryABARoutNumber
-#> [1] 81224122
+#> [1] 81211669
 #> 
 #> [[819]]$Name
-#> [1] "CROSSROADS BANK                                                                                                         "
+#> [1] "FIRST STATE BANK OF BEECHER CITY                                                                                        "
 #> 
 #> [[819]]$State
 #> [1] "IL"
 #> 
 #> [[819]]$City
-#> [1] "EFFINGHAM                "
+#> [1] "BEECHER CITY             "
 #> 
 #> [[819]]$Address
-#> [1] "2000 SOUTH BANKER STREET                "
+#> [1] "101 SOUTH CHARLES STREET                "
 #> 
 #> [[819]]$ZIP
-#> [1] 62401
+#> [1] 62414
 #> 
 #> [[819]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[819]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -31192,10 +31192,10 @@ if (!no_creds_available()) {
 #> 
 #> [[820]]
 #> [[820]]$ID_RSSD
-#> [1] 601041
+#> [1] 773247
 #> 
 #> [[820]]$FDICCertNumber
-#> [1] 10871
+#> [1] 1040
 #> 
 #> [[820]]$OCCChartNumber
 #> [1] 0
@@ -31204,22 +31204,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[820]]$PrimaryABARoutNumber
-#> [1] 81211669
+#> [1] 81204540
 #> 
 #> [[820]]$Name
-#> [1] "FIRST STATE BANK OF BEECHER CITY                                                                                        "
+#> [1] "MIDLAND STATES BANK                                                                                                     "
 #> 
 #> [[820]]$State
 #> [1] "IL"
 #> 
 #> [[820]]$City
-#> [1] "BEECHER CITY             "
+#> [1] "EFFINGHAM                "
 #> 
 #> [[820]]$Address
-#> [1] "101 SOUTH CHARLES STREET                "
+#> [1] "1201 NETWORK CENTRE DRIVE               "
 #> 
 #> [[820]]$ZIP
-#> [1] 62414
+#> [1] 62401
 #> 
 #> [[820]]$FilingType
 #> [1] "041"
@@ -31230,10 +31230,10 @@ if (!no_creds_available()) {
 #> 
 #> [[821]]
 #> [[821]]$ID_RSSD
-#> [1] 773247
+#> [1] 771140
 #> 
 #> [[821]]$FDICCertNumber
-#> [1] 1040
+#> [1] 3787
 #> 
 #> [[821]]$OCCChartNumber
 #> [1] 0
@@ -31242,10 +31242,10 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[821]]$PrimaryABARoutNumber
-#> [1] 81204540
+#> [1] 81212574
 #> 
 #> [[821]]$Name
-#> [1] "MIDLAND STATES BANK                                                                                                     "
+#> [1] "DIETERICH BANK                                                                                                          "
 #> 
 #> [[821]]$State
 #> [1] "IL"
@@ -31254,7 +31254,7 @@ if (!no_creds_available()) {
 #> [1] "EFFINGHAM                "
 #> 
 #> [[821]]$Address
-#> [1] "1201 NETWORK CENTRE DRIVE               "
+#> [1] "300 SUR WOODS DRIVE                     "
 #> 
 #> [[821]]$ZIP
 #> [1] 62401
@@ -31268,10 +31268,10 @@ if (!no_creds_available()) {
 #> 
 #> [[822]]
 #> [[822]]$ID_RSSD
-#> [1] 771140
+#> [1] 158741
 #> 
 #> [[822]]$FDICCertNumber
-#> [1] 3787
+#> [1] 21486
 #> 
 #> [[822]]$OCCChartNumber
 #> [1] 0
@@ -31280,10 +31280,10 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[822]]$PrimaryABARoutNumber
-#> [1] 81212574
+#> [1] 81224122
 #> 
 #> [[822]]$Name
-#> [1] "DIETERICH BANK                                                                                                          "
+#> [1] "CROSSROADS BANK                                                                                                         "
 #> 
 #> [[822]]$State
 #> [1] "IL"
@@ -31292,13 +31292,13 @@ if (!no_creds_available()) {
 #> [1] "EFFINGHAM                "
 #> 
 #> [[822]]$Address
-#> [1] "300 SUR WOODS DRIVE                     "
+#> [1] "2000 SOUTH BANKER STREET                "
 #> 
 #> [[822]]$ZIP
 #> [1] 62401
 #> 
 #> [[822]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[822]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -31610,34 +31610,34 @@ if (!no_creds_available()) {
 #> 
 #> [[831]]
 #> [[831]]$ID_RSSD
-#> [1] 609832
+#> [1] 411549
 #> 
 #> [[831]]$FDICCertNumber
-#> [1] 10849
+#> [1] 16394
 #> 
 #> [[831]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[831]]$OTSDockNumber
-#> [1] 17062
+#> [1] 0
 #> 
 #> [[831]]$PrimaryABARoutNumber
-#> [1] 71109202
+#> [1] 71110424
 #> 
 #> [[831]]$Name
-#> [1] "TOMPKINS STATE BANK                                                                                                     "
+#> [1] "TABLE GROVE STATE BANK                                                                                                  "
 #> 
 #> [[831]]$State
 #> [1] "IL"
 #> 
 #> [[831]]$City
-#> [1] "AVON                     "
+#> [1] "TABLE GROVE              "
 #> 
 #> [[831]]$Address
-#> [1] "117 NORTH MAIN STREET                   "
+#> [1] "121 SOUTH BROADWAY                      "
 #> 
 #> [[831]]$ZIP
-#> [1] 61415
+#> [1] 614820215
 #> 
 #> [[831]]$FilingType
 #> [1] "051"
@@ -31648,34 +31648,34 @@ if (!no_creds_available()) {
 #> 
 #> [[832]]
 #> [[832]]$ID_RSSD
-#> [1] 411549
+#> [1] 976534
 #> 
 #> [[832]]$FDICCertNumber
-#> [1] 16394
+#> [1] 11732
 #> 
 #> [[832]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[832]]$OTSDockNumber
-#> [1] 0
+#> [1] 16227
 #> 
 #> [[832]]$PrimaryABARoutNumber
-#> [1] 71110424
+#> [1] 71105882
 #> 
 #> [[832]]$Name
-#> [1] "TABLE GROVE STATE BANK                                                                                                  "
+#> [1] "BANK OF FARMINGTON                                                                                                      "
 #> 
 #> [[832]]$State
 #> [1] "IL"
 #> 
 #> [[832]]$City
-#> [1] "TABLE GROVE              "
+#> [1] "FARMINGTON               "
 #> 
 #> [[832]]$Address
-#> [1] "121 SOUTH BROADWAY                      "
+#> [1] "16 NORTH MAIN STREET                    "
 #> 
 #> [[832]]$ZIP
-#> [1] 614820215
+#> [1] 61531
 #> 
 #> [[832]]$FilingType
 #> [1] "051"
@@ -31686,37 +31686,37 @@ if (!no_creds_available()) {
 #> 
 #> [[833]]
 #> [[833]]$ID_RSSD
-#> [1] 976534
+#> [1] 760434
 #> 
 #> [[833]]$FDICCertNumber
-#> [1] 11732
+#> [1] 10473
 #> 
 #> [[833]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[833]]$OTSDockNumber
-#> [1] 16227
+#> [1] 0
 #> 
 #> [[833]]$PrimaryABARoutNumber
-#> [1] 71105882
+#> [1] 71113748
 #> 
 #> [[833]]$Name
-#> [1] "BANK OF FARMINGTON                                                                                                      "
+#> [1] "IPAVA STATE BANK                                                                                                        "
 #> 
 #> [[833]]$State
 #> [1] "IL"
 #> 
 #> [[833]]$City
-#> [1] "FARMINGTON               "
+#> [1] "IPAVA                    "
 #> 
 #> [[833]]$Address
-#> [1] "16 NORTH MAIN STREET                    "
+#> [1] "70 EAST MAIN STREET                     "
 #> 
 #> [[833]]$ZIP
-#> [1] 61531
+#> [1] 61441
 #> 
 #> [[833]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[833]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -31724,37 +31724,37 @@ if (!no_creds_available()) {
 #> 
 #> [[834]]
 #> [[834]]$ID_RSSD
-#> [1] 760434
+#> [1] 510938
 #> 
 #> [[834]]$FDICCertNumber
-#> [1] 10473
+#> [1] 3612
 #> 
 #> [[834]]$OCCChartNumber
-#> [1] 0
+#> [1] 13838
 #> 
 #> [[834]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[834]]$PrimaryABARoutNumber
-#> [1] 71113748
+#> [1] 71102238
 #> 
 #> [[834]]$Name
-#> [1] "IPAVA STATE BANK                                                                                                        "
+#> [1] "MIDAMERICA NATIONAL BANK                                                                                                "
 #> 
 #> [[834]]$State
 #> [1] "IL"
 #> 
 #> [[834]]$City
-#> [1] "IPAVA                    "
+#> [1] "CANTON                   "
 #> 
 #> [[834]]$Address
-#> [1] "70 EAST MAIN STREET                     "
+#> [1] "100 WEST ELM STREET                     "
 #> 
 #> [[834]]$ZIP
-#> [1] 61441
+#> [1] 61520
 #> 
 #> [[834]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[834]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -31762,34 +31762,34 @@ if (!no_creds_available()) {
 #> 
 #> [[835]]
 #> [[835]]$ID_RSSD
-#> [1] 510938
+#> [1] 609832
 #> 
 #> [[835]]$FDICCertNumber
-#> [1] 3612
+#> [1] 10849
 #> 
 #> [[835]]$OCCChartNumber
-#> [1] 13838
-#> 
-#> [[835]]$OTSDockNumber
 #> [1] 0
 #> 
+#> [[835]]$OTSDockNumber
+#> [1] 17062
+#> 
 #> [[835]]$PrimaryABARoutNumber
-#> [1] 71102238
+#> [1] 71109202
 #> 
 #> [[835]]$Name
-#> [1] "MIDAMERICA NATIONAL BANK                                                                                                "
+#> [1] "TOMPKINS STATE BANK                                                                                                     "
 #> 
 #> [[835]]$State
 #> [1] "IL"
 #> 
 #> [[835]]$City
-#> [1] "CANTON                   "
+#> [1] "AVON                     "
 #> 
 #> [[835]]$Address
-#> [1] "100 WEST ELM STREET                     "
+#> [1] "117 NORTH MAIN STREET                   "
 #> 
 #> [[835]]$ZIP
-#> [1] 61520
+#> [1] 61415
 #> 
 #> [[835]]$FilingType
 #> [1] "051"
@@ -34688,34 +34688,34 @@ if (!no_creds_available()) {
 #> 
 #> [[912]]
 #> [[912]]$ID_RSSD
-#> [1] 2624400
+#> [1] 2598396
 #> 
 #> [[912]]$FDICCertNumber
-#> [1] 34681
+#> [1] 34526
 #> 
 #> [[912]]$OCCChartNumber
-#> [1] 23574
-#> 
-#> [[912]]$OTSDockNumber
 #> [1] 0
 #> 
+#> [[912]]$OTSDockNumber
+#> [1] 16552
+#> 
 #> [[912]]$PrimaryABARoutNumber
-#> [1] 71925787
+#> [1] 71925758
 #> 
 #> [[912]]$Name
-#> [1] "CRYSTAL LAKE BANK & TRUST COMPANY, NATIONAL ASSOCIATION                                                                 "
+#> [1] "PRAIRIE COMMUNITY BANK                                                                                                  "
 #> 
 #> [[912]]$State
 #> [1] "IL"
 #> 
 #> [[912]]$City
-#> [1] "CRYSTAL LAKE             "
+#> [1] "MARENGO                  "
 #> 
 #> [[912]]$Address
-#> [1] "70 NORTH WILLIAMS STREET                "
+#> [1] "800 WEST GRANT HIGHWAY                  "
 #> 
 #> [[912]]$ZIP
-#> [1] 60014
+#> [1] 60152
 #> 
 #> [[912]]$FilingType
 #> [1] "041"
@@ -34726,37 +34726,37 @@ if (!no_creds_available()) {
 #> 
 #> [[913]]
 #> [[913]]$ID_RSSD
-#> [1] 2598396
+#> [1] 800134
 #> 
 #> [[913]]$FDICCertNumber
-#> [1] 34526
+#> [1] 9079
 #> 
 #> [[913]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[913]]$OTSDockNumber
-#> [1] 16552
+#> [1] 14315
 #> 
 #> [[913]]$PrimaryABARoutNumber
-#> [1] 71925758
+#> [1] 71905082
 #> 
 #> [[913]]$Name
-#> [1] "PRAIRIE COMMUNITY BANK                                                                                                  "
+#> [1] "HARVARD STATE BANK, THE                                                                                                 "
 #> 
 #> [[913]]$State
 #> [1] "IL"
 #> 
 #> [[913]]$City
-#> [1] "MARENGO                  "
+#> [1] "HARVARD                  "
 #> 
 #> [[913]]$Address
-#> [1] "800 WEST GRANT HIGHWAY                  "
+#> [1] "33 NORTH AYER STREET                    "
 #> 
 #> [[913]]$ZIP
-#> [1] 60152
+#> [1] 60033
 #> 
 #> [[913]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[913]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -34764,37 +34764,37 @@ if (!no_creds_available()) {
 #> 
 #> [[914]]
 #> [[914]]$ID_RSSD
-#> [1] 800134
+#> [1] 2624400
 #> 
 #> [[914]]$FDICCertNumber
-#> [1] 9079
+#> [1] 34681
 #> 
 #> [[914]]$OCCChartNumber
-#> [1] 0
+#> [1] 23574
 #> 
 #> [[914]]$OTSDockNumber
-#> [1] 14315
+#> [1] 0
 #> 
 #> [[914]]$PrimaryABARoutNumber
-#> [1] 71905082
+#> [1] 71925787
 #> 
 #> [[914]]$Name
-#> [1] "HARVARD STATE BANK, THE                                                                                                 "
+#> [1] "CRYSTAL LAKE BANK & TRUST COMPANY, NATIONAL ASSOCIATION                                                                 "
 #> 
 #> [[914]]$State
 #> [1] "IL"
 #> 
 #> [[914]]$City
-#> [1] "HARVARD                  "
+#> [1] "CRYSTAL LAKE             "
 #> 
 #> [[914]]$Address
-#> [1] "33 NORTH AYER STREET                    "
+#> [1] "70 NORTH WILLIAMS STREET                "
 #> 
 #> [[914]]$ZIP
-#> [1] 60033
+#> [1] 60014
 #> 
 #> [[914]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[914]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -57640,22 +57640,22 @@ if (!no_creds_available()) {
 #> 
 #> [[1516]]
 #> [[1516]]$ID_RSSD
-#> [1] 43351
+#> [1] 2907019
 #> 
 #> [[1516]]$FDICCertNumber
-#> [1] 17685
+#> [1] 35585
 #> 
 #> [[1516]]$OCCChartNumber
-#> [1] 0
+#> [1] 24080
 #> 
 #> [[1516]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[1516]]$PrimaryABARoutNumber
-#> [1] 101106528
+#> [1] 101114918
 #> 
 #> [[1516]]$Name
-#> [1] "OUTDOOR BANK                                                                                                            "
+#> [1] "COMMUNITY FIRST NATIONAL BANK                                                                                           "
 #> 
 #> [[1516]]$State
 #> [1] "KS"
@@ -57664,7 +57664,7 @@ if (!no_creds_available()) {
 #> [1] "MANHATTAN                "
 #> 
 #> [[1516]]$Address
-#> [1] "2401 N SETH CHILD ROAD                  "
+#> [1] "215 S. SETH CHILD RD.                   "
 #> 
 #> [[1516]]$ZIP
 #> [1] 66502
@@ -57678,22 +57678,22 @@ if (!no_creds_available()) {
 #> 
 #> [[1517]]
 #> [[1517]]$ID_RSSD
-#> [1] 2907019
+#> [1] 43351
 #> 
 #> [[1517]]$FDICCertNumber
-#> [1] 35585
+#> [1] 17685
 #> 
 #> [[1517]]$OCCChartNumber
-#> [1] 24080
+#> [1] 0
 #> 
 #> [[1517]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[1517]]$PrimaryABARoutNumber
-#> [1] 101114918
+#> [1] 101106528
 #> 
 #> [[1517]]$Name
-#> [1] "COMMUNITY FIRST NATIONAL BANK                                                                                           "
+#> [1] "OUTDOOR BANK                                                                                                            "
 #> 
 #> [[1517]]$State
 #> [1] "KS"
@@ -57702,7 +57702,7 @@ if (!no_creds_available()) {
 #> [1] "MANHATTAN                "
 #> 
 #> [[1517]]$Address
-#> [1] "215 S. SETH CHILD RD.                   "
+#> [1] "2401 N SETH CHILD ROAD                  "
 #> 
 #> [[1517]]$ZIP
 #> [1] 66502
@@ -69192,37 +69192,37 @@ if (!no_creds_available()) {
 #> 
 #> [[1820]]
 #> [[1820]]$ID_RSSD
-#> [1] 643078
+#> [1] 2471239
 #> 
 #> [[1820]]$FDICCertNumber
-#> [1] 32360
+#> [1] 34294
 #> 
 #> [[1820]]$OCCChartNumber
-#> [1] 708183
+#> [1] 0
 #> 
 #> [[1820]]$OTSDockNumber
-#> [1] 8183
+#> [1] 13813
 #> 
 #> [[1820]]$PrimaryABARoutNumber
-#> [1] 252070639
+#> [1] 52073519
 #> 
 #> [[1820]]$Name
-#> [1] "EASTERN SAVINGS BANK FEDERAL SAVINGS BANK                                                                               "
+#> [1] "CFG BANK                                                                                                                "
 #> 
 #> [[1820]]$State
 #> [1] "MD"
 #> 
 #> [[1820]]$City
-#> [1] "HUNT VALLEY              "
+#> [1] "LUTHERVILLE              "
 #> 
 #> [[1820]]$Address
-#> [1] "11350 MCCORMICK ROAD SUITE 200          "
+#> [1] "11 W. RIDGELY ROAD                      "
 #> 
 #> [[1820]]$ZIP
-#> [1] 21031
+#> [1] 21093
 #> 
 #> [[1820]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[1820]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -69230,37 +69230,37 @@ if (!no_creds_available()) {
 #> 
 #> [[1821]]
 #> [[1821]]$ID_RSSD
-#> [1] 2471239
+#> [1] 86675
 #> 
 #> [[1821]]$FDICCertNumber
-#> [1] 34294
+#> [1] 29613
 #> 
 #> [[1821]]$OCCChartNumber
-#> [1] 0
+#> [1] 703758
 #> 
 #> [[1821]]$OTSDockNumber
-#> [1] 13813
+#> [1] 3758
 #> 
 #> [[1821]]$PrimaryABARoutNumber
-#> [1] 52073519
+#> [1] 252071557
 #> 
 #> [[1821]]$Name
-#> [1] "CFG BANK                                                                                                                "
+#> [1] "ROSEDALE FEDERAL SAVINGS AND LOAN ASSOCIATION                                                                           "
 #> 
 #> [[1821]]$State
 #> [1] "MD"
 #> 
 #> [[1821]]$City
-#> [1] "LUTHERVILLE              "
+#> [1] "NOTTINGHAM               "
 #> 
 #> [[1821]]$Address
-#> [1] "11 W. RIDGELY ROAD                      "
+#> [1] "9616 BELAIR ROAD                        "
 #> 
 #> [[1821]]$ZIP
-#> [1] 21093
+#> [1] 21236
 #> 
 #> [[1821]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[1821]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -69268,34 +69268,34 @@ if (!no_creds_available()) {
 #> 
 #> [[1822]]
 #> [[1822]]$ID_RSSD
-#> [1] 86675
+#> [1] 891226
 #> 
 #> [[1822]]$FDICCertNumber
-#> [1] 29613
+#> [1] 1895
 #> 
 #> [[1822]]$OCCChartNumber
-#> [1] 703758
+#> [1] 0
 #> 
 #> [[1822]]$OTSDockNumber
-#> [1] 3758
+#> [1] 13167
 #> 
 #> [[1822]]$PrimaryABARoutNumber
-#> [1] 252071557
+#> [1] 55002723
 #> 
 #> [[1822]]$Name
-#> [1] "ROSEDALE FEDERAL SAVINGS AND LOAN ASSOCIATION                                                                           "
+#> [1] "FARMERS AND MERCHANTS BANK                                                                                              "
 #> 
 #> [[1822]]$State
 #> [1] "MD"
 #> 
 #> [[1822]]$City
-#> [1] "NOTTINGHAM               "
+#> [1] "UPPERCO                  "
 #> 
 #> [[1822]]$Address
-#> [1] "9616 BELAIR ROAD                        "
+#> [1] "15226 HANOVER PIKE                      "
 #> 
 #> [[1822]]$ZIP
-#> [1] 21236
+#> [1] 21155
 #> 
 #> [[1822]]$FilingType
 #> [1] "051"
@@ -69306,37 +69306,37 @@ if (!no_creds_available()) {
 #> 
 #> [[1823]]
 #> [[1823]]$ID_RSSD
-#> [1] 891226
+#> [1] 242976
 #> 
 #> [[1823]]$FDICCertNumber
-#> [1] 1895
+#> [1] 32527
 #> 
 #> [[1823]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[1823]]$OTSDockNumber
-#> [1] 13167
+#> [1] 0
 #> 
 #> [[1823]]$PrimaryABARoutNumber
-#> [1] 55002723
+#> [1] 252071159
 #> 
 #> [[1823]]$Name
-#> [1] "FARMERS AND MERCHANTS BANK                                                                                              "
+#> [1] "BAYVANGUARD BANK                                                                                                        "
 #> 
 #> [[1823]]$State
 #> [1] "MD"
 #> 
 #> [[1823]]$City
-#> [1] "UPPERCO                  "
+#> [1] "SPARROWS POINT           "
 #> 
 #> [[1823]]$Address
-#> [1] "15226 HANOVER PIKE                      "
+#> [1] "7114 NORTH POINT ROAD                   "
 #> 
 #> [[1823]]$ZIP
-#> [1] 21155
+#> [1] 21219
 #> 
 #> [[1823]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[1823]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -69344,37 +69344,37 @@ if (!no_creds_available()) {
 #> 
 #> [[1824]]
 #> [[1824]]$ID_RSSD
-#> [1] 242976
+#> [1] 643078
 #> 
 #> [[1824]]$FDICCertNumber
-#> [1] 32527
+#> [1] 32360
 #> 
 #> [[1824]]$OCCChartNumber
-#> [1] 0
+#> [1] 708183
 #> 
 #> [[1824]]$OTSDockNumber
-#> [1] 0
+#> [1] 8183
 #> 
 #> [[1824]]$PrimaryABARoutNumber
-#> [1] 252071159
+#> [1] 252070639
 #> 
 #> [[1824]]$Name
-#> [1] "BAYVANGUARD BANK                                                                                                        "
+#> [1] "EASTERN SAVINGS BANK FEDERAL SAVINGS BANK                                                                               "
 #> 
 #> [[1824]]$State
 #> [1] "MD"
 #> 
 #> [[1824]]$City
-#> [1] "SPARROWS POINT           "
+#> [1] "HUNT VALLEY              "
 #> 
 #> [[1824]]$Address
-#> [1] "7114 NORTH POINT ROAD                   "
+#> [1] "11350 MCCORMICK ROAD SUITE 200          "
 #> 
 #> [[1824]]$ZIP
-#> [1] 21219
+#> [1] 21031
 #> 
 #> [[1824]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[1824]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -75424,22 +75424,22 @@ if (!no_creds_available()) {
 #> 
 #> [[1984]]
 #> [[1984]]$ID_RSSD
-#> [1] 2938787
+#> [1] 3404467
 #> 
 #> [[1984]]$FDICCertNumber
-#> [1] 34935
+#> [1] 58259
 #> 
 #> [[1984]]$OCCChartNumber
-#> [1] 25332
+#> [1] 24637
 #> 
 #> [[1984]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[1984]]$PrimaryABARoutNumber
-#> [1] 73957025
+#> [1] 72414239
 #> 
 #> [[1984]]$Name
-#> [1] "GREENLEAF TRUST NATIONAL ASSOCIATION                                                                                    "
+#> [1] "FIRST NATIONAL BANK OF MICHIGAN                                                                                         "
 #> 
 #> [[1984]]$State
 #> [1] "MI"
@@ -75448,13 +75448,13 @@ if (!no_creds_available()) {
 #> [1] "KALAMAZOO                "
 #> 
 #> [[1984]]$Address
-#> [1] "211 SOUTH ROSE STREET                   "
+#> [1] "348 WEST MICHIGAN AVENUE                "
 #> 
 #> [[1984]]$ZIP
 #> [1] 49007
 #> 
 #> [[1984]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[1984]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -75462,22 +75462,22 @@ if (!no_creds_available()) {
 #> 
 #> [[1985]]
 #> [[1985]]$ID_RSSD
-#> [1] 3404467
+#> [1] 2938787
 #> 
 #> [[1985]]$FDICCertNumber
-#> [1] 58259
+#> [1] 34935
 #> 
 #> [[1985]]$OCCChartNumber
-#> [1] 24637
+#> [1] 25332
 #> 
 #> [[1985]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[1985]]$PrimaryABARoutNumber
-#> [1] 72414239
+#> [1] 73957025
 #> 
 #> [[1985]]$Name
-#> [1] "FIRST NATIONAL BANK OF MICHIGAN                                                                                         "
+#> [1] "GREENLEAF TRUST NATIONAL ASSOCIATION                                                                                    "
 #> 
 #> [[1985]]$State
 #> [1] "MI"
@@ -75486,13 +75486,13 @@ if (!no_creds_available()) {
 #> [1] "KALAMAZOO                "
 #> 
 #> [[1985]]$Address
-#> [1] "348 WEST MICHIGAN AVENUE                "
+#> [1] "211 SOUTH ROSE STREET                   "
 #> 
 #> [[1985]]$ZIP
 #> [1] 49007
 #> 
 #> [[1985]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[1985]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -90966,10 +90966,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2393]]
 #> [[2393]]$ID_RSSD
-#> [1] 2785646
+#> [1] 717670
 #> 
 #> [[2393]]$FDICCertNumber
-#> [1] 8252
+#> [1] 29143
 #> 
 #> [[2393]]$OCCChartNumber
 #> [1] 0
@@ -90978,10 +90978,10 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2393]]$PrimaryABARoutNumber
-#> [1] 86518891
+#> [1] 286573351
 #> 
 #> [[2393]]$Name
-#> [1] "OMB BANK                                                                                                                "
+#> [1] "ARLO BANK                                                                                                               "
 #> 
 #> [[2393]]$State
 #> [1] "MO"
@@ -90990,10 +90990,10 @@ if (!no_creds_available()) {
 #> [1] "SPRINGFIELD              "
 #> 
 #> [[2393]]$Address
-#> [1] "3570 SOUTH NATIONAL                     "
+#> [1] "318 SOUTH AVENUE                        "
 #> 
 #> [[2393]]$ZIP
-#> [1] 65807
+#> [1] 65806
 #> 
 #> [[2393]]$FilingType
 #> [1] "051"
@@ -91004,10 +91004,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2394]]
 #> [[2394]]$ID_RSSD
-#> [1] 717670
+#> [1] 3804535
 #> 
 #> [[2394]]$FDICCertNumber
-#> [1] 29143
+#> [1] 58892
 #> 
 #> [[2394]]$OCCChartNumber
 #> [1] 0
@@ -91016,10 +91016,10 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2394]]$PrimaryABARoutNumber
-#> [1] 286573351
+#> [1] 86519421
 #> 
 #> [[2394]]$Name
-#> [1] "ARLO BANK                                                                                                               "
+#> [1] "GUARANTY BANK                                                                                                           "
 #> 
 #> [[2394]]$State
 #> [1] "MO"
@@ -91028,13 +91028,13 @@ if (!no_creds_available()) {
 #> [1] "SPRINGFIELD              "
 #> 
 #> [[2394]]$Address
-#> [1] "318 SOUTH AVENUE                        "
+#> [1] "2144 EAST REPUBLIC ROAD, SUITE F200     "
 #> 
 #> [[2394]]$ZIP
-#> [1] 65806
+#> [1] 65804
 #> 
 #> [[2394]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[2394]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -91042,10 +91042,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2395]]
 #> [[2395]]$ID_RSSD
-#> [1] 3804535
+#> [1] 293754
 #> 
 #> [[2395]]$FDICCertNumber
-#> [1] 58892
+#> [1] 26358
 #> 
 #> [[2395]]$OCCChartNumber
 #> [1] 0
@@ -91054,10 +91054,10 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2395]]$PrimaryABARoutNumber
-#> [1] 86519421
+#> [1] 86505545
 #> 
 #> [[2395]]$Name
-#> [1] "GUARANTY BANK                                                                                                           "
+#> [1] "STATE BANK OF SOUTHWEST MISSOURI                                                                                        "
 #> 
 #> [[2395]]$State
 #> [1] "MO"
@@ -91066,13 +91066,13 @@ if (!no_creds_available()) {
 #> [1] "SPRINGFIELD              "
 #> 
 #> [[2395]]$Address
-#> [1] "2144 EAST REPUBLIC ROAD, SUITE F200     "
+#> [1] "3310 EAST SUNSHINE                      "
 #> 
 #> [[2395]]$ZIP
 #> [1] 65804
 #> 
 #> [[2395]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[2395]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -91080,10 +91080,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2396]]
 #> [[2396]]$ID_RSSD
-#> [1] 293754
+#> [1] 950141
 #> 
 #> [[2396]]$FDICCertNumber
-#> [1] 26358
+#> [1] 15584
 #> 
 #> [[2396]]$OCCChartNumber
 #> [1] 0
@@ -91092,10 +91092,10 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2396]]$PrimaryABARoutNumber
-#> [1] 86505545
+#> [1] 86503424
 #> 
 #> [[2396]]$Name
-#> [1] "STATE BANK OF SOUTHWEST MISSOURI                                                                                        "
+#> [1] "MID-MISSOURI BANK                                                                                                       "
 #> 
 #> [[2396]]$State
 #> [1] "MO"
@@ -91104,13 +91104,13 @@ if (!no_creds_available()) {
 #> [1] "SPRINGFIELD              "
 #> 
 #> [[2396]]$Address
-#> [1] "3310 EAST SUNSHINE                      "
+#> [1] "1615 E INDEPENDENCE ST.                 "
 #> 
 #> [[2396]]$ZIP
 #> [1] 65804
 #> 
 #> [[2396]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[2396]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -91118,10 +91118,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2397]]
 #> [[2397]]$ID_RSSD
-#> [1] 950141
+#> [1] 246451
 #> 
 #> [[2397]]$FDICCertNumber
-#> [1] 15584
+#> [1] 8572
 #> 
 #> [[2397]]$OCCChartNumber
 #> [1] 0
@@ -91130,25 +91130,25 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2397]]$PrimaryABARoutNumber
-#> [1] 86503424
+#> [1] 81507166
 #> 
 #> [[2397]]$Name
-#> [1] "MID-MISSOURI BANK                                                                                                       "
+#> [1] "CITIZENS BANK OF ROGERSVILLE                                                                                            "
 #> 
 #> [[2397]]$State
 #> [1] "MO"
 #> 
 #> [[2397]]$City
-#> [1] "SPRINGFIELD              "
+#> [1] "ROGERSVILLE              "
 #> 
 #> [[2397]]$Address
-#> [1] "1615 E INDEPENDENCE ST.                 "
+#> [1] "1001 WEST CENTER STREET                 "
 #> 
 #> [[2397]]$ZIP
-#> [1] 65804
+#> [1] 65742
 #> 
 #> [[2397]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[2397]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -91156,10 +91156,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2398]]
 #> [[2398]]$ID_RSSD
-#> [1] 246451
+#> [1] 2785646
 #> 
 #> [[2398]]$FDICCertNumber
-#> [1] 8572
+#> [1] 8252
 #> 
 #> [[2398]]$OCCChartNumber
 #> [1] 0
@@ -91168,22 +91168,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2398]]$PrimaryABARoutNumber
-#> [1] 81507166
+#> [1] 86518891
 #> 
 #> [[2398]]$Name
-#> [1] "CITIZENS BANK OF ROGERSVILLE                                                                                            "
+#> [1] "OMB BANK                                                                                                                "
 #> 
 #> [[2398]]$State
 #> [1] "MO"
 #> 
 #> [[2398]]$City
-#> [1] "ROGERSVILLE              "
+#> [1] "SPRINGFIELD              "
 #> 
 #> [[2398]]$Address
-#> [1] "1001 WEST CENTER STREET                 "
+#> [1] "3570 SOUTH NATIONAL                     "
 #> 
 #> [[2398]]$ZIP
-#> [1] 65742
+#> [1] 65807
 #> 
 #> [[2398]]$FilingType
 #> [1] "051"
@@ -102214,10 +102214,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2689]]
 #> [[2689]]$ID_RSSD
-#> [1] 575759
+#> [1] 2726050
 #> 
 #> [[2689]]$FDICCertNumber
-#> [1] 5434
+#> [1] 34995
 #> 
 #> [[2689]]$OCCChartNumber
 #> [1] 0
@@ -102226,10 +102226,10 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2689]]$PrimaryABARoutNumber
-#> [1] 104100783
+#> [1] 104113990
 #> 
 #> [[2689]]$Name
-#> [1] "MNB BANK                                                                                                                "
+#> [1] "FIRST CENTRAL BANK MCCOOK                                                                                               "
 #> 
 #> [[2689]]$State
 #> [1] "NE"
@@ -102238,13 +102238,13 @@ if (!no_creds_available()) {
 #> [1] "MCCOOK                   "
 #> 
 #> [[2689]]$Address
-#> [1] "220 NORRIS AVENUE                       "
+#> [1] "904 NORTH HIGHWAY 83                    "
 #> 
 #> [[2689]]$ZIP
 #> [1] 69001
 #> 
 #> [[2689]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[2689]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -102252,10 +102252,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2690]]
 #> [[2690]]$ID_RSSD
-#> [1] 2726050
+#> [1] 575759
 #> 
 #> [[2690]]$FDICCertNumber
-#> [1] 34995
+#> [1] 5434
 #> 
 #> [[2690]]$OCCChartNumber
 #> [1] 0
@@ -102264,10 +102264,10 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2690]]$PrimaryABARoutNumber
-#> [1] 104113990
+#> [1] 104100783
 #> 
 #> [[2690]]$Name
-#> [1] "FIRST CENTRAL BANK MCCOOK                                                                                               "
+#> [1] "MNB BANK                                                                                                                "
 #> 
 #> [[2690]]$State
 #> [1] "NE"
@@ -102276,13 +102276,13 @@ if (!no_creds_available()) {
 #> [1] "MCCOOK                   "
 #> 
 #> [[2690]]$Address
-#> [1] "904 NORTH HIGHWAY 83                    "
+#> [1] "220 NORRIS AVENUE                       "
 #> 
 #> [[2690]]$ZIP
 #> [1] 69001
 #> 
 #> [[2690]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[2690]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -103278,22 +103278,22 @@ if (!no_creds_available()) {
 #> 
 #> [[2717]]
 #> [[2717]]$ID_RSSD
-#> [1] 1225761
+#> [1] 3284397
 #> 
 #> [[2717]]$FDICCertNumber
-#> [1] 27389
+#> [1] 57833
 #> 
 #> [[2717]]$OCCChartNumber
-#> [1] 21099
+#> [1] 0
 #> 
 #> [[2717]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[2717]]$PrimaryABARoutNumber
-#> [1] 122402421
+#> [1] 122487459
 #> 
 #> [[2717]]$Name
-#> [1] "WELLS FARGO NATIONAL BANK WEST                                                                                          "
+#> [1] "BEAL BANK USA                                                                                                           "
 #> 
 #> [[2717]]$State
 #> [1] "NV"
@@ -103302,13 +103302,13 @@ if (!no_creds_available()) {
 #> [1] "LAS VEGAS                "
 #> 
 #> [[2717]]$Address
-#> [1] "4455 SPRING MOUNTAIN ROAD               "
+#> [1] "1970 VILLAGE CENTER CIRCLE, SUITE 1     "
 #> 
 #> [[2717]]$ZIP
-#> [1] 89102
+#> [1] 89134
 #> 
 #> [[2717]]$FilingType
-#> [1] "031"
+#> [1] "041"
 #> 
 #> [[2717]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -103316,10 +103316,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2718]]
 #> [[2718]]$ID_RSSD
-#> [1] 3284397
+#> [1] 3287660
 #> 
 #> [[2718]]$FDICCertNumber
-#> [1] 57833
+#> [1] 57542
 #> 
 #> [[2718]]$OCCChartNumber
 #> [1] 0
@@ -103328,22 +103328,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2718]]$PrimaryABARoutNumber
-#> [1] 122487459
+#> [1] 122487404
 #> 
 #> [[2718]]$Name
-#> [1] "BEAL BANK USA                                                                                                           "
+#> [1] "TOYOTA FINANCIAL SAVINGS BANK                                                                                           "
 #> 
 #> [[2718]]$State
 #> [1] "NV"
 #> 
 #> [[2718]]$City
-#> [1] "LAS VEGAS                "
+#> [1] "HENDERSON                "
 #> 
 #> [[2718]]$Address
-#> [1] "1970 VILLAGE CENTER CIRCLE, SUITE 1     "
+#> [1] "2485 VILLAGE VIEW DRIVE, SUITE 200      "
 #> 
 #> [[2718]]$ZIP
-#> [1] 89134
+#> [1] 89074
 #> 
 #> [[2718]]$FilingType
 #> [1] "041"
@@ -103354,10 +103354,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2719]]
 #> [[2719]]$ID_RSSD
-#> [1] 3287660
+#> [1] 3719648
 #> 
 #> [[2719]]$FDICCertNumber
-#> [1] 57542
+#> [1] 58722
 #> 
 #> [[2719]]$OCCChartNumber
 #> [1] 0
@@ -103366,25 +103366,25 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2719]]$PrimaryABARoutNumber
-#> [1] 122487404
+#> [1] 122402382
 #> 
 #> [[2719]]$Name
-#> [1] "TOYOTA FINANCIAL SAVINGS BANK                                                                                           "
+#> [1] "MEADOWS BANK                                                                                                            "
 #> 
 #> [[2719]]$State
 #> [1] "NV"
 #> 
 #> [[2719]]$City
-#> [1] "HENDERSON                "
+#> [1] "LAS VEGAS                "
 #> 
 #> [[2719]]$Address
-#> [1] "2485 VILLAGE VIEW DRIVE, SUITE 200      "
+#> [1] "8912 SPANISH RIDGE AVENUE, SUITE 100    "
 #> 
 #> [[2719]]$ZIP
-#> [1] 89074
+#> [1] 89148
 #> 
 #> [[2719]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[2719]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -103392,10 +103392,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2720]]
 #> [[2720]]$ID_RSSD
-#> [1] 3719648
+#> [1] 3636446
 #> 
 #> [[2720]]$FDICCertNumber
-#> [1] 58722
+#> [1] 58626
 #> 
 #> [[2720]]$OCCChartNumber
 #> [1] 0
@@ -103404,10 +103404,10 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2720]]$PrimaryABARoutNumber
-#> [1] 122402382
+#> [1] 122402366
 #> 
 #> [[2720]]$Name
-#> [1] "MEADOWS BANK                                                                                                            "
+#> [1] "GBANK                                                                                                                   "
 #> 
 #> [[2720]]$State
 #> [1] "NV"
@@ -103416,7 +103416,7 @@ if (!no_creds_available()) {
 #> [1] "LAS VEGAS                "
 #> 
 #> [[2720]]$Address
-#> [1] "8912 SPANISH RIDGE AVENUE, SUITE 100    "
+#> [1] "9115 WEST RUSSELL ROAD, SUITE 110       "
 #> 
 #> [[2720]]$ZIP
 #> [1] 89148
@@ -103430,10 +103430,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2721]]
 #> [[2721]]$ID_RSSD
-#> [1] 3636446
+#> [1] 3370357
 #> 
 #> [[2721]]$FDICCertNumber
-#> [1] 58626
+#> [1] 57933
 #> 
 #> [[2721]]$OCCChartNumber
 #> [1] 0
@@ -103442,25 +103442,25 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2721]]$PrimaryABARoutNumber
-#> [1] 122402366
+#> [1] 122402243
 #> 
 #> [[2721]]$Name
-#> [1] "GBANK                                                                                                                   "
+#> [1] "VALLEY BANK OF NEVADA                                                                                                   "
 #> 
 #> [[2721]]$State
 #> [1] "NV"
 #> 
 #> [[2721]]$City
-#> [1] "LAS VEGAS                "
+#> [1] "NORTH LAS VEGAS          "
 #> 
 #> [[2721]]$Address
-#> [1] "9115 WEST RUSSELL ROAD, SUITE 110       "
+#> [1] "6385 SIMMONS STREET                     "
 #> 
 #> [[2721]]$ZIP
-#> [1] 89148
+#> [1] 89031
 #> 
 #> [[2721]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[2721]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -103468,10 +103468,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2722]]
 #> [[2722]]$ID_RSSD
-#> [1] 3370357
+#> [1] 3067929
 #> 
 #> [[2722]]$FDICCertNumber
-#> [1] 57933
+#> [1] 57312
 #> 
 #> [[2722]]$OCCChartNumber
 #> [1] 0
@@ -103480,25 +103480,25 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2722]]$PrimaryABARoutNumber
-#> [1] 122402243
+#> [1] 122402191
 #> 
 #> [[2722]]$Name
-#> [1] "VALLEY BANK OF NEVADA                                                                                                   "
+#> [1] "TOWN & COUNTRY BANK                                                                                                     "
 #> 
 #> [[2722]]$State
 #> [1] "NV"
 #> 
 #> [[2722]]$City
-#> [1] "NORTH LAS VEGAS          "
+#> [1] "LAS VEGAS                "
 #> 
 #> [[2722]]$Address
-#> [1] "6385 SIMMONS STREET                     "
+#> [1] "8620 WEST TROPICANA AVENUE              "
 #> 
 #> [[2722]]$ZIP
-#> [1] 89031
+#> [1] 89147
 #> 
 #> [[2722]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[2722]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -103506,22 +103506,22 @@ if (!no_creds_available()) {
 #> 
 #> [[2723]]
 #> [[2723]]$ID_RSSD
-#> [1] 3067929
+#> [1] 1225761
 #> 
 #> [[2723]]$FDICCertNumber
-#> [1] 57312
+#> [1] 27389
 #> 
 #> [[2723]]$OCCChartNumber
-#> [1] 0
+#> [1] 21099
 #> 
 #> [[2723]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[2723]]$PrimaryABARoutNumber
-#> [1] 122402191
+#> [1] 122402421
 #> 
 #> [[2723]]$Name
-#> [1] "TOWN & COUNTRY BANK                                                                                                     "
+#> [1] "WELLS FARGO NATIONAL BANK WEST                                                                                          "
 #> 
 #> [[2723]]$State
 #> [1] "NV"
@@ -103530,13 +103530,13 @@ if (!no_creds_available()) {
 #> [1] "LAS VEGAS                "
 #> 
 #> [[2723]]$Address
-#> [1] "8620 WEST TROPICANA AVENUE              "
+#> [1] "4455 SPRING MOUNTAIN ROAD               "
 #> 
 #> [[2723]]$ZIP
-#> [1] 89147
+#> [1] 89102
 #> 
 #> [[2723]]$FilingType
-#> [1] "051"
+#> [1] "031"
 #> 
 #> [[2723]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -105862,34 +105862,34 @@ if (!no_creds_available()) {
 #> 
 #> [[2785]]
 #> [[2785]]$ID_RSSD
-#> [1] 548771
+#> [1] 7009
 #> 
 #> [[2785]]$FDICCertNumber
-#> [1] 30704
+#> [1] 20015
 #> 
 #> [[2785]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[2785]]$OTSDockNumber
-#> [1] 5775
+#> [1] 0
 #> 
 #> [[2785]]$PrimaryABARoutNumber
-#> [1] 221270910
+#> [1] 21203970
 #> 
 #> [[2785]]$Name
-#> [1] "MAGYAR BANK                                                                                                             "
+#> [1] "BESSEMER TRUST COMPANY                                                                                                  "
 #> 
 #> [[2785]]$State
 #> [1] "NJ"
 #> 
 #> [[2785]]$City
-#> [1] "NEW BRUNSWICK            "
+#> [1] "WOODBRIDGE               "
 #> 
 #> [[2785]]$Address
-#> [1] "400 SOMERSET STREET                     "
+#> [1] "100 WOODBRIDGE CENTER DRIVE             "
 #> 
 #> [[2785]]$ZIP
-#> [1] 8901
+#> [1] 70951191
 #> 
 #> [[2785]]$FilingType
 #> [1] "051"
@@ -105900,37 +105900,37 @@ if (!no_creds_available()) {
 #> 
 #> [[2786]]
 #> [[2786]]$ID_RSSD
-#> [1] 7009
+#> [1] 9807
 #> 
 #> [[2786]]$FDICCertNumber
-#> [1] 20015
+#> [1] 6423
 #> 
 #> [[2786]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[2786]]$OTSDockNumber
-#> [1] 0
+#> [1] 9315
 #> 
 #> [[2786]]$PrimaryABARoutNumber
-#> [1] 21203970
+#> [1] 21204416
 #> 
 #> [[2786]]$Name
-#> [1] "BESSEMER TRUST COMPANY                                                                                                  "
+#> [1] "AMBOY BANK                                                                                                              "
 #> 
 #> [[2786]]$State
 #> [1] "NJ"
 #> 
 #> [[2786]]$City
-#> [1] "WOODBRIDGE               "
+#> [1] "OLD BRIDGE               "
 #> 
 #> [[2786]]$Address
-#> [1] "100 WOODBRIDGE CENTER DRIVE             "
+#> [1] "3590 U.S. HIGHWAY 9 SOUTH               "
 #> 
 #> [[2786]]$ZIP
-#> [1] 70951191
+#> [1] 8857
 #> 
 #> [[2786]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[2786]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -105938,37 +105938,37 @@ if (!no_creds_available()) {
 #> 
 #> [[2787]]
 #> [[2787]]$ID_RSSD
-#> [1] 9807
+#> [1] 548771
 #> 
 #> [[2787]]$FDICCertNumber
-#> [1] 6423
+#> [1] 30704
 #> 
 #> [[2787]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[2787]]$OTSDockNumber
-#> [1] 9315
+#> [1] 5775
 #> 
 #> [[2787]]$PrimaryABARoutNumber
-#> [1] 21204416
+#> [1] 221270910
 #> 
 #> [[2787]]$Name
-#> [1] "AMBOY BANK                                                                                                              "
+#> [1] "MAGYAR BANK                                                                                                             "
 #> 
 #> [[2787]]$State
 #> [1] "NJ"
 #> 
 #> [[2787]]$City
-#> [1] "OLD BRIDGE               "
+#> [1] "NEW BRUNSWICK            "
 #> 
 #> [[2787]]$Address
-#> [1] "3590 U.S. HIGHWAY 9 SOUTH               "
+#> [1] "400 SOMERSET STREET                     "
 #> 
 #> [[2787]]$ZIP
-#> [1] 8857
+#> [1] 8901
 #> 
 #> [[2787]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[2787]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -106280,37 +106280,37 @@ if (!no_creds_available()) {
 #> 
 #> [[2796]]
 #> [[2796]]$ID_RSSD
-#> [1] 159971
+#> [1] 236706
 #> 
 #> [[2796]]$FDICCertNumber
-#> [1] 28778
+#> [1] 11035
 #> 
 #> [[2796]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[2796]]$OTSDockNumber
-#> [1] 2343
+#> [1] 0
 #> 
 #> [[2796]]$PrimaryABARoutNumber
-#> [1] 221270211
+#> [1] 21205237
 #> 
 #> [[2796]]$Name
-#> [1] "SOMERSET REGAL BANK                                                                                                     "
+#> [1] "PEAPACK PRIVATE BANK AND TRUST                                                                                          "
 #> 
 #> [[2796]]$State
 #> [1] "NJ"
 #> 
 #> [[2796]]$City
-#> [1] "BOUND BROOK              "
+#> [1] "BEDMINSTER               "
 #> 
 #> [[2796]]$Address
-#> [1] "220 WEST UNION AVE                      "
+#> [1] "500 HILLS DRIVE, SUITE 300              "
 #> 
 #> [[2796]]$ZIP
-#> [1] 8805
+#> [1] 7921
 #> 
 #> [[2796]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[2796]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -106318,37 +106318,37 @@ if (!no_creds_available()) {
 #> 
 #> [[2797]]
 #> [[2797]]$ID_RSSD
-#> [1] 236706
+#> [1] 159971
 #> 
 #> [[2797]]$FDICCertNumber
-#> [1] 11035
+#> [1] 28778
 #> 
 #> [[2797]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[2797]]$OTSDockNumber
-#> [1] 0
+#> [1] 2343
 #> 
 #> [[2797]]$PrimaryABARoutNumber
-#> [1] 21205237
+#> [1] 221270211
 #> 
 #> [[2797]]$Name
-#> [1] "PEAPACK PRIVATE BANK AND TRUST                                                                                          "
+#> [1] "SOMERSET REGAL BANK                                                                                                     "
 #> 
 #> [[2797]]$State
 #> [1] "NJ"
 #> 
 #> [[2797]]$City
-#> [1] "BEDMINSTER               "
+#> [1] "BOUND BROOK              "
 #> 
 #> [[2797]]$Address
-#> [1] "500 HILLS DRIVE, SUITE 300              "
+#> [1] "220 WEST UNION AVE                      "
 #> 
 #> [[2797]]$ZIP
-#> [1] 7921
+#> [1] 8805
 #> 
 #> [[2797]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[2797]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -113652,10 +113652,10 @@ if (!no_creds_available()) {
 #> 
 #> [[2990]]
 #> [[2990]]$ID_RSSD
-#> [1] 1014554
+#> [1] 238250
 #> 
 #> [[2990]]$FDICCertNumber
-#> [1] 9121
+#> [1] 13196
 #> 
 #> [[2990]]$OCCChartNumber
 #> [1] 0
@@ -113664,22 +113664,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[2990]]$PrimaryABARoutNumber
-#> [1] 91303871
+#> [1] 91301899
 #> 
 #> [[2990]]$Name
-#> [1] "STATE BANK OF BOTTINEAU                                                                                                 "
+#> [1] "PEOPLES STATE BANK                                                                                                      "
 #> 
 #> [[2990]]$State
 #> [1] "ND"
 #> 
 #> [[2990]]$City
-#> [1] "BOTTINEAU                "
+#> [1] "WESTHOPE                 "
 #> 
 #> [[2990]]$Address
-#> [1] "105 11TH STREET EAST                    "
+#> [1] "110 MAIN STREET                         "
 #> 
 #> [[2990]]$ZIP
-#> [1] 58318
+#> [1] 58793
 #> 
 #> [[2990]]$FilingType
 #> [1] "051"
@@ -113690,34 +113690,34 @@ if (!no_creds_available()) {
 #> 
 #> [[2991]]
 #> [[2991]]$ID_RSSD
-#> [1] 238250
+#> [1] 974558
 #> 
 #> [[2991]]$FDICCertNumber
-#> [1] 13196
+#> [1] 3902
 #> 
 #> [[2991]]$OCCChartNumber
-#> [1] 0
+#> [1] 8029
 #> 
 #> [[2991]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[2991]]$PrimaryABARoutNumber
-#> [1] 91301899
+#> [1] 91304634
 #> 
 #> [[2991]]$Name
-#> [1] "PEOPLES STATE BANK                                                                                                      "
+#> [1] "FIRST NATIONAL BANK AND TRUST COMPANY OF BOTTINEAU                                                                      "
 #> 
 #> [[2991]]$State
 #> [1] "ND"
 #> 
 #> [[2991]]$City
-#> [1] "WESTHOPE                 "
+#> [1] "BOTTINEAU                "
 #> 
 #> [[2991]]$Address
-#> [1] "110 MAIN STREET                         "
+#> [1] "424 MAIN ST.                            "
 #> 
 #> [[2991]]$ZIP
-#> [1] 58793
+#> [1] 58318
 #> 
 #> [[2991]]$FilingType
 #> [1] "051"
@@ -113728,22 +113728,22 @@ if (!no_creds_available()) {
 #> 
 #> [[2992]]
 #> [[2992]]$ID_RSSD
-#> [1] 974558
+#> [1] 1014554
 #> 
 #> [[2992]]$FDICCertNumber
-#> [1] 3902
+#> [1] 9121
 #> 
 #> [[2992]]$OCCChartNumber
-#> [1] 8029
+#> [1] 0
 #> 
 #> [[2992]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[2992]]$PrimaryABARoutNumber
-#> [1] 91304634
+#> [1] 91303871
 #> 
 #> [[2992]]$Name
-#> [1] "FIRST NATIONAL BANK AND TRUST COMPANY OF BOTTINEAU                                                                      "
+#> [1] "STATE BANK OF BOTTINEAU                                                                                                 "
 #> 
 #> [[2992]]$State
 #> [1] "ND"
@@ -113752,7 +113752,7 @@ if (!no_creds_available()) {
 #> [1] "BOTTINEAU                "
 #> 
 #> [[2992]]$Address
-#> [1] "424 MAIN ST.                            "
+#> [1] "105 11TH STREET EAST                    "
 #> 
 #> [[2992]]$ZIP
 #> [1] 58318
@@ -133374,22 +133374,22 @@ if (!no_creds_available()) {
 #> 
 #> [[3509]]
 #> [[3509]]$ID_RSSD
-#> [1] 460275
+#> [1] 1225798
 #> 
 #> [[3509]]$FDICCertNumber
-#> [1] 29627
+#> [1] 27385
 #> 
 #> [[3509]]$OCCChartNumber
-#> [1] 703776
+#> [1] 0
 #> 
 #> [[3509]]$OTSDockNumber
-#> [1] 3776
+#> [1] 11726
 #> 
 #> [[3509]]$PrimaryABARoutNumber
-#> [1] 236072378
+#> [1] 236074855
 #> 
 #> [[3509]]$Name
-#> [1] "SECOND FEDERAL SAVINGS & LOAN ASSOCIATION OF PHILADELPHIA                                                               "
+#> [1] "PORT RICHMOND SAVINGS                                                                                                   "
 #> 
 #> [[3509]]$State
 #> [1] "PA"
@@ -133398,10 +133398,10 @@ if (!no_creds_available()) {
 #> [1] "PHILADELPHIA             "
 #> 
 #> [[3509]]$Address
-#> [1] "1727 CHESTNUT STREET                    "
+#> [1] "2522 EAST ALLEGHENY AVENUE              "
 #> 
 #> [[3509]]$ZIP
-#> [1] 19103
+#> [1] 19134
 #> 
 #> [[3509]]$FilingType
 #> [1] "051"
@@ -133412,22 +133412,22 @@ if (!no_creds_available()) {
 #> 
 #> [[3510]]
 #> [[3510]]$ID_RSSD
-#> [1] 1225798
+#> [1] 459372
 #> 
 #> [[3510]]$FDICCertNumber
-#> [1] 27385
+#> [1] 28836
 #> 
 #> [[3510]]$OCCChartNumber
 #> [1] 0
 #> 
 #> [[3510]]$OTSDockNumber
-#> [1] 11726
+#> [1] 2458
 #> 
 #> [[3510]]$PrimaryABARoutNumber
-#> [1] 236074855
+#> [1] 236073225
 #> 
 #> [[3510]]$Name
-#> [1] "PORT RICHMOND SAVINGS                                                                                                   "
+#> [1] "UNITED SAVINGS BANK                                                                                                     "
 #> 
 #> [[3510]]$State
 #> [1] "PA"
@@ -133436,10 +133436,10 @@ if (!no_creds_available()) {
 #> [1] "PHILADELPHIA             "
 #> 
 #> [[3510]]$Address
-#> [1] "2522 EAST ALLEGHENY AVENUE              "
+#> [1] "1510 PACKER AVENUE                      "
 #> 
 #> [[3510]]$ZIP
-#> [1] 19134
+#> [1] 19145
 #> 
 #> [[3510]]$FilingType
 #> [1] "051"
@@ -133450,22 +133450,22 @@ if (!no_creds_available()) {
 #> 
 #> [[3511]]
 #> [[3511]]$ID_RSSD
-#> [1] 459372
+#> [1] 2826017
 #> 
 #> [[3511]]$FDICCertNumber
-#> [1] 28836
+#> [1] 35317
 #> 
 #> [[3511]]$OCCChartNumber
-#> [1] 0
+#> [1] 23864
 #> 
 #> [[3511]]$OTSDockNumber
-#> [1] 2458
+#> [1] 0
 #> 
 #> [[3511]]$PrimaryABARoutNumber
-#> [1] 236073225
+#> [1] 31101062
 #> 
 #> [[3511]]$Name
-#> [1] "UNITED SAVINGS BANK                                                                                                     "
+#> [1] "GLENMEDE TRUST COMPANY, NATIONAL ASSOCIATION, THE                                                                       "
 #> 
 #> [[3511]]$State
 #> [1] "PA"
@@ -133474,13 +133474,13 @@ if (!no_creds_available()) {
 #> [1] "PHILADELPHIA             "
 #> 
 #> [[3511]]$Address
-#> [1] "1510 PACKER AVENUE                      "
+#> [1] "1650 MARKET STREET SUITE 4000           "
 #> 
 #> [[3511]]$ZIP
-#> [1] 19145
+#> [1] 19103
 #> 
 #> [[3511]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[3511]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -133488,22 +133488,22 @@ if (!no_creds_available()) {
 #> 
 #> [[3512]]
 #> [[3512]]$ID_RSSD
-#> [1] 2826017
+#> [1] 460275
 #> 
 #> [[3512]]$FDICCertNumber
-#> [1] 35317
+#> [1] 29627
 #> 
 #> [[3512]]$OCCChartNumber
-#> [1] 23864
+#> [1] 703776
 #> 
 #> [[3512]]$OTSDockNumber
-#> [1] 0
+#> [1] 3776
 #> 
 #> [[3512]]$PrimaryABARoutNumber
-#> [1] 31101062
+#> [1] 236072378
 #> 
 #> [[3512]]$Name
-#> [1] "GLENMEDE TRUST COMPANY, NATIONAL ASSOCIATION, THE                                                                       "
+#> [1] "SECOND FEDERAL SAVINGS & LOAN ASSOCIATION OF PHILADELPHIA                                                               "
 #> 
 #> [[3512]]$State
 #> [1] "PA"
@@ -133512,13 +133512,13 @@ if (!no_creds_available()) {
 #> [1] "PHILADELPHIA             "
 #> 
 #> [[3512]]$Address
-#> [1] "1650 MARKET STREET SUITE 4000           "
+#> [1] "1727 CHESTNUT STREET                    "
 #> 
 #> [[3512]]$ZIP
 #> [1] 19103
 #> 
 #> [[3512]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[3512]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -137212,10 +137212,10 @@ if (!no_creds_available()) {
 #> 
 #> [[3610]]
 #> [[3610]]$ID_RSSD
-#> [1] 120953
+#> [1] 289757
 #> 
 #> [[3610]]$FDICCertNumber
-#> [1] 1686
+#> [1] 1125
 #> 
 #> [[3610]]$OCCChartNumber
 #> [1] 0
@@ -137224,22 +137224,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[3610]]$PrimaryABARoutNumber
-#> [1] 91409296
+#> [1] 91402277
 #> 
 #> [[3610]]$Name
-#> [1] "FARMERS STATE BANK                                                                                                      "
+#> [1] "MERCHANTS STATE BANK                                                                                                    "
 #> 
 #> [[3610]]$State
 #> [1] "SD"
 #> 
 #> [[3610]]$City
-#> [1] "PARKSTON                 "
+#> [1] "FREEMAN                  "
 #> 
 #> [[3610]]$Address
-#> [1] "103 WEST MAIN                           "
+#> [1] "305 S. MAIN                             "
 #> 
 #> [[3610]]$ZIP
-#> [1] 57366
+#> [1] 57029
 #> 
 #> [[3610]]$FilingType
 #> [1] "051"
@@ -137250,10 +137250,10 @@ if (!no_creds_available()) {
 #> 
 #> [[3611]]
 #> [[3611]]$ID_RSSD
-#> [1] 289757
+#> [1] 120953
 #> 
 #> [[3611]]$FDICCertNumber
-#> [1] 1125
+#> [1] 1686
 #> 
 #> [[3611]]$OCCChartNumber
 #> [1] 0
@@ -137262,22 +137262,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[3611]]$PrimaryABARoutNumber
-#> [1] 91402277
+#> [1] 91409296
 #> 
 #> [[3611]]$Name
-#> [1] "MERCHANTS STATE BANK                                                                                                    "
+#> [1] "FARMERS STATE BANK                                                                                                      "
 #> 
 #> [[3611]]$State
 #> [1] "SD"
 #> 
 #> [[3611]]$City
-#> [1] "FREEMAN                  "
+#> [1] "PARKSTON                 "
 #> 
 #> [[3611]]$Address
-#> [1] "305 S. MAIN                             "
+#> [1] "103 WEST MAIN                           "
 #> 
 #> [[3611]]$ZIP
-#> [1] 57029
+#> [1] 57366
 #> 
 #> [[3611]]$FilingType
 #> [1] "051"
@@ -144318,10 +144318,10 @@ if (!no_creds_available()) {
 #> 
 #> [[3797]]
 #> [[3797]]$ID_RSSD
-#> [1] 230759
+#> [1] 380458
 #> 
 #> [[3797]]$FDICCertNumber
-#> [1] 25679
+#> [1] 26906
 #> 
 #> [[3797]]$OCCChartNumber
 #> [1] 0
@@ -144330,25 +144330,25 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[3797]]$PrimaryABARoutNumber
-#> [1] 114911580
+#> [1] 114917335
 #> 
 #> [[3797]]$Name
-#> [1] "INTERNATIONAL BANK OF COMMERCE                                                                                          "
+#> [1] "TEXAS REGIONAL BANK                                                                                                     "
 #> 
 #> [[3797]]$State
 #> [1] "TX"
 #> 
 #> [[3797]]$City
-#> [1] "BROWNSVILLE              "
+#> [1] "HARLINGEN                "
 #> 
 #> [[3797]]$Address
-#> [1] "1600 FM 802                             "
+#> [1] "6770 WEST EXPRESSWAY 83                 "
 #> 
 #> [[3797]]$ZIP
-#> [1] 78521
+#> [1] 78552
 #> 
 #> [[3797]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[3797]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -144356,10 +144356,10 @@ if (!no_creds_available()) {
 #> 
 #> [[3798]]
 #> [[3798]]$ID_RSSD
-#> [1] 380458
+#> [1] 334264
 #> 
 #> [[3798]]$FDICCertNumber
-#> [1] 26906
+#> [1] 22964
 #> 
 #> [[3798]]$OCCChartNumber
 #> [1] 0
@@ -144368,22 +144368,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[3798]]$PrimaryABARoutNumber
-#> [1] 114917335
+#> [1] 114908289
 #> 
 #> [[3798]]$Name
-#> [1] "TEXAS REGIONAL BANK                                                                                                     "
+#> [1] "FIRST COMMUNITY BANK                                                                                                    "
 #> 
 #> [[3798]]$State
 #> [1] "TX"
 #> 
 #> [[3798]]$City
-#> [1] "HARLINGEN                "
+#> [1] "SAN BENITO               "
 #> 
 #> [[3798]]$Address
-#> [1] "6770 WEST EXPRESSWAY 83                 "
+#> [1] "1151 W HWY 77                           "
 #> 
 #> [[3798]]$ZIP
-#> [1] 78552
+#> [1] 785864376
 #> 
 #> [[3798]]$FilingType
 #> [1] "051"
@@ -144394,10 +144394,10 @@ if (!no_creds_available()) {
 #> 
 #> [[3799]]
 #> [[3799]]$ID_RSSD
-#> [1] 334264
+#> [1] 230759
 #> 
 #> [[3799]]$FDICCertNumber
-#> [1] 22964
+#> [1] 25679
 #> 
 #> [[3799]]$OCCChartNumber
 #> [1] 0
@@ -144406,25 +144406,25 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[3799]]$PrimaryABARoutNumber
-#> [1] 114908289
+#> [1] 114911580
 #> 
 #> [[3799]]$Name
-#> [1] "FIRST COMMUNITY BANK                                                                                                    "
+#> [1] "INTERNATIONAL BANK OF COMMERCE                                                                                          "
 #> 
 #> [[3799]]$State
 #> [1] "TX"
 #> 
 #> [[3799]]$City
-#> [1] "SAN BENITO               "
+#> [1] "BROWNSVILLE              "
 #> 
 #> [[3799]]$Address
-#> [1] "1151 W HWY 77                           "
+#> [1] "1600 FM 802                             "
 #> 
 #> [[3799]]$ZIP
-#> [1] 785864376
+#> [1] 78521
 #> 
 #> [[3799]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[3799]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -155490,22 +155490,22 @@ if (!no_creds_available()) {
 #> 
 #> [[4091]]
 #> [[4091]]$ID_RSSD
-#> [1] 6009630
+#> [1] 3347911
 #> 
 #> [[4091]]$FDICCertNumber
-#> [1] 59366
+#> [1] 58082
 #> 
 #> [[4091]]$OCCChartNumber
-#> [1] 25304
+#> [1] 0
 #> 
 #> [[4091]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[4091]]$PrimaryABARoutNumber
-#> [1] 114926423
+#> [1] 114994031
 #> 
 #> [[4091]]$Name
-#> [1] "FUNDBANK, NATIONAL ASSOCIATION                                                                                          "
+#> [1] "AUSTIN CAPITAL BANK SSB                                                                                                 "
 #> 
 #> [[4091]]$State
 #> [1] "TX"
@@ -155514,10 +155514,10 @@ if (!no_creds_available()) {
 #> [1] "AUSTIN                   "
 #> 
 #> [[4091]]$Address
-#> [1] "301 CONGRESS AVENUE, SUITE 1725         "
+#> [1] "8100 SHOAL CREEK BOULEVARD              "
 #> 
 #> [[4091]]$ZIP
-#> [1] 78701
+#> [1] 78757
 #> 
 #> [[4091]]$FilingType
 #> [1] "051"
@@ -155528,22 +155528,22 @@ if (!no_creds_available()) {
 #> 
 #> [[4092]]
 #> [[4092]]$ID_RSSD
-#> [1] 3347911
+#> [1] 6009630
 #> 
 #> [[4092]]$FDICCertNumber
-#> [1] 58082
+#> [1] 59366
 #> 
 #> [[4092]]$OCCChartNumber
-#> [1] 0
+#> [1] 25304
 #> 
 #> [[4092]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[4092]]$PrimaryABARoutNumber
-#> [1] 114994031
+#> [1] 114926423
 #> 
 #> [[4092]]$Name
-#> [1] "AUSTIN CAPITAL BANK SSB                                                                                                 "
+#> [1] "FUNDBANK, NATIONAL ASSOCIATION                                                                                          "
 #> 
 #> [[4092]]$State
 #> [1] "TX"
@@ -155552,10 +155552,10 @@ if (!no_creds_available()) {
 #> [1] "AUSTIN                   "
 #> 
 #> [[4092]]$Address
-#> [1] "8100 SHOAL CREEK BOULEVARD              "
+#> [1] "301 CONGRESS AVENUE, SUITE 1725         "
 #> 
 #> [[4092]]$ZIP
-#> [1] 78757
+#> [1] 78701
 #> 
 #> [[4092]]$FilingType
 #> [1] "051"
@@ -165294,10 +165294,10 @@ if (!no_creds_available()) {
 #> 
 #> [[4349]]
 #> [[4349]]$ID_RSSD
-#> [1] 56548
+#> [1] 124344
 #> 
 #> [[4349]]$FDICCertNumber
-#> [1] 14769
+#> [1] 13565
 #> 
 #> [[4349]]$OCCChartNumber
 #> [1] 0
@@ -165306,22 +165306,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[4349]]$PrimaryABARoutNumber
-#> [1] 75910484
+#> [1] 75903446
 #> 
 #> [[4349]]$Name
-#> [1] "DMB COMMUNITY BANK                                                                                                      "
+#> [1] "BANK OF SUN PRAIRIE                                                                                                     "
 #> 
 #> [[4349]]$State
 #> [1] "WI"
 #> 
 #> [[4349]]$City
-#> [1] "MADISON                  "
+#> [1] "SUN PRAIRIE              "
 #> 
 #> [[4349]]$Address
-#> [1] "10 TERRACE COURT, SUITE 100             "
+#> [1] "228 EAST MAIN STREET                    "
 #> 
 #> [[4349]]$ZIP
-#> [1] 53718
+#> [1] 53590
 #> 
 #> [[4349]]$FilingType
 #> [1] "051"
@@ -165332,10 +165332,10 @@ if (!no_creds_available()) {
 #> 
 #> [[4350]]
 #> [[4350]]$ID_RSSD
-#> [1] 124344
+#> [1] 408642
 #> 
 #> [[4350]]$FDICCertNumber
-#> [1] 13565
+#> [1] 23537
 #> 
 #> [[4350]]$OCCChartNumber
 #> [1] 0
@@ -165344,22 +165344,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[4350]]$PrimaryABARoutNumber
-#> [1] 75903446
+#> [1] 75912479
 #> 
 #> [[4350]]$Name
-#> [1] "BANK OF SUN PRAIRIE                                                                                                     "
+#> [1] "BANKERS' BANK                                                                                                           "
 #> 
 #> [[4350]]$State
 #> [1] "WI"
 #> 
 #> [[4350]]$City
-#> [1] "SUN PRAIRIE              "
+#> [1] "MADISON                  "
 #> 
 #> [[4350]]$Address
-#> [1] "228 EAST MAIN STREET                    "
+#> [1] "7700 MINERAL POINT ROAD                 "
 #> 
 #> [[4350]]$ZIP
-#> [1] 53590
+#> [1] 53717
 #> 
 #> [[4350]]$FilingType
 #> [1] "051"
@@ -165370,10 +165370,10 @@ if (!no_creds_available()) {
 #> 
 #> [[4351]]
 #> [[4351]]$ID_RSSD
-#> [1] 408642
+#> [1] 2857600
 #> 
 #> [[4351]]$FDICCertNumber
-#> [1] 23537
+#> [1] 35333
 #> 
 #> [[4351]]$OCCChartNumber
 #> [1] 0
@@ -165382,22 +165382,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[4351]]$PrimaryABARoutNumber
-#> [1] 75912479
+#> [1] 75917924
 #> 
 #> [[4351]]$Name
-#> [1] "BANKERS' BANK                                                                                                           "
+#> [1] "OAK BANK                                                                                                                "
 #> 
 #> [[4351]]$State
 #> [1] "WI"
 #> 
 #> [[4351]]$City
-#> [1] "MADISON                  "
+#> [1] "FITCHBURG                "
 #> 
 #> [[4351]]$Address
-#> [1] "7700 MINERAL POINT ROAD                 "
+#> [1] "5951 MCKEE ROAD                         "
 #> 
 #> [[4351]]$ZIP
-#> [1] 53717
+#> [1] 53719
 #> 
 #> [[4351]]$FilingType
 #> [1] "051"
@@ -165408,34 +165408,34 @@ if (!no_creds_available()) {
 #> 
 #> [[4352]]
 #> [[4352]]$ID_RSSD
-#> [1] 2857600
+#> [1] 2992547
 #> 
 #> [[4352]]$FDICCertNumber
-#> [1] 35333
+#> [1] 35237
 #> 
 #> [[4352]]$OCCChartNumber
-#> [1] 0
+#> [1] 715685
 #> 
 #> [[4352]]$OTSDockNumber
-#> [1] 0
+#> [1] 15685
 #> 
 #> [[4352]]$PrimaryABARoutNumber
-#> [1] 75917924
+#> [1] 0
 #> 
 #> [[4352]]$Name
-#> [1] "OAK BANK                                                                                                                "
+#> [1] "JOHN DEERE FINANCIAL, F.S.B.                                                                                            "
 #> 
 #> [[4352]]$State
 #> [1] "WI"
 #> 
 #> [[4352]]$City
-#> [1] "FITCHBURG                "
+#> [1] "MIDDLETON                "
 #> 
 #> [[4352]]$Address
-#> [1] "5951 MCKEE ROAD                         "
+#> [1] "8383 GREENWAY BOULEVARD SUITE 300       "
 #> 
 #> [[4352]]$ZIP
-#> [1] 53719
+#> [1] 53562
 #> 
 #> [[4352]]$FilingType
 #> [1] "051"
@@ -165446,34 +165446,34 @@ if (!no_creds_available()) {
 #> 
 #> [[4353]]
 #> [[4353]]$ID_RSSD
-#> [1] 2992547
+#> [1] 420644
 #> 
 #> [[4353]]$FDICCertNumber
-#> [1] 35237
+#> [1] 15046
 #> 
 #> [[4353]]$OCCChartNumber
-#> [1] 715685
-#> 
-#> [[4353]]$OTSDockNumber
-#> [1] 15685
-#> 
-#> [[4353]]$PrimaryABARoutNumber
 #> [1] 0
 #> 
+#> [[4353]]$OTSDockNumber
+#> [1] 0
+#> 
+#> [[4353]]$PrimaryABARoutNumber
+#> [1] 75906016
+#> 
 #> [[4353]]$Name
-#> [1] "JOHN DEERE FINANCIAL, F.S.B.                                                                                            "
+#> [1] "PEOPLES COMMUNITY BANK, THE                                                                                             "
 #> 
 #> [[4353]]$State
 #> [1] "WI"
 #> 
 #> [[4353]]$City
-#> [1] "MIDDLETON                "
+#> [1] "MAZOMANIE                "
 #> 
 #> [[4353]]$Address
-#> [1] "8383 GREENWAY BOULEVARD SUITE 300       "
+#> [1] "222 WEST COMMERCIAL STREET              "
 #> 
 #> [[4353]]$ZIP
-#> [1] 53562
+#> [1] 53560
 #> 
 #> [[4353]]$FilingType
 #> [1] "051"
@@ -165484,10 +165484,10 @@ if (!no_creds_available()) {
 #> 
 #> [[4354]]
 #> [[4354]]$ID_RSSD
-#> [1] 420644
+#> [1] 403946
 #> 
 #> [[4354]]$FDICCertNumber
-#> [1] 15046
+#> [1] 19608
 #> 
 #> [[4354]]$OCCChartNumber
 #> [1] 0
@@ -165496,22 +165496,22 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[4354]]$PrimaryABARoutNumber
-#> [1] 75906016
+#> [1] 75909945
 #> 
 #> [[4354]]$Name
-#> [1] "PEOPLES COMMUNITY BANK, THE                                                                                             "
+#> [1] "PARK BANK, THE                                                                                                          "
 #> 
 #> [[4354]]$State
 #> [1] "WI"
 #> 
 #> [[4354]]$City
-#> [1] "MAZOMANIE                "
+#> [1] "MADISON                  "
 #> 
 #> [[4354]]$Address
-#> [1] "222 WEST COMMERCIAL STREET              "
+#> [1] "1801 GREENWAY CROSS                     "
 #> 
 #> [[4354]]$ZIP
-#> [1] 53560
+#> [1] 53713
 #> 
 #> [[4354]]$FilingType
 #> [1] "051"
@@ -165522,10 +165522,10 @@ if (!no_creds_available()) {
 #> 
 #> [[4355]]
 #> [[4355]]$ID_RSSD
-#> [1] 403946
+#> [1] 56548
 #> 
 #> [[4355]]$FDICCertNumber
-#> [1] 19608
+#> [1] 14769
 #> 
 #> [[4355]]$OCCChartNumber
 #> [1] 0
@@ -165534,10 +165534,10 @@ if (!no_creds_available()) {
 #> [1] 0
 #> 
 #> [[4355]]$PrimaryABARoutNumber
-#> [1] 75909945
+#> [1] 75910484
 #> 
 #> [[4355]]$Name
-#> [1] "PARK BANK, THE                                                                                                          "
+#> [1] "DMB COMMUNITY BANK                                                                                                      "
 #> 
 #> [[4355]]$State
 #> [1] "WI"
@@ -165546,10 +165546,10 @@ if (!no_creds_available()) {
 #> [1] "MADISON                  "
 #> 
 #> [[4355]]$Address
-#> [1] "1801 GREENWAY CROSS                     "
+#> [1] "10 TERRACE COURT, SUITE 100             "
 #> 
 #> [[4355]]$ZIP
-#> [1] 53713
+#> [1] 53718
 #> 
 #> [[4355]]$FilingType
 #> [1] "051"
@@ -167384,37 +167384,37 @@ if (!no_creds_available()) {
 #> 
 #> [[4404]]
 #> [[4404]]$ID_RSSD
-#> [1] 594947
+#> [1] 48440
 #> 
 #> [[4404]]$FDICCertNumber
-#> [1] 5304
+#> [1] 9517
 #> 
 #> [[4404]]$OCCChartNumber
-#> [1] 4975
+#> [1] 0
 #> 
 #> [[4404]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[4404]]$PrimaryABARoutNumber
-#> [1] 75901134
+#> [1] 75904856
 #> 
 #> [[4404]]$Name
-#> [1] "BANK FIRST, NATIONAL ASSOCIATION                                                                                        "
+#> [1] "CLEVELAND STATE BANK                                                                                                    "
 #> 
 #> [[4404]]$State
 #> [1] "WI"
 #> 
 #> [[4404]]$City
-#> [1] "MANITOWOC                "
+#> [1] "CLEVELAND                "
 #> 
 #> [[4404]]$Address
-#> [1] "402 NORTH 8TH STREET                    "
+#> [1] "1250 WEST WASHINGTON AVENUE             "
 #> 
 #> [[4404]]$ZIP
-#> [1] 54220
+#> [1] 53015
 #> 
 #> [[4404]]$FilingType
-#> [1] "041"
+#> [1] "051"
 #> 
 #> [[4404]]$HasFiledForReportingPeriod
 #> [1] TRUE
@@ -167422,37 +167422,37 @@ if (!no_creds_available()) {
 #> 
 #> [[4405]]
 #> [[4405]]$ID_RSSD
-#> [1] 48440
+#> [1] 594947
 #> 
 #> [[4405]]$FDICCertNumber
-#> [1] 9517
+#> [1] 5304
 #> 
 #> [[4405]]$OCCChartNumber
-#> [1] 0
+#> [1] 4975
 #> 
 #> [[4405]]$OTSDockNumber
 #> [1] 0
 #> 
 #> [[4405]]$PrimaryABARoutNumber
-#> [1] 75904856
+#> [1] 75901134
 #> 
 #> [[4405]]$Name
-#> [1] "CLEVELAND STATE BANK                                                                                                    "
+#> [1] "BANK FIRST, NATIONAL ASSOCIATION                                                                                        "
 #> 
 #> [[4405]]$State
 #> [1] "WI"
 #> 
 #> [[4405]]$City
-#> [1] "CLEVELAND                "
+#> [1] "MANITOWOC                "
 #> 
 #> [[4405]]$Address
-#> [1] "1250 WEST WASHINGTON AVENUE             "
+#> [1] "402 NORTH 8TH STREET                    "
 #> 
 #> [[4405]]$ZIP
-#> [1] 53015
+#> [1] 54220
 #> 
 #> [[4405]]$FilingType
-#> [1] "051"
+#> [1] "041"
 #> 
 #> [[4405]]$HasFiledForReportingPeriod
 #> [1] TRUE
