@@ -218,11 +218,13 @@ test_that("`collect_response()` returns the appropriate object type", {
   mock_body <- list(foo = "bar", baz = 123L)
 
   result <- httr2::with_mocked_responses(
-    list(httr2::response(
-      status_code = 200,
-      headers = list("Content-Type" = "application/json"),
-      body = charToRaw(jsonlite::toJSON(mock_body, auto_unbox = TRUE))
-    )),
+    list(
+      httr2::response(
+        status_code = 200,
+        headers = list("Content-Type" = "application/json"),
+        body = charToRaw(jsonlite::toJSON(mock_body, auto_unbox = TRUE))
+      )
+    ),
     collect_response(req, decode = FALSE)
   )
 
