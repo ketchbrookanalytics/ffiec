@@ -1,3 +1,137 @@
+# Helper for building mock API error responses
+mock_error_response <- function(
+  body,
+  content_type = "application/json",
+  status_code = 400
+) {
+  httr2::response(
+    status_code = status_code,
+    headers = if (is.null(content_type)) {
+      list()
+    } else {
+      list("Content-Type" = content_type)
+    },
+    body = charToRaw(body)
+  )
+}
+
+test_that("`ffiec_error_message()` extracts `$Message` from a JSON object", {
+  expect_identical(
+    ffiec_error_message(
+      mock_error_response('{"Message": "Access denied due to invalid UserID"}')
+    ),
+    "Access denied due to invalid UserID"
+  )
+})
+
+
+test_that("`ffiec_error_message()` handles a bare JSON string", {
+  # The API returns a bare JSON string (not an object) when it cannot find a
+  # facsimile, e.g., a non-existent RSSD ID or an unfiled report date
+  expect_identical(
+    ffiec_error_message(
+      mock_error_response('"Error Code 204: Facsimile not found"')
+    ),
+    "Error Code 204: Facsimile not found"
+  )
+})
+
+
+test_that("`ffiec_error_message()` returns `NULL` for unhandled body shapes", {
+  # Each of these falls back to {httr2}'s own error message rather than
+  # erroring while trying to build ours
+
+  # JSON object without a `Message` element (e.g., a lowercase key)
+  expect_null(
+    ffiec_error_message(mock_error_response('{"message": "lowercase key"}'))
+  )
+
+  # JSON array
+  expect_null(
+    ffiec_error_message(mock_error_response('["one", "two"]'))
+  )
+
+  # JSON null
+  expect_null(
+    ffiec_error_message(mock_error_response("null"))
+  )
+
+  # Empty body
+  expect_null(
+    ffiec_error_message(mock_error_response(""))
+  )
+
+  # Non-JSON body (e.g., an HTML error page from a gateway)
+  expect_null(
+    ffiec_error_message(
+      mock_error_response(
+        "<html><body>500 Internal Server Error</body></html>",
+        content_type = "text/html"
+      )
+    )
+  )
+
+  # Body that cannot be parsed as JSON because no `Content-Type` was sent
+  expect_null(
+    ffiec_error_message(
+      mock_error_response('{"Message": "hi"}', content_type = NULL)
+    )
+  )
+})
+
+
+test_that("`ffiec_error_message()` does not error on any body shape", {
+  # Regression test for the `$ operator is invalid for atomic vectors` failure;
+  # building the error message must never itself throw
+  bodies <- list(
+    '{"Message": "object with Message"}',
+    '"bare string"',
+    '{"message": "lowercase key"}',
+    '["one", "two"]',
+    "null",
+    "",
+    "not json at all"
+  )
+
+  for (body in bodies) {
+    expect_no_error(ffiec_error_message(mock_error_response(body)))
+  }
+})
+
+
+test_that("`ffiec_error_message()` surfaces API messages through a request", {
+  err_req <- get_ffiec(
+    endpoint = "test/endpoint",
+    user_id = "abc123",
+    bearer_token = "def456"
+  )
+
+  # An API-supplied message becomes the error condition's message
+  expect_error(
+    httr2::with_mocked_responses(
+      list(mock_error_response('{"Message": "Invalid UserID"}')),
+      collect_response(err_req)
+    ),
+    "Invalid UserID"
+  )
+
+  # When no message can be extracted, {httr2} supplies its own
+  expect_error(
+    httr2::with_mocked_responses(
+      list(
+        mock_error_response(
+          "<html>oops</html>",
+          content_type = "text/html",
+          status_code = 500
+        )
+      ),
+      collect_response(err_req)
+    ),
+    "HTTP 500"
+  )
+})
+
+
 test_that("`check_empty_creds()` fails without creds set", {
   # Check empty strings
   expect_error(
@@ -218,11 +352,13 @@ test_that("`collect_response()` returns the appropriate object type", {
   mock_body <- list(foo = "bar", baz = 123L)
 
   result <- httr2::with_mocked_responses(
-    list(httr2::response(
-      status_code = 200,
-      headers = list("Content-Type" = "application/json"),
-      body = charToRaw(jsonlite::toJSON(mock_body, auto_unbox = TRUE))
-    )),
+    list(
+      httr2::response(
+        status_code = 200,
+        headers = list("Content-Type" = "application/json"),
+        body = charToRaw(jsonlite::toJSON(mock_body, auto_unbox = TRUE))
+      )
+    ),
     collect_response(req, decode = FALSE)
   )
 
