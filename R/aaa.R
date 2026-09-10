@@ -34,24 +34,30 @@ ffiec_error_message <- function(resp) {
 
 #' Handle missing UserID / Bearer Token values
 #' @noRd
-check_empty_creds <- function(user_id, bearer_token) {
+bad_creds <- function(user_id, bearer_token) {
   msg <- paste(
     "is missing. If you do not have an account with the FFIEC's web service,",
     "you can register for one at",
     "{.url https://cdr.ffiec.gov/public/PWS/CreateAccount.aspx?PWS=true}."
   )
 
-  if (is.null(user_id) || trimws(user_id) == "") {
-    cli::cli_abort(
-      paste("{.var user_id}", msg)
-    )
+  out <- TRUE
+
+  if (!nzchar(user_id)) {
+    paste("{.var user_id}", msg) |> cli::cli_abort()
   }
 
-  if (is.null(bearer_token) || trimws(bearer_token) == "") {
-    cli::cli_abort(
-      paste("{.var bearer_token}", msg)
-    )
+  if (!nzchar(bearer_token)) {
+    paste("{.var bearer_token}", msg) |> cli::cli_abort()
   }
+
+  # Run the least expensive API request to check that the non-missing
+  # credentials successfully hit the "live" API.
+  safe_get_reporting_periods <- purrr::safely(get_reporting_periods)
+  out <- !is.null(safe_get_reporting_periods()$error)
+
+  # If the "live" API request above is successful, return `FALSE` invisibly
+  invisible(out)
 }
 
 
@@ -68,20 +74,17 @@ check_empty_creds <- function(user_id, bearer_token) {
 #' @details Intended for internal use.
 #'
 #' @export
-no_creds_available <- function(
+api_is_available <- function(
   user_id = Sys.getenv("FFIEC_USER_ID"),
   bearer_token = Sys.getenv("FFIEC_BEARER_TOKEN")
 ) {
-  if (
-    is.null(user_id) ||
-      trimws(user_id) == "" ||
-      is.null(bearer_token) ||
-      trimws(bearer_token) == ""
-  ) {
-    TRUE
-  } else {
-    FALSE
+  if (!curl::has_internet()) {
+    cli::cli_abort("Cannot establish internet connection.")
+    return(FALSE)
   }
+
+  bad_creds <- bad_creds()
+  return(!bad_creds)
 }
 
 
