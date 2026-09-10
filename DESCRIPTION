@@ -20,7 +20,6 @@ Description: Provides a simplified interface to the Central Data Repository 'RES
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.3
 Depends:
     R (>= 4.1)
 Imports:
@@ -42,3 +41,4 @@ BugReports: https://github.com/ketchbrookanalytics/ffiec/issues
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.0

@@ -232,8 +232,8 @@ if (!no_creds_available()) {
   })
 
   test_that("`get_ubpr_facsimile()` allows more than one reporting period", {
-    fi_id = 480228
-    reporting_periods = c("03/31/2025", "06/30/2025")
+    fi_id <- 480228
+    reporting_periods <- c("03/31/2025", "06/30/2025")
 
     out_period_one <- get_ubpr_facsimile(
       reporting_period_end_date = reporting_periods[1],

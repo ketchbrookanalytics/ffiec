@@ -6,7 +6,29 @@ base_url <- "https://ffieccdr.azure-api.us/public/"
 #' Create a small error handler to return error messages from API
 #' @noRd
 ffiec_error_message <- function(resp) {
-  httr2::resp_body_json(resp)$Message
+  # Capture the response body; if there's an error in the call itself (not the
+  # API returning an error code), set this to NULL
+  body <- rlang::try_fetch(
+    httr2::resp_body_json(resp),
+    error = function(cnd) NULL
+  )
+
+  # If `body` is a list with a `$Message` element, return `body$Message` as the
+  # error message that surfaces to the user
+  if (is.list(body) && !is.null(body$Message)) {
+    return(body$Message)
+  }
+
+  # The API returns a bare JSON string for a facsimile that it cannot find
+  # (i.e., a non-existant RSSD ID value, or a report date that hasn't been filed
+  # yet)
+  if (is.character(body) && length(body) == 1L) {
+    return(body)
+  }
+
+  # This `NULL` return tells {httr2} to use its *own* message, such as
+  # "HTTP 500 Internal Server Error".
+  NULL
 }
 
 

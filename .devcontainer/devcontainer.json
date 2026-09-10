@@ -12,9 +12,19 @@
         "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
             "packages": "cli, devtools, dplyr, httpgd, httr2, jsonlite, languageserver, purrr, rlang, stringr, tibble, usethis, xml2",
             "installSystemRequirements": true
-        }
+        },
+
+        // Install GitHub (gh) CLI tool
+        "ghcr.io/devcontainers/features/github-cli:1": {}
 
     },
+
+    // Pass local git, GitHub CLI, and Claude Code credentials to the container
+	"mounts": [
+      "source=${localEnv:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached",
+      "source=${localEnv:USERPROFILE}/.config/gh,target=/root/.config/gh,type=bind,consistency=cached",
+	  "source=${localEnv:USERPROFILE}/.claude,target=/root/.claude,type=bind,consistency=cached"
+    ],
 
     "customizations": {
         "vscode": {
